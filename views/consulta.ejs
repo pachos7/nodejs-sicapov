@@ -1,0 +1,39 @@
+<%- include layouts/header.ejs %>
+    <div class="full-page">
+      <h1 class="headline">
+        <strong>
+          <%=page_title%>
+        </strong>
+      </h1>
+      <div class="">
+        <div class="mc-field-group" style="margin: 10px 0 0 0;">
+          <input type="text" value="" name="CEDULA" class="required cedula" id="mce-CEDULA" placeholder="Ingrese cedula"
+          style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
+        </div>
+        <!-- <h4>Get Holacracy Updates</h4> -->
+        <div class="mc-field-group" style="margin: 10px 0 0 0;">
+          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email address"
+          style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
+        </div>
+        <div class="mc-field-group">
+          <input type="text" value="" name="FNAME" class="required textInput rounded" id="mce-FNAME" placeholder="First name"
+          style="width: 111px; margin-right: 3px; float: left; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
+        </div>
+        <div class="mc-field-group">
+          <input type="text" value="" name="LNAME" class="required textInput rounded" id="mce-LNAME" placeholder="Last name"
+          style="width: 111px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
+        </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+        <div class="clear">
+		  <a href="../consulta/buscar/" target="_parent">
+			  <button onclick="buscarVictima();" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
+				<span style="margin-top: -1px;">Consultar</span>
+			  </button>
+		  </a>
+        </div>
+      </div>
+    </div>
+<%- include layouts/footer.ejs %>
