@@ -47,7 +47,7 @@ app.use(
         user: 'root',
         password : '',
         port : 3306, //port mysql
-        database:'nodejs'
+        database:'sicapov'
 
     },'pool') //or single
 
@@ -64,7 +64,7 @@ app.get('/customers/edit/:id', customers.edit);
 app.post('/customers/edit/:id',customers.save_edit);
 app.get('/consulta', victimas.consultavictima);
 app.get('/consulta/buscar', victimas.buscarvictima);
-
+app.get('/consulta/buscar/:cedula', victimas.buscarvictima);
 
 app.use(app.router);
 

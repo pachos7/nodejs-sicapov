@@ -28,12 +28,26 @@
           <div class="response" id="mce-success-response" style="display:none"></div>
         </div>
         <div class="clear">
-		  <a href="../consulta/buscar/" target="_parent">
+		  <a href="/consulta/buscar/" target="_parent">
 			  <button onclick="buscarVictima();" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
 				<span style="margin-top: -1px;">Consultar</span>
 			  </button>
 		  </a>
         </div>
+		<div id="resultadobusquedavictima">
+			<% if(data.length){ %>
+                     
+					 <h2>Nombre: <span><%=data[0].nombre %> / <%=data[0].apellido %></span></h2>
+					 
+                 
+				<%	
+			} else{ %>
+				<h2>No encontre nada</h2>
+             <!--     <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+ -->            <% }  %>
+		</div>
       </div>
     </div>
 <%- include layouts/footer.ejs %>

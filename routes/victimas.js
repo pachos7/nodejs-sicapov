@@ -21,7 +21,7 @@ exports.consultavictima = function(req,res){
                  console.log("Error deleting : %s ",err );
        */     
              //res.redirect('/consulta', {page_title:"Consulta de Victimas"});
-			 res.render('consulta', {page_title:"Consulta de Victimas" });
+			 res.render('consulta', {page_title:"Consulta de Victimas", data:"" });
          /*    
         });
         
@@ -31,24 +31,36 @@ exports.consultavictima = function(req,res){
  
 exports.buscarvictima = function(req,res){
           
-     /*
-	 var id = req.params.id;
+     
+	 var cedula = req.params.cedula; 
+	 
+	 var input = JSON.parse(JSON.stringify(req.body));
+	 
+	 var data = {
+            cedula    : input.name,
+            nombre : input.address,
+			apellido : input.address
+            // email   : input.email,
+            // phone   : input.phone 
+        
+        };
     
      req.getConnection(function (err, connection) {
-        
-        connection.query("SELECT * FROM customer ", function(err, rows)
+     
+		var query = connection.query('SELECT * FROM victimas WHERE cedula = ?',[cedula],function(err,rows)
         {
             
-             if(err)
-                 console.log("Error deleting : %s ",err );
-       */     
-             //res.redirect('/consulta', {page_title:"Consulta de Victimas"});
-			 res.render('consulta', {page_title:"Consulta de Victimas - Resultado'" });
-         /*    
-        });
-        
+            if(err)
+                console.log("Error consultado base de datos de victimas : %s ",err );
+     
+            res.render('consulta', {page_title:"Consulta de Victimas - Resultado",data:rows});
+                
+            console.log(query.sql);
+			console.log(rows);
+         });
+       
      });
-	 */
+	 
 };
 
  /*
