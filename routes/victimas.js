@@ -32,12 +32,14 @@ exports.consultavictima = function(req,res){
 exports.buscarvictima = function(req,res){
           
      
-	 var cedula = req.params.cedula; 
+	 //var cedula = req.params.cedula; 
 	 
 	 var input = JSON.parse(JSON.stringify(req.body));
+	 console.log("input: %s", JSON.stringify(req.body));
+	 console.log("cedula: %s", input.cedula);
 	 
 	 var data = {
-            cedula    : input.name,
+            cedula    : input.cedula,
             nombre : input.address,
 			apellido : input.address
             // email   : input.email,
@@ -47,7 +49,8 @@ exports.buscarvictima = function(req,res){
     
      req.getConnection(function (err, connection) {
      
-		var query = connection.query('SELECT * FROM victimas WHERE cedula = ?',[cedula],function(err,rows)
+		//var query = connection.query('SELECT * FROM victimas WHERE cedula = ?',[cedula],function(err,rows)
+		var query = connection.query('SELECT * FROM victimas WHERE cedula = ?',[data.cedula],function(err,rows)
         {
             
             if(err)
