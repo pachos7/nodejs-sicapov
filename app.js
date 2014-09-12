@@ -63,11 +63,8 @@ app.get('/customers/delete/:id', customers.delete_customer);
 app.get('/customers/edit/:id', customers.edit);
 app.post('/customers/edit/:id',customers.save_edit);
 app.get('/consulta', victimas.consultavictima);
-app.get('/consulta/buscar', victimas.buscarvictima);
-app.post('/consulta/buscar', victimas.buscarvictima);
-
-//app.get('/consulta/buscar/:cedula', victimas.buscarvictima);
-
+app.post('/consulta', victimas.buscarvictima);
+app.get('/caracterizacion', victimas.caracterizacion);
 app.use(app.router);
 
 http.createServer(app).listen(app.get('port'), function(){
