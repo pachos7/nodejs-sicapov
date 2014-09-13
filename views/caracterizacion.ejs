@@ -6,41 +6,47 @@
         </strong>
       </h1>
       <div class="">
-    	<form method="post" action="/consulta">		
+    	<form method="post" action="/caracterizacion">		
+			
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			  <input type="text" value="" name="cedula" class="required cedula" id="id_cedula" placeholder="Ingrese cedula"
-			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un numero de cedula!"/>
-			  <button type="submit" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
-				<span style="margin-top: -1px;">Consultar</span>
-			  </button>
-			</div>
-			<% if(data.length){ %>
-			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email address"
-			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
+			    <input type="text" value="" name="tipodocumento" class="required tipodocumento" id="id_tipodocumento" placeholder="Tipo de Documento" list="tipodedocumentos" 
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un tipo de documento!"/>
+				<datalist id="tipodedocumentos">
+				  <option value="Cedula de Ciudadania">
+				  <option value="Registro Civil">
+				  <option value="Tarjeta de Identidad"> 
+				</datalist> 
+			  <input type="text" value="" name="numerodocumento" class="required numerodocumento" id="id_numerodocumento" placeholder="Numero de Documento"
+			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un numero de documento!"/>
 			</div>
 			<div class="mc-field-group">
-			  <input type="text" value="" name="FNAME" class="required textInput rounded" id="mce-FNAME" placeholder="First name"
+			  <input type="text" value="" name="primernombre" class="required textInput rounded" id="mce-FNAME" placeholder="Primer Nombre"
 			  style="width: 111px; margin-right: 3px; float: left; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
 			</div>
 			<div class="mc-field-group">
-			  <input type="text" value="" name="LNAME" class="required textInput rounded" id="mce-LNAME" placeholder="Last name"
+			  <input type="text" value="" name="primerapellido" class="required textInput rounded" id="mce-LNAME" placeholder="Primer Apellido"
 			  style="width: 111px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
 			</div>
+			
+			<div class="mc-field-group" style="margin: 10px 0 0 0;">
+			  <input type="text" value="" name="direccion" class="required direccion" id="id_direccion" placeholder="Direccion"
+			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingrese la direccion!"//>
+			</div>
+			
+			<div class="mc-field-group" style="margin: 10px 0 0 0;">
+              <input type="text" value="" name="telefono" class="required telefono" id="id_telefono" placeholder="Numero de Telefono"
+			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor ingresa un numero de telefono!"/>
+			</div>
+
+			  
 			<div id="mce-responses" class="clear">
 			  <div class="response" id="mce-error-response" style="display:none"></div>
 			  <div class="response" id="mce-success-response" style="display:none"></div>
 			</div>
-              
-			<div id="resultadobusquedavictima">
-				
-					<h2>Nombre: <span><%=data[0].nombre %>  <%=data[0].apellido %></span></h2>
-            </div>			
-			<%} else { %>
-					<!-- <h2>No encontre nada</h2> -->
-				
-			
-			<% }  %>
+			<button type="submit" name="guardar" value="guardar" class="button btn" id="mc-embedded-guardar">
+				<span style="margin-top: -1px;">Guardar</span>
+			</button>
+
 		</form>
       </div>
     </div>

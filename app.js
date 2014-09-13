@@ -7,6 +7,12 @@ var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
+var log4js = require( "log4js" );
+//log4js.addAppender(log4js.appenders.file('logs/cheese.log'), 'cheese');
+//log4js.configure( "./config/log4js.json" );
+var logger = log4js.getLogger( "sicapov.log" );
+// log4js.getLogger("app") will return logger that prints log to the console
+logger.debug("Hello log4js");// store log in file
 
 //carga routes
 var customers = require('./routes/customers'); 
@@ -65,6 +71,9 @@ app.post('/customers/edit/:id',customers.save_edit);
 app.get('/consulta', victimas.consultavictima);
 app.post('/consulta', victimas.buscarvictima);
 app.get('/caracterizacion', victimas.caracterizacion);
+app.post('/caracterizacion', victimas.guardar);
+app.get('/lista', victimas.lista);
+
 app.use(app.router);
 
 http.createServer(app).listen(app.get('port'), function(){
