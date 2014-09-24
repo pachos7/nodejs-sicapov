@@ -49,7 +49,33 @@ exports.guardar = function(req,res){
             nombre           : input.primernombre,
             apellido         : input.primerapellido,
             direccion        : input.direccion,
-            telefono         : input.telefono	
+            telefono         : input.telefono,
+			Sexo			 :	input.Sexo,
+			Orientacion		 :	input.Orientacion,
+			LibretaMilitar	 :	input.LibretaMilitar,
+			JefeHogar		 :	input.JefeHogar,
+			Vinculo	         : input.Vinculo,
+			Barrio           :input.Barrio,
+			/* Salud */
+			SISBEN           :input.SISBEN,
+			Afiliado         :input.Afiliado,
+			Regimen           :input.Regimen,
+			Discapacidad     :input.Discapacidad,
+			OrigenDis		 :input.OrigenDis,
+			/* Educacion */
+			Estudio           :input.Estudio,
+			nivelEstudio      :input.nivelEstudio,
+			Leer           :input.Leer,
+			Escribir           :input.Escribir,
+			Capacitacion      : input.Capacitacion,
+			Area           :input.Area,
+			EntidadC		:input.EntidadC,
+			/* Trabajo */
+			Trabajo         :input.Trabajo,
+			AreaTrabajo		:input.AreaTrabajo,
+			TipoTrabajo	    :input.TipoTrabajo,
+			/* grupo etnico */
+			
         };
 
         var query = connection.query("INSERT INTO victimas set ? ",data, function(err, rows)
@@ -58,10 +84,24 @@ exports.guardar = function(req,res){
           if (err)
               console.log("Error inserting : %s ",err );
          
-          //res.redirect('/customers');
+          //res.redirect('/caracterizacion');
 		  res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  	
         });
 		
+		var dataHomicidio = {
+		tipodocumento :input.tipodocumento,
+		numerodocumento: input.numerodocumento
+		};
+		
+		var query = connection.query("INSERT INTO hv_homicidio set ? ",dataHomicidio, function(err, rows)
+        {
+  
+          if (err)
+              console.log("Error inserting : %s ",err );
+         
+          //res.redirect('/caracterizacion');
+		  res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  	
+        });
     });
 };
 
