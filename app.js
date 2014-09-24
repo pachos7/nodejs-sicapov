@@ -8,11 +8,23 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var log4js = require( "log4js" );
+
+log4js.configure({
+appenders: [
+   { type: 'console' },
+   { type: 'file', 
+   	 filename: "./logs/app.log", 
+   	 maxLogSize: 10240,
+   	 backups: 3,
+   	 category: 'sicapov' }
+  ]
+});
+
 //log4js.addAppender(log4js.appenders.file('logs/cheese.log'), 'cheese');
 //log4js.configure( "./config/log4js.json" );
-var logger = log4js.getLogger( "sicapov.log" );
+var logger = log4js.getLogger( "sicapov" );
 // log4js.getLogger("app") will return logger that prints log to the console
-logger.debug("Hello log4js");// store log in file
+logger.info("Iniciando applicacion...");// store log in file
 
 //carga routes
 var customers = require('./routes/customers'); 
@@ -77,5 +89,5 @@ app.get('/lista', victimas.lista);
 app.use(app.router);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  logger.info("Applicacion Iniciada en puerto:" + app.get('port'));
 });
