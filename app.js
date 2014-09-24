@@ -1,30 +1,54 @@
-
-/**
- * Module dependencies.
- */
-
+/* Sicapov */
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var log4js = require( "log4js" );
 
+var mysql = require('mysql'), 
+    connection = require('express-myconnection'),
+    local_db_config = {
+        host: '127.0.0.1',
+        port : 3306,
+        user: 'root',
+        password : '',
+        database:'sicapov'
+    },
+    remote_db_config = {
+        host: '127.9.14.130', //OpenShift database
+        user: 'adminGy3kRd2',
+        password : 'N8ibHmFcnm-M',
+        port : 3306, 
+        database:'nodejs'
+    };
+
+    
 log4js.configure({
 appenders: [
    { type: 'console' },
    { type: 'file', 
    	 filename: "./logs/app.log", 
-   	 maxLogSize: 10240,
+   	 maxLogSize: 10485760,
    	 backups: 3,
    	 category: 'sicapov' }
   ]
 });
 
-//log4js.addAppender(log4js.appenders.file('logs/cheese.log'), 'cheese');
-//log4js.configure( "./config/log4js.json" );
 var logger = log4js.getLogger( "sicapov" );
-// log4js.getLogger("app") will return logger that prints log to the console
-logger.info("Iniciando applicacion...");// store log in file
+
+logger.info("Iniciando applicacion... ");
+
+var mysqlconnection = mysql.createConnection(local_db_config);
+mysqlconnection.connect();
+mysqlconnection.query('SELECT "OK" AS connection_status', function(err, rows, fields) {
+  if (err) { 
+  	logger.error('Error connecting to database:' + err );
+  	throw err;
+	}
+  logger.info('Successful connection to database. Connection_status is: ', rows[0].connection_status);
+});
+
+mysqlconnection.end();
 
 //carga routes
 var customers = require('./routes/customers'); 
@@ -32,8 +56,6 @@ var victimas = require('./routes/victimas');
 
 var app = express();
 
-var connection  = require('express-myconnection'); 
-var mysql = require('mysql');
 
 // all environments
 app.set('port', process.env.PORT || 4300);
@@ -47,31 +69,12 @@ app.use(express.methodOverride());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(connection(mysql, local_db_config, 'pool'));
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
-/*------------------------------------------
-    connection peer, register as middleware
-    type koneksi : single,pool and request 
--------------------------------------------*/
-
-app.use(
-    
-    connection(mysql,{
-        
-        host: 'localhost',
-        user: 'root',
-        password : '',
-        port : 3306, //port mysql
-        database:'sicapov'
-
-    },'pool') //or single
-
-);
-
-
 
 app.get('/', routes.index);
 app.get('/customers', customers.list);
