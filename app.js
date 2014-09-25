@@ -38,7 +38,9 @@ var logger = log4js.getLogger( "sicapov" );
 
 logger.info("Iniciando applicacion... ");
 
-var mysqlconnection = mysql.createConnection(remote_db_config);
+var db_config = remote_db_config;
+
+var mysqlconnection = mysql.createConnection(db_config);
 mysqlconnection.connect();
 mysqlconnection.query('SELECT "OK" AS connection_status', function(err, rows, fields) {
   if (err) { 
@@ -69,7 +71,7 @@ app.use(express.methodOverride());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(connection(mysql, local_db_config, 'pool'));
+app.use(connection(mysql, db_config, 'pool'));
 
 // development only
 if ('development' == app.get('env')) {
