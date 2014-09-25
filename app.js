@@ -15,11 +15,11 @@ var mysql = require('mysql'),
         database:'sicapov'
     },
     remote_db_config = {
-        host: '127.9.14.130', //OpenShift database
-        user: 'adminGy3kRd2',
-        password : 'N8ibHmFcnm-M',
+        host: 'db4free.net', 
+        user: 'pachos7',
+        password : 'sicapov',
         port : 3306, 
-        database:'nodejs'
+        database:'sicapov'
     };
 
     
@@ -38,7 +38,7 @@ var logger = log4js.getLogger( "sicapov" );
 
 logger.info("Iniciando applicacion... ");
 
-var mysqlconnection = mysql.createConnection(local_db_config);
+var mysqlconnection = mysql.createConnection(remote_db_config);
 mysqlconnection.connect();
 mysqlconnection.query('SELECT "OK" AS connection_status', function(err, rows, fields) {
   if (err) { 
