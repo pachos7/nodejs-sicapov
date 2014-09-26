@@ -34,7 +34,7 @@ appenders: [
   ]
 });
 
-var logger = log4js.getLogger( "sicapov" );
+var logger = log4js.getLogger("sicapov");
 
 logger.info("Iniciando applicacion... ");
 
@@ -57,7 +57,6 @@ var customers = require('./routes/customers');
 var victimas = require('./routes/victimas'); 
 
 var app = express();
-
 
 // all environments
 app.set('port', process.env.PORT || 4300);
