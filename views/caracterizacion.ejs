@@ -16,21 +16,21 @@
 				  <option value="Registro Civil">
 				  <option value="Tarjeta de Identidad"> 
 				</datalist> 
-			  <input type="text" value="" name="Numerodocumento" class="required numerodocumento" id="id_numerodocumento" placeholder="Numero de Documento"
+			  <input type="text" value="" name="Numerodocumento" class="required numerodocumento" id="id_Numerodocumento" placeholder="Numero de Documento"
 			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un numero de documento!"/>
 			
 			
 			<div class="mc-field-group">
-			  <input type="text" value="" name="Nombres" class="required textInput rounded" id="mce-FNAME" placeholder="Nombres"
+			  <input type="text" value="" name="Nombres" class="required textInput rounded" id="id_Nombres" placeholder="Nombres"
 			  style="width: 237px; margin-right: 3px; float: left; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
 			</div>
 			<class="mc-field-group">
-			  <input type="text" value="" name="Apellidos" class="required textInput rounded" id="mce-LNAME" placeholder="Apellidos"
+			  <input type="text" value="" name="Apellidos" class="required textInput rounded" id="id_Appelidos" placeholder="Apellidos"
 			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" />
 			
 			
 			<class="mc-field-group" style="margin: 10px 0 0 0;">
-			    <input type="text" value="" name="Sexo" class="required Sexo" id="Sexo" placeholder="Sexo" list="Sexos" 
+			    <input type="text" value="" name="Sexo" class="required Sexo" id="id_Sexo" placeholder="Sexo" list="Sexos" 
 				  style="width: 100px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor selecciona un Sexo!"/>
 				<datalist id="Sexos">
 				<option value="Masculino">
@@ -39,7 +39,7 @@
 				
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0 ;">
-			    <input type="text" value="" name="Orientacionsexual"  id="Orientacionsexual" placeholder="Orientación Sexual" list="LGBTI" 
+			    <input type="text" value="" name="Orientacionsexual"  id="id_Orientacionsexual" placeholder="Orientación Sexual" list="LGBTI" 
 				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor Seleccione una orientacion sexual!"/>
 				<datalist id="LGBTI">
 				  <option value="Heterosexual">
@@ -51,7 +51,7 @@
 			</div>	
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			    <input type="text" value="" name="LibretaMilitar" class="required LibretaMilitar" id="sexo" placeholder="Libreta Militar" list="LibretaMilitar" 
+			    <input type="text" value="" name="Libretamilitar" class="required LibretaMilitar" id="id_Libretamilitar" placeholder="Libreta Militar" list="LibretaMilitar" 
 				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Tiene libreta Militar?"/>
 				<datalist id="LibretaMilitar">
 				<option value="Si">
@@ -60,7 +60,7 @@
 				
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
-			    <input type="text" value="" name="JefeHogar" class="required JefeHogar" id="sexo" placeholder="Usted es jefe del Hogar ?" list="JefeHogar" 
+			    <input type="text" value="" name="Jefehogar" class="required JefeHogar" id="id_Jefehogar" placeholder="Usted es jefe del Hogar ?" list="JefeHogar" 
 				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="jefe del hogar o Cabeza de Famlia"/>
 				<datalist id="JefeHogar">
 				  <option value="Si"> 
@@ -69,7 +69,7 @@
 				
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
-			    <input type="text" value="" name="Vinculo" class="required Vinculo" id="" placeholder="Vinculo con el  jefe del Hogar ?" list="Vinculo" 
+			    <input type="text" value="" name="Vinculo" class="required Vinculo" id="id_Vinculo" placeholder="Vinculo con el  jefe del Hogar ?" list="Vinculo" 
 				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Cual es su parentesco con el jefe del hogar!"/>
 				<datalist id="Vinculo">
 				  <option value="Esposo(a)">
@@ -337,11 +337,11 @@
 					HECHOS VICTIMIZANTES<br></br>
 					</strong>
 					
-				<input type="radio" name=myradio1 value="1"> Homicidio----------------------------------------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				<input type="checkbox" name="hecho_victimizante" value="homicidio"> Homicidio----------------------------------------
+				<input type="text" value="" name="hom_Ano" class="required " id="id_hom_Ano" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Año en que Ocurrio el hecho Victimizante!"/>
 				<datalist id="año">
-				<option value="No Sabe">
+					<option value="No Sabe">
 					<option value="2014">
 				  <option value="2013"> 
 				  <option value="2012">
@@ -372,13 +372,13 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="hom_Declarado" class="required declaro" id="id_hom_Declarado" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
-				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" 
+				<input type="text" value="" name="hom_Lugardeclarado" class="required lugar" id="id_hom_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" 
 				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
@@ -387,23 +387,23 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="hom_Estadodeclaracion" class="required " id="id_hom_Estadodeclaracion" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
-				<option value="incluido">
+					<option value="incluido">
 					<option value="Excluido">
-					
-					<input type="text" value="" name="Fiscalia" class="required Fiscalia" id="Fiscalia" placeholder="¿Fiscalia?" list="Fiscalia" 
+				</datalist>
+				<input type="text" value="" name="hom_Denunciado" class="required " id="id_hom_Denunciado" placeholder="¿Fiscalia?" list="Fiscalia" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="Fiscalia">
-				<option value="Si">
-				<option value="No">
+					<option value="Si">
+					<option value="No">
 				</datalist> 				
-					</div>
+				</div>
 					
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
-				<input type="radio" name=myradio2 value="2"> Desaparición Forzada------------------------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				<input type="checkbox" name="hecho_victimizante" value="Desaparicion"> Desaparición Forzada------------------------
+				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -437,7 +437,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -452,7 +452,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -468,7 +468,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="radio" name=myradio3 value="4"> Secuestro----------------------------------------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -502,7 +502,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -517,7 +517,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -533,7 +533,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="radio" name=myradio1 value="5"> Lesiones personales o Psicologicas------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -567,7 +567,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -582,7 +582,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -598,7 +598,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">					
 				<input type="radio" name=myradio2 value="6"> Tortura--------------------------------------------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -632,7 +632,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -647,7 +647,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -663,7 +663,7 @@
 					
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">	
 				<input type="radio" name=myradio3 value="7"> Delitos contra la libertad <div class="mc-field-group" style="margin: 10px 1 0 0;">e integridad Sexual.-------------------------------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -697,7 +697,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -712,7 +712,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -728,7 +728,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="radio" name=myradio1 value="8"> Reclutamieento ilegal de menores.--------
-				 <input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -762,7 +762,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -777,7 +777,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -793,7 +793,7 @@
 					
 					<div class="mc-field-group" style="margin: 10px 0 0 0;">
 					<input type="radio" name=myradio2 value="9"> Dezplazamiento forzado.---------------------
-					<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+					<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -827,7 +827,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -842,7 +842,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -859,7 +859,7 @@
 				
 					<div class="mc-field-group" style="margin: 10px 0 0 0;">					
 					<input type="radio" name=myradio3 value="10">Minas antipersonales---------------------------
-					<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+					<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -893,7 +893,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -908,7 +908,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -924,7 +924,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="radio" name=myradio1 value="8"> Abandono Forzado o despojo de tierras--
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -958,7 +958,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -973,7 +973,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -989,7 +989,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="radio" name=myradio2 value="9"> Masacre.------------------------------------------
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -1023,7 +1023,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -1038,7 +1038,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">
@@ -1054,7 +1054,7 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="radio" name=myradio3 value="10">Perdida de Bienes.------------------------------	
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Año del hecho" list="año" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" 
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
 				<option value="No Sabe">
@@ -1088,7 +1088,7 @@
 				  <option value="1986">
 				  <option value="1985">  				  
 				</datalist> 
-				<input type="text" value="" name="declaro" class="required declaro" id="sexo" placeholder="¿Declaró?" list="declaro" 
+				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="declaro">
 				<option value="Si">
@@ -1102,7 +1102,7 @@
 				<option value="Fiscalia">
 				<option value="UAV">
 				</datalist> 
-				<input type="text" value="" name="" class="required Sexo" id="Sexo" placeholder="Estado" list="estado" 
+				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" 
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
 				<option value="incluido">

@@ -25,9 +25,11 @@ exports.buscarvictima = function(req,res){
 	req.getConnection(function (err, connection) {
     
 		var query = connection.query('SELECT * FROM victimas WHERE Numerodocumento = ?',[data.Numerodocumento], function(err, rows) {
-
+			
+			log.debug("Query: " + query.sql);
+			
 			if(err)
-				console.log("Error consultado base de datos de victimas : %s ",err );
+				log.error("Error consultado base de datos de victimas : %s ",err );
 			
 			if(rows.length)
 				res.render('consulta', {page_title:"Consulta de Victimas", data:rows});
@@ -41,6 +43,8 @@ exports.buscarvictima = function(req,res){
 exports.guardar = function(req,res){
 	var input = JSON.parse(JSON.stringify(req.body));
 	
+	log.debug("input": input);
+	
 	var datavictimas = {
 		Tipodocumento    	: input.Tipodocumento,
 		Numerodocumento  	: input.Numerodocumento,
@@ -50,67 +54,77 @@ exports.guardar = function(req,res){
 		Orientacionsexual	:	input.Orientacionsexual,
 		Direccion        	: input.Direccion,
 		Telefono         	: input.Telefono
-//		LibretaMilitar	 	:	input.LibretaMilitar,
-//		JefeHogar		 			:	input.JefeHogar,
+
+// Añadir estos campos a la base de datos antes de descomentatiarlos
+//		Libretamilitar	 	:	input.Libretamilitar,
+//		Jefehogar		 			:	input.Jefehogar,
 //		Vinculo	         	: input.Vinculo,
-//		Barrio           	: input.Barrio,
+//		Barrio           	: input.Barrio
 //		/* Salud */
 //		SISBEN           	: input.SISBEN,
 //		Afiliado         	: input.Afiliado,
 //		Regimen           : input.Regimen,
 //		Discapacidad     	: input.Discapacidad,
-//		OrigenDis		 			: input.OrigenDis,
+//		Origendis		 			: input.Origendis,
 //		/* Educacion */
 //		Estudio           : input.Estudio,
-//		nivelEstudio      : input.nivelEstudio,
+//		Nivelsstudio      : input.Nivelestudio,
 //		Leer           		: input.Leer,
 //		Escribir          : input.Escribir,
 //		Capacitacion      : input.Capacitacion,
 //		Area           		: input.Area,
-//		EntidadC					: input.EntidadC,
+//		Entidadc					: input.Entidadc,
 //		/* Trabajo */
 //		Trabajo         	: input.Trabajo,
-//		AreaTrabajo				: input.AreaTrabajo,
-//		TipoTrabajo	    	: input.TipoTrabajo,
+//		Areatrabajo				: input.Areatrabajo,
+//		Tipotrabajo	    	: input.Tipotrabajo,
 //		/* Grupo etnico */
 	};	
 
-/*	var dataHomicidio = {
+	var dataHomicidio = {
 		Tipodocumento			: input.Tipodocumento,
-		Numerodocumento		: input.Numerodocumento
+		Numerodocumento		: input.Numerodocumento,
+		Ano								: input.hom_Ano,
+		Declarado					: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Denunciado			  : input.hom_Denunciado
 	};
-*/	
-//  console.log(JSON.stringify(datavictimas));
+	
+	var HechosVictimizantes = input.hecho_victimizante;
+	
+//  log.debug(JSON.stringify(datavictimas));
   
 	req.getConnection(function (err, connection) {
 		
 		/* Insert en tabla de victimas */
 		var queryvictimas = connection.query("INSERT INTO victimas set ? ", datavictimas, function(err, rows) {
 			
-			log.debug("Query: " + queryvictimas.sql);
+			log.debug("Query inserta victimas: " + queryvictimas.sql);
 			if (err) {
-				console.log("Error insertando en tabla de victimas : %s ", err);
+				log.error("Error insertando en tabla de victimas : %s ", err);
 				
 			//	res.render('caracterizacion', {page_title:"Error en la base de datos."});  	
 			}				
 
 		//res.redirect('/caracterizacion');
-			res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  	
-
   	});
   	
 		/* Insert en tablas de hechos vicitmizantes: hv_homicidio */
-//		var queryhomicidio = connection.query("INSERT INTO hv_homicidio set ? ",dataHomicidio, function(err, rows) {
-//  
-//			if (err)
-//				console.log("Error insertando en tabla hv_homicidios : %s ",err );
-//		});
+		var queryhomicidio = connection.query("INSERT INTO hv_homicidio set ? ",dataHomicidio, function(err, rows) {
+
+			log.debug("Query inserta homicidio: " + queryhomicidio.sql);
+  
+			if (err)
+				log.error("Error insertando en tabla hv_homicidios : %s ",err );
+		});
 		
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
+		res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  			
 		
 	});
 };
@@ -120,13 +134,13 @@ exports.lista = function(req,res){
        
         var query = connection.query('SELECT * FROM victimas',function(err,rows)
         {
+            log.debug("Query consulta victimas: " + query.sql);
             
             if(err)
-                console.log("Error Selecting : %s ",err );
+                log.error("Error consultando victimas : %s ",err );
      
             res.render('listavictimas',{page_title:"Lista de Victimas",data:rows});
 					
-            console.log(query.sql);
          });
     });
 	
