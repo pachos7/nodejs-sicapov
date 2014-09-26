@@ -4,6 +4,8 @@
 
 var log = require('log4js').getLogger("sicapov");
 
+
+
 exports.consultavictima = function(req,res){
 	res.render('consulta', {page_title:"Consulta de Victimas", data:"" });
 };
@@ -43,15 +45,15 @@ exports.buscarvictima = function(req,res){
 exports.guardar = function(req,res){
 	var input = JSON.parse(JSON.stringify(req.body));
 	
-	log.debug("input": input);
+	log.debug("input:" + JSON.stringify(input));
 	
 	var datavictimas = {
 		Tipodocumento    	: input.Tipodocumento,
 		Numerodocumento  	: input.Numerodocumento,
 		Nombres          	: input.Nombres,
 		Apellidos        	: input.Apellidos,
-		Sexo			 				:	input.Sexo,
-		Orientacionsexual	:	input.Orientacionsexual,
+		Sexo			 	: input.Sexo,
+		Orientacionsexual	: input.Orientacionsexual,
 		Direccion        	: input.Direccion,
 		Telefono         	: input.Telefono
 
@@ -82,16 +84,29 @@ exports.guardar = function(req,res){
 	};	
 
 	var dataHomicidio = {
-		Tipodocumento			: input.Tipodocumento,
+		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano								: input.hom_Ano,
-		Declarado					: input.hom_Declarado,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
 		Lugardeclarado		: input.hom_Lugardeclarado,
 		Estadodeclaracion	: input.hom_Estadodeclaracion,
-		Denunciado			  : input.hom_Denunciado
+		Denunciado			: input.hom_Denunciado
 	};
 	
-	var HechosVictimizantes = input.hecho_victimizante;
+	var dataDesaparicion = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.des_Ano,
+		Declarado			: input.des_Declarado,
+		Lugardeclarado		: input.des_Lugardeclarado,
+		Estadodeclaracion	: input.des_Estadodeclaracion
+	};
+	
+	var hechosVictimizantes = input.hecho_victimizante;
+	
+	if (typeof hechosVictimizantes === 'undefined') {
+		hechosVictimizantes = [''];
+	}		
 	
 //  log.debug(JSON.stringify(datavictimas));
   
@@ -108,18 +123,31 @@ exports.guardar = function(req,res){
 			}				
 
 		//res.redirect('/caracterizacion');
-  	});
-  	
-		/* Insert en tablas de hechos vicitmizantes: hv_homicidio */
-		var queryhomicidio = connection.query("INSERT INTO hv_homicidio set ? ",dataHomicidio, function(err, rows) {
-
-			log.debug("Query inserta homicidio: " + queryhomicidio.sql);
-  
-			if (err)
-				log.error("Error insertando en tabla hv_homicidios : %s ",err );
 		});
+  	
+		/* Insert en tablas de hechos victimizantes: hv_homicidio */
+		if (hechosVictimizantes.indexOf('Homicidio') > -1) {
 		
-		/* Insert en tablas de hechos vicitmizantes: hv_?? */
+			var queryhomicidio = connection.query("INSERT INTO hv_homicidio set ? ",dataHomicidio, function(err, rows) {
+
+				log.debug("Query inserta homicidio: " + queryhomicidio.sql);
+	  
+				if (err)
+					log.error("Error insertando en tabla hv_homicidios : %s ",err );
+			});
+		};
+		
+		/* Insert en tablas de hechos vicitmizantes: hv_desaparicion?? */
+		if (hechosVictimizantes.indexOf('Desaparicion') > -1) {
+			var queryDesaparicion = connection.query("INSERT INTO hv_desaparicionforzada set ? ",dataDesaparicion, function(err, rows) {
+
+				log.debug("Query inserta desaparicion: " + queryDesaparicion.sql);
+	  
+				if (err)
+					log.error("Error insertando en tabla hv_desaparicionforzada : %s ",err );
+			});
+		};
+		
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		/* Insert en tablas de hechos vicitmizantes: hv_?? */
