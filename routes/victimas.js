@@ -1,10 +1,15 @@
-/*
- * GET informacion de victimas .
- */
-
 var log = require('log4js').getLogger("sicapov");
 
-
+var insertaRegistro = function (connection, tableName, data) {
+	
+	var query = connection.query("INSERT INTO " + tableName + " set ? ", data, function(err, rows) {
+	
+		log.debug("Query inserta " + tableName + " : " + query.sql);
+	
+		if (err) 
+			log.error("Error insertando en tabla %s : Error message: %s ", tableName, JSON.stringify(err));
+	});
+};
 
 exports.consultavictima = function(req,res){
 	res.render('consulta', {page_title:"Consulta de Victimas", data:"" });
@@ -47,7 +52,7 @@ exports.guardar = function(req,res){
 	
 	log.debug("input:" + JSON.stringify(input));
 	
-	var datavictimas = {
+	var dataVictimas = {
 		Tipodocumento    	: input.Tipodocumento,
 		Numerodocumento  	: input.Numerodocumento,
 		Nombres          	: input.Nombres,
@@ -108,50 +113,22 @@ exports.guardar = function(req,res){
 		hechosVictimizantes = [''];
 	}		
 	
-//  log.debug(JSON.stringify(datavictimas));
+//  log.debug(JSON.stringify(dataVictimas));
   
 	req.getConnection(function (err, connection) {
 		
 		/* Insert en tabla de victimas */
-		var queryvictimas = connection.query("INSERT INTO victimas set ? ", datavictimas, function(err, rows) {
-			
-			log.debug("Query inserta victimas: " + queryvictimas.sql);
-			if (err) {
-				log.error("Error insertando en tabla de victimas : %s ", err);
-				
-			//	res.render('caracterizacion', {page_title:"Error en la base de datos."});  	
-			}				
-
-		//res.redirect('/caracterizacion');
-		});
-  	
-		/* Insert en tablas de hechos victimizantes: hv_homicidio */
+		insertaRegistro(connection, 'victimas', dataVictimas);
+		
+		/* Insert en las tablas de hechos victimizantes */
 		if (hechosVictimizantes.indexOf('Homicidio') > -1) {
-		
-			var queryhomicidio = connection.query("INSERT INTO hv_homicidio set ? ",dataHomicidio, function(err, rows) {
-
-				log.debug("Query inserta homicidio: " + queryhomicidio.sql);
-	  
-				if (err)
-					log.error("Error insertando en tabla hv_homicidios : %s ",err );
-			});
+			insertaRegistro(connection, 'hv_homicidio', dataHomicidio);
 		};
 		
-		/* Insert en tablas de hechos vicitmizantes: hv_desaparicion?? */
 		if (hechosVictimizantes.indexOf('Desaparicion') > -1) {
-			var queryDesaparicion = connection.query("INSERT INTO hv_desaparicionforzada set ? ",dataDesaparicion, function(err, rows) {
-
-				log.debug("Query inserta desaparicion: " + queryDesaparicion.sql);
-	  
-				if (err)
-					log.error("Error insertando en tabla hv_desaparicionforzada : %s ",err );
-			});
+			insertaRegistro(connection, 'hv_desaparicionforzada', dataDesaparicion);
 		};
 		
-		/* Insert en tablas de hechos vicitmizantes: hv_?? */
-		/* Insert en tablas de hechos vicitmizantes: hv_?? */
-		/* Insert en tablas de hechos vicitmizantes: hv_?? */
-		/* Insert en tablas de hechos vicitmizantes: hv_?? */
 		res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  			
 		
 	});
