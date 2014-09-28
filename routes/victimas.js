@@ -60,32 +60,46 @@ exports.guardar = function(req,res){
 		Sexo			 	: input.Sexo,
 		Orientacionsexual	: input.Orientacionsexual,
 		Direccion        	: input.Direccion,
-		Telefono         	: input.Telefono
-
-// Añadir estos campos a la base de datos antes de descomentatiarlos
-//		Libretamilitar	 	:	input.Libretamilitar,
-//		Jefehogar		 			:	input.Jefehogar,
-//		Vinculo	         	: input.Vinculo,
-//		Barrio           	: input.Barrio
-//		/* Salud */
-//		SISBEN           	: input.SISBEN,
-//		Afiliado         	: input.Afiliado,
-//		Regimen           : input.Regimen,
-//		Discapacidad     	: input.Discapacidad,
-//		Origendis		 			: input.Origendis,
-//		/* Educacion */
-//		Estudio           : input.Estudio,
-//		Nivelsstudio      : input.Nivelestudio,
-//		Leer           		: input.Leer,
-//		Escribir          : input.Escribir,
-//		Capacitacion      : input.Capacitacion,
-//		Area           		: input.Area,
-//		Entidadc					: input.Entidadc,
-//		/* Trabajo */
-//		Trabajo         	: input.Trabajo,
-//		Areatrabajo				: input.Areatrabajo,
-//		Tipotrabajo	    	: input.Tipotrabajo,
-//		/* Grupo etnico */
+		Telefono         	: input.Telefono,
+		Libretamilitar		: input.Libretamilitar,
+		Jefehogar			: input.Jefehogar,
+		Vinculo				: input.Vinculo,
+		Barrio				: input.Barrio,
+		SISBEN				: input.SISBEN,
+		Afiliado			: input.Afiliado,
+		Regimen				: input.Regimen,
+		Discapacidad		: input.Discapacidad,
+		Origendis			: input.Origendis,
+		Estudio				: input.Estudio,
+		NivelEstudio		: input.NivelEstudio,
+		Leer				: input.Leer,
+		Escribir			: input.Escribir,
+		Capacitacion		: input.Capacitacion,
+		Area				: input.Area,
+		Entidadc			: input.Entidadc,
+		Trabajo				: input.Trabajo,
+		Areatrabajo			: input.Areatrabajo,
+		Tipotrabajo			: input.Tipotrabajo,
+		GrupoEtnico			: input.grupoetnico,
+		TipoDesplazamiento 	: input.TipoDesplazamiento,
+		Retorno				: input.Retorno,
+		DeseaRetornar		: input.DeseaRetornar,
+		TipoRetorno			: input.TipoRetorno,
+		QuienRetorno		: input.QuienRetorno,
+		RetornoAcompanado	: input.RetornoAcompanado,
+		PlanRetorno			: input.PlanRetorno,
+		Reubicarse			: input.Reubicarse,
+		Razon				: input.Razon,
+		Separacion			: input.Separacion,
+		Unificacion			: input.Unificacion,
+		AyudaEstatal		: input.AyudaEstatal,
+		RecibioAyuda		: input.RecibioAyuda,
+		Refugio				: input.Refugio,
+		Pais				: input.Pais,
+		AnoRefugio			: input.AnoRefugio,
+		RecibioAyudaRefugio	: input.RecibioAyudaRefugio,
+		Organizacion		: input.Organizacion
+		
 	};	
 
 	var dataHomicidio = {
@@ -95,7 +109,7 @@ exports.guardar = function(req,res){
 		Declarado			: input.hom_Declarado,
 		Lugardeclarado		: input.hom_Lugardeclarado,
 		Estadodeclaracion	: input.hom_Estadodeclaracion,
-		Denunciado			: input.hom_Denunciado
+		
 	};
 	
 	var dataDesaparicion = {
@@ -106,7 +120,98 @@ exports.guardar = function(req,res){
 		Lugardeclarado		: input.des_Lugardeclarado,
 		Estadodeclaracion	: input.des_Estadodeclaracion
 	};
-	
+	//--------------------------------------------------------------aqui comenzé
+	var dataSecuestro = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataLesiones = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataTortura = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataDelitossexuales = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataReclutamiento = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataDesplazamiento = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataMinas = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataAbandono = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataMasacre = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+	var dataPerdidabienes = {
+		Tipodocumento		: input.Tipodocumento,
+		Numerodocumento		: input.Numerodocumento,
+		Ano					: input.hom_Ano,
+		Declarado			: input.hom_Declarado,
+		Lugardeclarado		: input.hom_Lugardeclarado,
+		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		
+	};
+		
 	var hechosVictimizantes = input.hecho_victimizante;
 	
 	if (typeof hechosVictimizantes === 'undefined') {
@@ -128,6 +233,40 @@ exports.guardar = function(req,res){
 		if (hechosVictimizantes.indexOf('Desaparicion') > -1) {
 			insertaRegistro(connection, 'hv_desaparicionforzada', dataDesaparicion);
 		};
+		
+		if (hechosVictimizantes.indexOf('Secuestro') > -1) {
+			insertaRegistro(connection, 'hv_secuestro', dataSecuestro);
+		};
+		if (hechosVictimizantes.indexOf('Lesionespersonales') > -1) {
+			insertaRegistro(connection, 'hv_lesionespersonales', dataLesiones);
+		};
+		if (hechosVictimizantes.indexOf('Tortura') > -1) {
+			insertaRegistro(connection, 'hv_tortura', dataTortura);
+		};
+		if (hechosVictimizantes.indexOf('Delitoslibertad') > -1) {
+			insertaRegistro(connection, 'hv_delitossexuales', dataDelitossexuales);
+		};
+		if (hechosVictimizantes.indexOf('Reclutamiento') > -1) {
+			insertaRegistro(connection, 'hv_reclutamientoilegal', dataReclutamiento);
+		};
+		if (hechosVictimizantes.indexOf('Desplazamientof') > -1) {
+			insertaRegistro(connection, 'hv_desplazamiento', dataDesplazamiento);
+		};
+		if (hechosVictimizantes.indexOf('Minas') > -1) {
+			insertaRegistro(connection, 'hv_minasantipersonales', dataMinas);
+		};
+		if (hechosVictimizantes.indexOf('Abandono') > -1) {
+			insertaRegistro(connection, 'hv_despojodetierras', dataAbandono);
+		};
+		if (hechosVictimizantes.indexOf('Masacre') > -1) {
+			insertaRegistro(connection, 'hv_masacre', dataMasacre);
+		};
+		if (hechosVictimizantes.indexOf('Perdidabienes') > -1) {
+			insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
+		};
+		
+		
+		
 		
 		res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  			
 		
