@@ -3,9 +3,15 @@
 module.exports = function(app, passport) {
 	var customers 	= require('./customers'); 
 	var victimas 	= require('./victimas'); 
+	var usuario     = "";
 
+	
 	app.get('/', function(req, res) {
-		res.render('index', {page_title:"Sicapov" });
+		if (req.isAuthenticated())
+			usuario = req.user;
+	
+		console.log("usuario:" + usuario);
+		res.render('index', {usuario: usuario, page_title:"Sicapov" });
 	});
 
 	app.get('/customers', customers.list);
@@ -31,6 +37,14 @@ module.exports = function(app, passport) {
 		failureFlash : true 			// allow flash messages
 	}));
 
+	// we will want this protected so you have to be logged in to visit
+	// we will use route middleware to verify this (the isLoggedIn function)
+	app.get('/profile', isLoggedIn, function(req, res) {
+		res.render('profile.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+	
 	app.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
