@@ -25,8 +25,6 @@ exports.buscarvictima = function(req,res){
 	 
 	var data = {
 		Numerodocumento	: input.Numerodocumento,
-		Nombres 	 			: input.Nombres,
-		Apellidos  			: input.Apellidos
 	};
     
 	req.getConnection(function (err, connection) {

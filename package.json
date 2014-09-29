@@ -6,9 +6,12 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "express": "3.5.1",
     "jade": "*",
-	"mysql": "2.2.0",
-	"log4js": "0.6.21"
+    "log4js": "0.6.21",
+    "mysql": "2.2.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
   }
 }

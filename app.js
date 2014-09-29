@@ -1,9 +1,15 @@
 /* Sicapov */
 var express = require('express');
-var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var log4js = require( "log4js" );
+var passport = require('passport');
+var flash    = require('connect-flash');
+
+
+var configDB = require('./config/database.js');
+
+require('./config/passport')(passport);           // pass passport for configuration
 
 var mysql = require('mysql'), 
     connection = require('express-myconnection'),
@@ -52,11 +58,9 @@ mysqlconnection.query('SELECT "OK" AS connection_status', function(err, rows, fi
 
 mysqlconnection.end();
 
-//carga routes
-var customers = require('./routes/customers'); 
-var victimas = require('./routes/victimas'); 
-
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var app = express();
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // all environments
 app.set('port', process.env.PORT || 4300);
@@ -67,30 +71,22 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
-
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(connection(mysql, db_config, 'pool'));
+app.use(express.cookieParser() );
+app.use(express.bodyParser());
+app.use(express.session({ secret: 'EiBl1jgZIZ' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
-app.get('/', routes.index);
-app.get('/customers', customers.list);
-app.get('/customers/add', customers.add);
-app.post('/customers/add', customers.save);
-app.get('/customers/delete/:id', customers.delete_customer);
-app.get('/customers/edit/:id', customers.edit);
-app.post('/customers/edit/:id',customers.save_edit);
-app.get('/consulta', victimas.consultavictima);
-app.post('/consulta', victimas.buscarvictima);
-app.get('/caracterizacion', victimas.caracterizacion);
-app.post('/caracterizacion', victimas.guardar);
-app.get('/lista', victimas.lista);
-
 app.use(app.router);
+
+require('./routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 http.createServer(app).listen(app.get('port'), function(){
   logger.info("Applicacion Iniciada en puerto:" + app.get('port'));
