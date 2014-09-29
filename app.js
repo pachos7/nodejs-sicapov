@@ -46,7 +46,7 @@ logger.info("Iniciando applicacion... ");
 
 var db_config = remote_db_config;
 
-var mysqlconnection = mysql.createConnection(db_config);
+/* var mysqlconnection = mysql.createConnection(db_config);
 mysqlconnection.connect();
 mysqlconnection.query('SELECT "OK" AS connection_status', function(err, rows, fields) {
   if (err) { 
@@ -57,7 +57,7 @@ mysqlconnection.query('SELECT "OK" AS connection_status', function(err, rows, fi
 });
 
 mysqlconnection.end();
-
+ */
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var app = express();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -13,7 +13,7 @@ exports.list = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
      
-            res.render('customers',{page_title:"Customers - Node.js",data:rows});
+            res.render('customers',{usuario: req.user, page_title:"Customers - Node.js",data:rows});
 					
             console.log(query.sql);
 			console.log(rows);
@@ -26,7 +26,7 @@ exports.list = function(req, res){
 };
 
 exports.add = function(req, res){
-  res.render('add_customer',{page_title:"Add Customers - Node.js"});
+  res.render('add_customer',{usuario: req.user, page_title:"Add Customers - Node.js"});
 };
 
 exports.edit = function(req, res){
@@ -41,7 +41,7 @@ exports.edit = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
      
-            res.render('edit_customer',{page_title:"Edit Customers - Node.js",data:rows});
+            res.render('edit_customer',{usuario: req.user, page_title:"Edit Customers - Node.js",data:rows});
                 
            
          });

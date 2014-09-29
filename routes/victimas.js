@@ -12,11 +12,11 @@ var insertaRegistro = function (connection, tableName, data) {
 };
 
 exports.consultavictima = function(req,res){
-	res.render('consulta', {page_title:"Consulta de Victimas", data:"" });
+	res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", data:"" });
 };
  
 exports.caracterizacion = function(req, res){
-	res.render('caracterizacion', {page_title:"Caracterizacion"});
+	res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion"});
 };
 
 exports.buscarvictima = function(req,res){
@@ -37,9 +37,9 @@ exports.buscarvictima = function(req,res){
 				log.error("Error consultado base de datos de victimas : %s ",err );
 			
 			if(rows.length)
-				res.render('consulta', {page_title:"Consulta de Victimas", data:rows});
+				res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", data:rows});
 			else
-				res.render('consulta', {page_title:"Consulta de Victimas - no se encontraron registros para " + data.Numerodocumento, data:rows});
+				res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas - no se encontraron registros para " + data.Numerodocumento, data:rows});
                 
 		});
 	});
@@ -263,10 +263,7 @@ exports.guardar = function(req,res){
 			insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
 		};
 		
-		
-		
-		
-		res.render('caracterizacion', {page_title:"Caracterizacion finalizada"});  			
+		res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada"});  			
 		
 	});
 };
@@ -281,7 +278,7 @@ exports.lista = function(req,res){
             if(err)
                 log.error("Error consultando victimas : %s ",err );
      
-            res.render('listavictimas',{page_title:"Lista de Victimas",data:rows});
+            res.render('listavictimas',{usuario: req.user, page_title:"Lista de Victimas",data:rows});
 					
          });
     });

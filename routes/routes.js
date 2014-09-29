@@ -8,10 +8,12 @@ module.exports = function(app, passport) {
 	
 	app.get('/', function(req, res) {
 		if (req.isAuthenticated())
-			usuario = req.user;
-	
-		console.log("usuario:" + usuario);
-		res.render('index', {usuario: usuario, page_title:"Sicapov" });
+			usuario = req.user.username;
+		else
+			usuario = "";
+			
+		console.log("usuario:" + JSON.stringify(usuario));
+		res.render('index', {usuario: req.user, page_title:"Sicapov" });
 	});
 
 	app.get('/customers', customers.list);
@@ -27,7 +29,8 @@ module.exports = function(app, passport) {
 	app.get('/lista', victimas.lista);
 
 	app.get('/login', function(req, res) {
-		res.render('login', { message: req.flash('loginMessage') });
+		// If already logged redirect to home
+		res.render('login', {usuario: req.user, page_title:"Login", message: req.flash('loginMessage') });
 	});
 
 	app.post('/login', passport.authenticate('local-login', {

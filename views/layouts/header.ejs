@@ -34,6 +34,9 @@
 						
 						<!-- Main Menu Links -->
 						<ul class="sf-menu">
+						<% if (!usuario) { %>
+							<li class="leaf first"><a href="./Login" title="">Login</a></li>
+						<% } else { %>
 							<li class="leaf first"><a href="./Consulta" title="">Consulta</a></li>
 							<li class="leaf"><a href="./Caracterizacion" title="">Caracterizacion</a></li>
 							<li class="leaf"><a href="./Lista" title="">Lista</a></li>
@@ -45,7 +48,9 @@
 								</ul>
 							</li>
 							<li class="leaf"><a href="./Lista" title="">Estadisticas</a></li>
-							<li class="leaf"><a href="./Login" title="">Login</a></li>
+							<li class="leaf"><a href="./Logout" title=""><%= usuario.username %> Logout</a></li>
+						<% } %>
+							
 						</ul>						
 						<div class="mmDivider"></div>				
 						
