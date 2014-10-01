@@ -22,17 +22,22 @@ module.exports = function(app, passport) {
 	app.get('/customers/delete/:id', customers.delete_customer);
 	app.get('/customers/edit/:id', customers.edit);
 	app.post('/customers/edit/:id',customers.save_edit);
-	app.get('/consulta', victimas.consultavictima);
+	app.get('/consulta', isLoggedIn, victimas.consultavictima);
 	app.post('/consulta', victimas.buscarvictima);
 	app.get('/caracterizacion', victimas.caracterizacion);
 	app.post('/caracterizacion', victimas.guardar);
 	app.get('/lista', victimas.lista);
 
+	/* app.get('/login', function(req, res) {
+		// If already logged redirect to home
+		res.render('login', {usuario: req.user, page_title:"Login", message: req.flash('loginMessage') });
+	}); */
+
 	app.get('/login', function(req, res) {
 		// If already logged redirect to home
 		res.render('login', {usuario: req.user, page_title:"Login", message: req.flash('loginMessage') });
 	});
-
+	
 	app.post('/login', passport.authenticate('local-login', {
 		//successRedirect : '/profile', 	// redirect to the secure profile section
 		successRedirect : '/', 	// redirect to the secure profile section

@@ -8,19 +8,24 @@
       <div class="">
     	<form method="post" action="/caracterizacion">		
 			
-			<h1> (*) Campos Requeridos Obligatorios</h1>
-			
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			    <input type="text" value="" name="Tipodocumento" class="required tipodocumento" id="id_tipodocumento" placeholder="Tipo de Documento (*)" list="tipodedocumentos" tabindex = "1" 
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un tipo de documento!"/>
+<!-- 			    <select value="" name="Tipodocumento" class="required tipodocumento" id="id_tipodocumento" placeholder="Tipo de Documento (*)" list="tipodedocumentos" tabindex = "1"
+				 style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un tipo de documento!">
+				  <option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
+				  <option value="Registro Civil">Registro Civil</option>
+				  <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+				</select> -->
+ 				<input type="text" value="" name="Tipodocumento" class="required tipodocumento" id="id_tipodocumento" placeholder="Tipo de Documento (*)" list="tipodedocumentos" tabindex = "1" 
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un tipo de documento!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0' />
 				<datalist id="tipodedocumentos">
 				  <option value="Cedula de Ciudadania">
 				  <option value="Registro Civil">
 				  <option value="Tarjeta de Identidad"> 
 				</datalist> 
-				
 			  <input type="text" value="" name="Numerodocumento" class="required numerodocumento" id="id_Numerodocumento" placeholder="Numero de Documento (*)" tabindex = "2"
-			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un numero de documento!"/>
+			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un numero de documento!"
+			   onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 			
 			
 			<div class="mc-field-group">
@@ -707,13 +712,11 @@
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "57"
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
-				<option value="incluido">
+					<option value="incluido">
 					<option value="Excluido">
-					
-				
-				
+				</datalist>	
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
-				<input type="checkbox" name="hecho_victimizante" value="Reclutamiento"> Reclutamieento ilegal de menores.--------
+				<input type="checkbox" name="hecho_victimizante" value="Reclutamiento"> Reclutamiento ilegal de menores.--------
 				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "59"
 				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="año">
@@ -766,11 +769,9 @@
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "62"
 				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
 				<datalist id="estado">
-				<option value="incluido">
+					<option value="incluido">
 					<option value="Excluido">
-					
-					
-					
+				</datalist> 	
 					<div class="mc-field-group" style="margin: 10px 0 0 0;">
 					<input type="checkbox" name="hecho_victimizante" value="Desplazamientof"> Desplazamiento forzado.---------------------
 					<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "64"
@@ -1018,9 +1019,7 @@
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
-					
-				
-				
+				</datalist>	
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Perdidabienes">Perdida de Bienes.------------------------------	
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "84"
@@ -1064,7 +1063,8 @@
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "86"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"/>
+				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
 				<option value="Procuraduría">
@@ -1111,7 +1111,7 @@
 					<input type="checkbox" name=Causasdeldesplazamiento value="Asesinato de Familiar">Asesinato de Familiar<br></br>
 					<input type="checkbox" name=Causasdeldesplazamiento value="Violencia Generalizada">Violencia Generalizada.<br></br>
 					<input type="checkbox" name=Causasdeldesplazamiento value="Otra">Otra<br></br>
-					</div>
+				</div>
 					</div>
 				<div class="hr" style="width: 99%; position: relative; left: 10px;"></div>
 						
