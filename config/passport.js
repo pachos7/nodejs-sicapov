@@ -1,5 +1,7 @@
 // config/passport.js
 
+var log = require('log4js').getLogger("sicapov");
+
 var LocalStrategy   = require('passport-local').Strategy;
 //var User       		= require('../app/models/user');
 //var User 			= mongoose.model('User');
@@ -57,16 +59,19 @@ module.exports = function(passport) {
                 return done(err);
 
             // if no user is found, return the message
-            if (!user)
+            if (!user) {
+				log.error("Intento de login de usuario inexistente: " + username);
                 return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
-
+			}
             // if the user is found but the password is wrong
             //if (!user.validPassword(password))
-			if (user.password != password)
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
-
+			if (user.password != password) {
+				log.error("Intento de login con password errado de usuario : " + username);
+				return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+			}
             // all is well, return successful user
-            return done(null, user);
+            log.info("Login exitoso de usuario : " + username);
+			return done(null, user);
         });
 
     }));
