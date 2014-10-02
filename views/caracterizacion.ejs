@@ -9,7 +9,15 @@
         </strong>
       </h1>
       <div class="">
+	  
+	  <body onload=’document.forms["caracterizacion"]["Tipodocumento"].focus()’>
     	<form method="post" action="/caracterizacion">		
+			
+			
+			<script>// funcion para que el foco aparezca en el elemento que se quiere  deje la funcion aqui para verla pero la pondremos abajo.... Funciona !!!
+				if(!("autofocus" in document.createElement("input")))
+				document.getElementById("id_tipodocumento").focus();
+			</script>
 			
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
 <!-- 			    <select value="" name="Tipodocumento" class="required tipodocumento" id="id_tipodocumento" placeholder="Tipo de Documento (*)" list="tipodedocumentos" tabindex = "1"
@@ -20,7 +28,7 @@
 				</select> -->
  				<input type="text" value="" name="Tipodocumento" class="required tipodocumento" id="id_tipodocumento" placeholder="Tipo de Documento (*)" list="tipodedocumentos" tabindex = "1" 
 				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un tipo de documento!"
-				  onkeypress='return event.charCode > 0 && event.charCode < 0' />
+				  onkeypress='return event.charCode > 0 && event.charCode < 0' autofocus />
 				<datalist id="tipodedocumentos">
 				  <option value="Cedula de Ciudadania">
 				  <option value="Registro Civil">
@@ -42,7 +50,8 @@
 			
 			<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Sexo" class="required Sexo" id="id_Sexo" placeholder="Sexo(*)" list="Sexos" tabindex = "5"
-				  style="width: 100px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor selecciona un Sexo!"/>
+				  style="width: 100px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor selecciona un Sexo!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Sexos">
 				<option value="Masculino">
 				  <option value="Femenino"> 
@@ -51,7 +60,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0 ;">
 			    <input type="text" value="" name="Orientacionsexual"  id="id_Orientacionsexual" placeholder="Orientación Sexual" list="LGBTI" tabindex = "6"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor Seleccione una orientacion sexual!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor Seleccione una orientacion sexual!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="LGBTI">
 				  <option value="Heterosexual">
 				  <option value="Homosexual">
@@ -63,7 +73,8 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Libretamilitar" class="required LibretaMilitar" id="id_Libretamilitar" placeholder="Libreta Militar" list="LibretaMilitar" tabindex = "7"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Tiene libreta Militar?"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Tiene libreta Militar?"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="LibretaMilitar">
 				<option value="Si">
 				  <option value="No"> 
@@ -72,7 +83,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Jefehogar" class="required JefeHogar" id="id_Jefehogar" placeholder="Usted es jefe del Hogar ?" list="JefeHogar" tabindex = "8"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="jefe del hogar o Cabeza de Famlia"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="jefe del hogar o Cabeza de Famlia"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="JefeHogar">
 				  <option value="Si"> 
 				  <option value="No"> 
@@ -81,7 +93,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Vinculo" class="required Vinculo" id="id_Vinculo" placeholder="Vinculo con el  jefe del Hogar ?" list="Vinculo" tabindex = "9"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Cual es su parentesco con el jefe del hogar!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Cual es su parentesco con el jefe del hogar!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Vinculo">
 				  <option value="Esposo(a)">
 				  <option value="Compañero(a)">
@@ -108,7 +121,8 @@
 			
 			<class="mc-field-group" style="margin: 10px 0 0 0;">
               <input type="text" value="" name="Telefono" class="required telefono" id="id_telefono" placeholder="Numero de Telefono"tabindex = "12"
-			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor ingresa un numero de telefono!"/>
+			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor ingresa un numero de telefono!"
+			  onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
 			</div>
 				
 				
@@ -121,7 +135,8 @@
 					
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="SISBEN" class="required SISBEN" id="" placeholder="SISBEN(*)" list="SISBEN" tabindex = "13"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="SISBEN!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="SISBEN!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="SISBEN">
 				  <option value="Si">
 				  <option value="No"> 
@@ -130,7 +145,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Afilidado" class="required Afilidado" id="" placeholder="Está Afiliado a Salud?" list="Afilidado" tabindex = "14"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Esta afiliado a Salud!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Esta afiliado a Salud!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Afilidado">
 				  <option value="Si">
 				  <option value="No"> 
@@ -140,7 +156,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Regimen" class="required Regimen" id="" placeholder="Regimen de salud?" list="Salud" tabindex = "15"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Subsidiado por el gobierno O contribuido por la persona.!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Subsidiado por el gobierno O contribuido por la persona.!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Salud">
 				  <option value="Contributivo">
 				  <option value="Subsidiado"> 
@@ -149,8 +166,10 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Discapacidad" class="required Discapacidad" id="" placeholder="Discapacidad" list="Discapacidad" tabindex = "16"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Posee usted algun tipo de Discapacidad!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Posee usted algun tipo de Discapacidad!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Discapacidad">
+				  <option value="Ninguna">
 				  <option value="Motora">
 				  <option value="Congnitiva">
 				   <option value="Auditiva">	
@@ -160,7 +179,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="OrigenDis" class="required OrigenDis" id="" placeholder="Orígen de la discapacidad" list="OrigenDis" tabindex = "17"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Cuando ocurrio la Incapacidad!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Cuando ocurrio la Incapacidad!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="OrigenDis">
 					<option value="Antes   del Hecho Victimizante">
 					<option value="Durante del Hecho Victimizante">
@@ -179,7 +199,8 @@
 					
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Estudio" class="required Estudio" id="" placeholder="Estudia Actualmente?" list="Estudio" tabindex = "18"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Estudia actualmente?!"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Estudia actualmente?!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Estudio">
 				<option value="Si"> 
 				  <option value="No"> 
@@ -188,7 +209,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="nivelEstudio" class="required nivelEstudio" id="" placeholder="Nivel de Estudios" list="nivelEstudio" tabindex = "19"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Que nivel alcanzó!"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Que nivel alcanzó!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="nivelEstudio">
 					<option value="Ninguno"> 
 					<option value="Preescolar">
@@ -209,7 +231,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Leer" class="required Leer" id="" placeholder="Sabe Leer?" list="Leer" tabindex = "20"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Sabe leer!"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Sabe leer!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Leer">
 				<option value="Si"> 
 				  <option value="No"> 
@@ -219,7 +242,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Escribir" class="required Escribir" id="" placeholder="Sabe Escribir?" list="Escribir" tabindex = "21"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Sabe escribir?!"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Sabe escribir?!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Escribir">
 				<option value="Si"> 
 				  <option value="No"> 
@@ -229,7 +253,8 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Capacitacion" class="required Capacitacion" id="" placeholder="Ha recibido Cursos de Capacitación?" list="Capacitacion" tabindex = "22"
-				  style="width: 250px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Ha sido capacitado por algun ente gubernamental?"/>
+				  style="width: 250px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Ha sido capacitado por algun ente gubernamental?"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Capacitacion">
 				<option value="Si"> 
 				  <option value="No"> 
@@ -239,7 +264,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="Area" class="required Area" id="" placeholder="En que Área?" list="Area" tabindex = "23"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="en que Área fue capacitado?"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="en que Área fue capacitado?"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Area">
 				<option value="Agricultura"> 
 				  <option value="Construcción">
@@ -257,7 +283,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="EntidadC" class="EntidadC" id="" placeholder="Que entidad lo Capacitó?" list="EntidadC"tabindex = "24" 
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Que entidad lo capacitó?"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Que entidad lo capacitó?"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="EntidadC">
 				<option value="SENA"> 
 				  <option value="ONG">
@@ -278,7 +305,8 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="trabajo" class="required trabajo" id="" placeholder="Labora Actualmente?" list="trabajo" tabindex = "25"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="trabaja Actualmente?"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="trabaja Actualmente?"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="trabajo">
 				<option value="Si"> 
 				  <option value="No"> 
@@ -288,7 +316,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="AreaTrabajo" class="required AreaTrabajo" id="" placeholder="En que Área?" list="AreaTrabajo" tabindex = "26"
-				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Area de trabajo"/>
+				  style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Area de trabajo"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="AreaTrabajo">
 				<option value="Agricultura"> 
 				  <option value="Construcción">
@@ -307,7 +336,8 @@
 				
 				<class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="TipoTrabajo" class="required TipoTrabajo" id="" placeholder="Tipo de Vinculación Laboral" list="TipoTrabajo" tabindex = "27"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Que tipo de contrato tiene ?"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Que tipo de contrato tiene ?"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="TipoTrabajo">
 				<option value="Contrato indefinido"> 
 				  <option value="Contrato con termino definido">
@@ -326,8 +356,10 @@
 				
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			    <input type="text" value="" name="grupoetnico" class="required grupoetnico" id="" placeholder="Grupo Etnico(*)" list="grupoetnico" tabindex = "28"
-				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Pertenece algun Grupo Etnico?"required title="Grupo etnico!"/>
+				  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Pertenece algun Grupo Etnico?"required title="Grupo etnico!"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="grupoetnico">
+				<option value="Ninguno"> 
 				<option value="Afrocolombiano"> 
 				  <option value="Indígena">
 					<option value="Raizal(San Andrés)">
@@ -350,7 +382,7 @@
 					
 				<input type="checkbox" name="hecho_victimizante" value="Homicidio"> Homicidio----------------------------------------
 				<input type="text" value="" name="hom_Ano" class="required " id="id_hom_Ano" placeholder="Año del hecho" list="año" tabindex = "29"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Año en que Ocurrio el hecho Victimizante!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Año en que Ocurrio el hecho Victimizante!" onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 					<option value="No Sabe">
 					<option value="2014">
@@ -384,13 +416,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="hom_Declarado" class="required declaro" id="id_hom_Declarado" placeholder="¿Declaró?" list="declaro" tabindex = "30"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="hom_Lugardeclarado" class="required lugar" id="id_hom_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "31"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -399,7 +431,7 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="hom_Estadodeclaracion" class="required " id="id_hom_Estadodeclaracion" placeholder="Estado" list="estado" tabindex = "32"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 					<option value="incluido">
 					<option value="Excluido">
@@ -410,7 +442,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Desaparicion"> Desaparición Forzada------------------------
 				 <input type="text" value="" name="des_Ano" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "34"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -444,13 +476,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="des_Declarado" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "35"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="des_Lugardeclarado" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro"tabindex = "36" 
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -459,7 +491,7 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="des_Estadodeclaracion" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "37"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
@@ -469,7 +501,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Secuestro"> Secuestro----------------------------------------
 				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "39"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -503,13 +535,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "40"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "41"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -518,13 +550,13 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "42"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
 					
 					<input type="text" value="" name="Fiscalia" class="required Fiscalia" id="Fiscalia" placeholder="¿Fiscalia?" list="Fiscalia" tabindex = "43"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Fiscalia">
 				<option value="Si">
 				<option value="No">
@@ -534,7 +566,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Lesionespersonales"> Lesiones personales o Psicologicas------
 				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "44"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -568,13 +600,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "45"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "46"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -583,13 +615,13 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "47"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
 					
 					<input type="text" value="" name="Fiscalia" class="required Fiscalia" id="Fiscalia" placeholder="¿Fiscalia?" list="Fiscalia" tabindex = "48"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Fiscalia">
 				<option value="Si">
 				<option value="No">
@@ -599,7 +631,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">					
 				<input type="checkbox" name="hecho_victimizante" value="Tortura"> Tortura--------------------------------------------
 				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "49"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -633,13 +665,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "50"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "51"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -648,13 +680,13 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "52"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
 					
 					<input type="text" value="" name="Fiscalia" class="required Fiscalia" id="Fiscalia" placeholder="¿Fiscalia?" list="Fiscalia" tabindex = "53"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Fiscalia">
 				<option value="Si">
 				<option value="No">
@@ -664,7 +696,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">	
 				<input type="checkbox" name="hecho_victimizante" value="Delitoslibertad"> Delitos contra la libertad <div class="mc-field-group" style="margin: 10px 1 0 0;">e integridad Sexual.-------------------------------
 				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "54"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -698,13 +730,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "55"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "56"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -713,15 +745,15 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "57"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 					<option value="incluido">
 					<option value="Excluido">
 				</datalist>	
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
-				<input type="checkbox" name="hecho_victimizante" value="Reclutamiento"> Reclutamiento ilegal de menores.--------
+				<input type="checkbox" name="hecho_victimizante" value="Reclutamiento"> Reclutamiento ilegal de menores.----------
 				 <input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "59"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -755,13 +787,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "60"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "61"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -770,7 +802,7 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "62"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 					<option value="incluido">
 					<option value="Excluido">
@@ -778,7 +810,7 @@
 					<div class="mc-field-group" style="margin: 10px 0 0 0;">
 					<input type="checkbox" name="hecho_victimizante" value="Desplazamientof"> Desplazamiento forzado.---------------------
 					<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "64"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -812,13 +844,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "65"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "66"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -827,13 +859,13 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "67"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
 					
 					<input type="text" value="" name="Fiscalia" class="required Fiscalia" id="Fiscalia" placeholder="¿Fiscalia?" list="Fiscalia" tabindex = "68"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Fiscalia">
 				<option value="Si">
 				<option value="No">
@@ -844,7 +876,7 @@
 					<div class="mc-field-group" style="margin: 10px 0 0 0;">					
 					<input type="checkbox" name="hecho_victimizante" value="Minas">Minas antipersonales---------------------------
 					<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "69"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -878,13 +910,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "70"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "71"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -893,13 +925,13 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "72"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
 					
 					<input type="text" value="" name="Fiscalia" class="required Fiscalia" id="Fiscalia" placeholder="¿Fiscalia?" list="Fiscalia" tabindex = "73"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Fiscalia">
 				<option value="Si">
 				<option value="No">
@@ -909,7 +941,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Abandono"> Abandono Forzado o despojo de tierras--
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "74"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -943,13 +975,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "75"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "76"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -958,7 +990,7 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "77"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
@@ -969,7 +1001,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Masacre"> Masacre.------------------------------------------
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "79"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -1003,13 +1035,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "80"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "81"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -1018,7 +1050,7 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "82"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 					<option value="Excluido">
@@ -1026,7 +1058,7 @@
 				<div class="mc-field-group" style="margin: 10px 0 0 0;">
 				<input type="checkbox" name="hecho_victimizante" value="Perdidabienes">Perdida de Bienes.------------------------------	
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Año del hecho" list="año" tabindex = "84"
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -1060,13 +1092,13 @@
 				  <option value="1985">  				  
 				</datalist> 
 				<input type="text" value="" name="declaro" class="required declaro" id="foo" placeholder="¿Declaró?" list="declaro" tabindex = "85"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="declaro">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				<input type="text" value="" name="lugar" class="required lugar" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" tabindex = "86"
-				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"/>
+				  style="width: 135px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Lugardeclaro">
 				<option value="Personería">
 				<option value="Defensoría">
@@ -1075,7 +1107,7 @@
 				<option value="UAV">
 				</datalist> 
 				<input type="text" value="" name="" class="required Sexo" id="foo" placeholder="Estado" list="estado" tabindex = "87"
-				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"/>
+				  style="width: 88px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="estado">
 				<option value="incluido">
 				<option value="Excluido">
@@ -1091,7 +1123,8 @@
 					</strong>
 					
 				<input type="text" value="TipoDesplazamiento" name="TipoDesplazamiento" class="required Fiscalia" id="" placeholder="Tipo de Desplazamiento(*)" list="TipoDesplazamiento" tabindex = "89"
-				style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " required title="Tipo de desplzamiento!"/>
+				style="width: 200px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " required title="Tipo de desplzamiento!"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="TipoDesplazamiento">
 				<option value="Masivo">
 				<option value="Individual">
@@ -1124,21 +1157,24 @@
 					</strong>
 					
 				<input type="text" value="" name="Retorno" class="required Fiscalia" id="" placeholder="Usted Retorno al Lugar de donde se dezplazó?" list="retorno" 
-				style="width: 350px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " tabindex="90"/>
+				style="width: 350px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " tabindex="90"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="retorno">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				
 				<input type="text" value="" name="DeseaRetornar" class="required Fiscalia" id="" placeholder="Desea Retornar?" list="DRetorno" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="91"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="91"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="DRetorno">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 				
 				<input type="text" value="" name="TipoRetorno" class="required Fiscalia" id="" placeholder="Tipo de Retorno?" list="TipoRetorno" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="92"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="92"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="TipoRetorno">
 				<option value="Individual">
 				<option value="Masivo">
@@ -1147,21 +1183,24 @@
 				
 				
 				<input type="text" value="" name="QuienRetorno" class="required Fiscalia" id="" placeholder="Retorno Toda la Familia?" list="QuienRetorno" 
-				style="width: 350px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="93"/>
+				style="width: 350px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="93"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="QuienRetorno">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 					
 				<input type="text" value="" name="RetornoAcompanado" class="required Fiscalia" id="" placeholder="Su Retorno fue acompañado?" list="RetornoAcompañado" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="94"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="94"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="RetornoAcompañado">
 				<option value="Si">
 				<option value="No">
 				</datalist> 
 					
 				<input type="text" value="" name="PlanRetorno" class="required Fiscalia" id="" placeholder="Se formuló un plan de Retorno?" list="PlanRetorno" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="95"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="95"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="PlanRetorno">
 				<option value="Si">
 				<option value="No">
@@ -1174,7 +1213,8 @@
 					
 					
 				<input type="text" value="" name="Reubicarse" class="required Fiscalia" id="" placeholder="El hogar desea Reubicarse?" list="Reubicarse" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="96"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="96"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Reubicarse">
 				<option value="Si">
 				<option value="No">
@@ -1182,7 +1222,8 @@
 				
 				
 				<input type="text" value="" name="Razon" class="required Fiscalia" id="" placeholder="Razón por la cual desea Reubicarse?" list="Razon" 
-				style="width: 280px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="97"/>
+				style="width: 280px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="97"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Razon">
 				<option value="Se siente Discriminado">
 				<option value="La ciudad es Insegura">
@@ -1199,7 +1240,8 @@
 					
 					
 				<input type="text" value="" name="Separacion" class="required Fiscalia" id="" placeholder="En el momento del dezplazamiento la Familia se separó?" list="Separacion" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="98"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="98"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Separacion">
 				<option value="Si">
 				<option value="No">
@@ -1208,7 +1250,8 @@
 				
 					
 				<input type="text" value="" name="Unificacion" class="required Fiscalia" id="" placeholder="Se volvió a Unificar?" list="Unificar" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="99"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="99"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Unificar">
 				<option value="Si">
 				<option value="No">
@@ -1217,7 +1260,8 @@
 				
 					
 				<input type="text" value="" name="AyudaEstatal" class="required Fiscalia" id="" placeholder="Solicito ayuda Estatal para la Reunificación?" list="Ayuda" 
-				style="width: 320px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="100"/>
+				style="width: 320px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="100"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Ayuda">
 				<option value="Si">
 				<option value="No">
@@ -1226,7 +1270,8 @@
 				
 					
 				<input type="text" value="" name="RecibioAyuda" class="required Fiscalia" id="" placeholder="Recibio la ayuda Solicitada?" list="Rayuda" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="101"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="101"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Rayuda">
 				<option value="Si">
 				<option value="No">
@@ -1239,7 +1284,8 @@
 				
 					
 				<input type="text" value="" name="Refugio" class="required Fiscalia" id="" placeholder="Ha solicitado Refugio?" list="Refugio" 
-				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="102"/>
+				style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="102"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Refugio">
 				<option value="Si">
 				<option value="No">
@@ -1247,10 +1293,12 @@
 				
 				<div>
 				<input type="text" value="" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?"
-			  style="width: 237px; margin-right: 3px; float: left; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" tabindex="103"/>
+			  style="width: 237px; margin-right: 3px; float: left; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" tabindex="103"
+			  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
 				<input type="text" value="" name="AnoRefugio" class="required Sexo" id="Sexo" placeholder="Año" list="año" 
-				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Año en que Ocurrio el hecho Victimizante!"tabindex="104"/>
+				  style="width: 120px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" title="Año en que Ocurrio el hecho Victimizante!"tabindex="104"
+				  onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="año">
 				<option value="No Sabe">
 					<option value="2014">
@@ -1286,7 +1334,8 @@
 				
 					
 				<input type="text" value="" name="RecibioAyudaRefugio" class="required Fiscalia" id="" placeholder="Recibio Ayuda?" list="Ayuda2" 
-				style="width: 150px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="105"/>
+				style="width: 150px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="105"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Ayuda2">
 				<option value="Si">
 				<option value="No">
@@ -1294,7 +1343,8 @@
 				
 					
 				<input type="text" value="" name="Organizacion" class="required Fiscalia" id="" placeholder="Que organización le Entrego la ayuda?" list="Organizacion" 
-				style="width: 300px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="106"/>
+				style="width: 300px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;"  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="106"
+				onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				<datalist id="Organizacion">
 				<option value="Entidad del Gobierno">
 				<option value="ANCUR">
@@ -1314,7 +1364,21 @@
 			</button>
 			
 			
+	<script>
+		function habilitar(value)
+		{
+			if(value=="1" || value==true)
+			{
+				// habilitamos
+				document.getElementById("Libretamilitar").disabled=false;
+			}else if(value=="1" || value==false){
+				// deshabilitamos
+				document.getElementById("Libretamilitar").disabled=true;
+			}
+		}
+	</script>
 
 		</form>
+		</body>
       </div>
     <%- include layouts/footer.ejs %>
