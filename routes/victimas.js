@@ -59,7 +59,7 @@ exports.guardar = function(req,res){
 		Orientacionsexual	: input.Orientacionsexual,
 		Direccion        	: input.Direccion,
 		Telefono         	: input.Telefono,
-/* 		Libretamilitar		: input.Libretamilitar,
+		Libretamilitar		: input.Libretamilitar,
 		Jefehogar			: input.Jefehogar,
 		Vinculo				: input.Vinculo,
 		Barrio				: input.Barrio,
@@ -96,7 +96,7 @@ exports.guardar = function(req,res){
 		Pais				: input.Pais,
 		AnoRefugio			: input.AnoRefugio,
 		RecibioAyudaRefugio	: input.RecibioAyudaRefugio,
-		Organizacion		: input.Organizacion */
+		Organizacion		: input.Organizacion 
 		
 	};	
 
