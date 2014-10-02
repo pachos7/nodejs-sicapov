@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 02, 2014 at 04:55 AM
+-- Generation Time: Oct 03, 2014 at 12:19 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.9-1ubuntu4.4
 
@@ -13,6 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sicapov`
 --
+CREATE DATABASE IF NOT EXISTS `sicapov` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sicapov`;
 
 -- --------------------------------------------------------
 
@@ -20,6 +22,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `customer`
 --
 
+DROP TABLE IF EXISTS `customer`;
 CREATE TABLE `customer` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
@@ -45,6 +48,7 @@ INSERT INTO `customer` (`id`, `name`, `address`, `email`, `phone`) VALUES
 -- Table structure for table `hv_delitossexuales`
 --
 
+DROP TABLE IF EXISTS `hv_delitossexuales`;
 CREATE TABLE `hv_delitossexuales` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -60,6 +64,7 @@ CREATE TABLE `hv_delitossexuales` (
 -- Table structure for table `hv_desaparicionforzada`
 --
 
+DROP TABLE IF EXISTS `hv_desaparicionforzada`;
 CREATE TABLE `hv_desaparicionforzada` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -84,6 +89,7 @@ INSERT INTO `hv_desaparicionforzada` (`Tipodocumento`, `Numerodocumento`, `Ano`,
 -- Table structure for table `hv_desplazamiento`
 --
 
+DROP TABLE IF EXISTS `hv_desplazamiento`;
 CREATE TABLE `hv_desplazamiento` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -99,6 +105,7 @@ CREATE TABLE `hv_desplazamiento` (
 -- Table structure for table `hv_despojodetierras`
 --
 
+DROP TABLE IF EXISTS `hv_despojodetierras`;
 CREATE TABLE `hv_despojodetierras` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -114,6 +121,7 @@ CREATE TABLE `hv_despojodetierras` (
 -- Table structure for table `hv_homicidio`
 --
 
+DROP TABLE IF EXISTS `hv_homicidio`;
 CREATE TABLE `hv_homicidio` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -142,6 +150,7 @@ INSERT INTO `hv_homicidio` (`Tipodocumento`, `Numerodocumento`, `Ano`, `Declarad
 -- Table structure for table `hv_lesionespersonales`
 --
 
+DROP TABLE IF EXISTS `hv_lesionespersonales`;
 CREATE TABLE `hv_lesionespersonales` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -164,6 +173,7 @@ INSERT INTO `hv_lesionespersonales` (`Tipodocumento`, `Numerodocumento`, `Ano`, 
 -- Table structure for table `hv_masacre`
 --
 
+DROP TABLE IF EXISTS `hv_masacre`;
 CREATE TABLE `hv_masacre` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -179,6 +189,7 @@ CREATE TABLE `hv_masacre` (
 -- Table structure for table `hv_minasantipersonales`
 --
 
+DROP TABLE IF EXISTS `hv_minasantipersonales`;
 CREATE TABLE `hv_minasantipersonales` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -194,6 +205,7 @@ CREATE TABLE `hv_minasantipersonales` (
 -- Table structure for table `hv_perdidadebienes`
 --
 
+DROP TABLE IF EXISTS `hv_perdidadebienes`;
 CREATE TABLE `hv_perdidadebienes` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -209,6 +221,7 @@ CREATE TABLE `hv_perdidadebienes` (
 -- Table structure for table `hv_reclutamientoilegal`
 --
 
+DROP TABLE IF EXISTS `hv_reclutamientoilegal`;
 CREATE TABLE `hv_reclutamientoilegal` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -224,6 +237,7 @@ CREATE TABLE `hv_reclutamientoilegal` (
 -- Table structure for table `hv_secuestro`
 --
 
+DROP TABLE IF EXISTS `hv_secuestro`;
 CREATE TABLE `hv_secuestro` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -239,6 +253,7 @@ CREATE TABLE `hv_secuestro` (
 -- Table structure for table `hv_tortura`
 --
 
+DROP TABLE IF EXISTS `hv_tortura`;
 CREATE TABLE `hv_tortura` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
@@ -254,6 +269,7 @@ CREATE TABLE `hv_tortura` (
 -- Table structure for table `victimas`
 --
 
+DROP TABLE IF EXISTS `victimas`;
 CREATE TABLE `victimas` (
   `Tipodocumento` varchar(30) NOT NULL,
   `Numerodocumento` int(11) NOT NULL,
