@@ -15,7 +15,7 @@ var insertaRegistro = function (connection, tableName, data, callback) {
 };
 
 exports.consultavictima = function(req,res){
-	res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", data:"", message: null });
+	res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: null , message: null });
 };
  
 exports.caracterizacion = function(req, res){
@@ -34,7 +34,7 @@ exports.buscarvictima = function(req,res){
 		
 		if(typeof connection === 'undefined'){
 			log.error("No se pudo establacer una conexion con la base de datos!");
-			res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas fallo", data:null, message: "No se pudo establacer una conexion con la base de datos!"});
+			res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas fallo", datavictima: null, message: "No se pudo establacer una conexion con la base de datos!"});
 		} else {
 			var query = connection.query('SELECT * FROM victimas WHERE Numerodocumento = ?',[data.Numerodocumento], function(err, rows) {
 				
@@ -44,10 +44,13 @@ exports.buscarvictima = function(req,res){
 					log.error("Error consultado base de datos de victimas : %s ", err);
 				
 				if(rows.length)
-					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", data:rows, message: null});
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: rows, message: null});
 				else
-					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas " , data:rows, message: "No se encontraron registros para" + data.Numerodocumento});
-					
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas " , datavictima: null, message: "No se encontraron registros para " + data.Numerodocumento});
+				
+				connection.release(function(err) {
+					// The connection is terminated now
+				});	
 			});
 		};
 	});
@@ -227,7 +230,6 @@ exports.guardar = function(req,res){
 	req.getConnection(function (err, connection) {
 		
 		/* Insert en tabla de victimas */
-		// insertaRegistro(connection, 'victimas', dataVictimas);
 		var query = connection.query("INSERT INTO victimas set ? ", dataVictimas, function(err, rows) {
 		
 			log.debug("Query inserta victimas : " + query.sql);
