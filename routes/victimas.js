@@ -1,22 +1,25 @@
 var log = require('log4js').getLogger("sicapov");
 
-var insertaRegistro = function (connection, tableName, data) {
+var insertaRegistro = function (connection, tableName, data, callback) {
 	
-	var query = connection.query("INSERT INTO " + tableName + " set ? ", data, function(err, rows) {
-	
+	var query = connection.query("INSERT INTO " + tableName + " set ? ", data, function(err, rows, callback) {
+		
 		log.debug("Query inserta " + tableName + " : " + query.sql);
-	
-		if (err) 
-			log.error("Error insertando en tabla %s : Error message: %s ", tableName, JSON.stringify(err));
+		if (err) {
+			log.error("Error insertando en tabla " + tableName + "  " + err);
+		} 
+		 else if (callback) {
+			callback();
+		} 
 	});
 };
 
 exports.consultavictima = function(req,res){
-	res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", data:"" });
+	res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: null , message: null });
 };
  
 exports.caracterizacion = function(req, res){
-	res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion"});
+	res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion", message: null});
 };
 
 exports.buscarvictima = function(req,res){
@@ -28,20 +31,28 @@ exports.buscarvictima = function(req,res){
 	};
     
 	req.getConnection(function (err, connection) {
-    
-		var query = connection.query('SELECT * FROM victimas WHERE Numerodocumento = ?',[data.Numerodocumento], function(err, rows) {
-			
-			log.debug("Query: " + query.sql);
-			
-			if(err)
-				log.error("Error consultado base de datos de victimas : %s ",err );
-			
-			if(rows.length)
-				res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", data:rows});
-			else
-				res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas - no se encontraron registros para " + data.Numerodocumento, data:rows});
-                
-		});
+		
+		if(typeof connection === 'undefined'){
+			log.error("No se pudo establacer una conexion con la base de datos!");
+			res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas fallo", datavictima: null, message: "No se pudo establacer una conexion con la base de datos!"});
+		} else {
+			var query = connection.query('SELECT * FROM victimas WHERE Numerodocumento = ?',[data.Numerodocumento], function(err, rows) {
+				
+				log.debug("Query: " + query.sql);
+				
+				if(err)
+					log.error("Error consultado base de datos de victimas : %s ", err);
+				
+				if(rows.length)
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: rows, message: null});
+				else
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas " , datavictima: null, message: "No se encontraron registros para " + data.Numerodocumento});
+				
+				connection.release(function(err) {
+					// The connection is terminated now
+				});	
+			});
+		};
 	});
 };
 
@@ -59,7 +70,7 @@ exports.guardar = function(req,res){
 		Orientacionsexual	: input.Orientacionsexual,
 		Direccion        	: input.Direccion,
 		Telefono         	: input.Telefono,
-		Libretamilitar		: input.Libretamilitar,
+ 		Libretamilitar		: input.Libretamilitar,
 		Jefehogar			: input.Jefehogar,
 		Vinculo				: input.Vinculo,
 		Barrio				: input.Barrio,
@@ -118,7 +129,11 @@ exports.guardar = function(req,res){
 		Lugardeclarado		: input.des_Lugardeclarado,
 		Estadodeclaracion	: input.des_Estadodeclaracion
 	};
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 	var dataSecuestro = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
@@ -216,19 +231,26 @@ exports.guardar = function(req,res){
 		hechosVictimizantes = [''];
 	}		
 	
-//  log.debug(JSON.stringify(dataVictimas));
-  
 	req.getConnection(function (err, connection) {
 		
 		/* Insert en tabla de victimas */
-		insertaRegistro(connection, 'victimas', dataVictimas);
+		var query = connection.query("INSERT INTO victimas set ? ", dataVictimas, function(err, rows) {
+		
+			log.debug("Query inserta victimas : " + query.sql);
+			if (err) {
+				log.error("Error insertando en tabla victimas  " + err);
+				res.render('caracterizacion', {usuario: req.user, page_title:"No se pudo realizar la Caracterizacion", message : err});  			
+			} 
+			 else {
+				res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada", message: null});  			
+			} 
+		});
+	
 		
 		/* Insert en las tablas de hechos victimizantes */
-		if (hechosVictimizantes.indexOf('Homicidio') > -1) {
-			insertaRegistro(connection, 'hv_homicidio', dataHomicidio);
-		};
 		
-		if (hechosVictimizantes.indexOf('Desaparicion') > -1) {
+		
+/* 		if (hechosVictimizantes.indexOf('Desaparicion') > -1 && !err) {
 			insertaRegistro(connection, 'hv_desaparicionforzada', dataDesaparicion);
 		};
 		
@@ -261,9 +283,8 @@ exports.guardar = function(req,res){
 		};
 		if (hechosVictimizantes.indexOf('Perdidabienes') > -1) {
 			insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
-		};
-		
-		res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada"});  			
+		}; */
+
 		
 	});
 };
