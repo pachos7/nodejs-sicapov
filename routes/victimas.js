@@ -118,7 +118,7 @@ exports.guardar = function(req,res){
 		Lugardeclarado		: input.des_Lugardeclarado,
 		Estadodeclaracion	: input.des_Estadodeclaracion
 	};
-	//--------------------------------------------------------------aqui comenzé
+	
 	var dataSecuestro = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
