@@ -128,12 +128,12 @@ exports.guardar = function(req,res){
 		Declarado			: input.des_Declarado,
 		Lugardeclarado		: input.des_Lugardeclarado,
 		Estadodeclaracion	: input.des_Estadodeclaracion
-	};
+	};/* 
 <<<<<<< HEAD
 	
 =======
 
->>>>>>> origin/master
+>>>>>>>  */origin/master
 	var dataSecuestro = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
