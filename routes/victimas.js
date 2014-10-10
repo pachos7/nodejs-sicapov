@@ -238,50 +238,45 @@ exports.guardar = function(req,res){
 				res.render('caracterizacion', {usuario: req.user, page_title:"No se pudo realizar la Caracterizacion", message : err});  			
 			} 
 			 else {
+				 /* Inserta en las tabla de hechos victimizantes */
+				 
+				if (hechosVictimizantes.indexOf('Desaparicion') > -1 && !err) {
+					insertaRegistro(connection, 'hv_desaparicionforzada', dataDesaparicion);
+				};
+				
+				if (hechosVictimizantes.indexOf('Secuestro') > -1) {
+					insertaRegistro(connection, 'hv_secuestro', dataSecuestro);
+				};
+				if (hechosVictimizantes.indexOf('Lesionespersonales') > -1) {
+					insertaRegistro(connection, 'hv_lesionespersonales', dataLesiones);
+				};
+				if (hechosVictimizantes.indexOf('Tortura') > -1) {
+					insertaRegistro(connection, 'hv_tortura', dataTortura);
+				};
+				if (hechosVictimizantes.indexOf('Delitoslibertad') > -1) {
+					insertaRegistro(connection, 'hv_delitossexuales', dataDelitossexuales);
+				};
+				if (hechosVictimizantes.indexOf('Reclutamiento') > -1) {
+					insertaRegistro(connection, 'hv_reclutamientoilegal', dataReclutamiento);
+				};
+				if (hechosVictimizantes.indexOf('Desplazamientof') > -1) {
+					insertaRegistro(connection, 'hv_desplazamiento', dataDesplazamiento);
+				};
+				if (hechosVictimizantes.indexOf('Minas') > -1) {
+					insertaRegistro(connection, 'hv_minasantipersonales', dataMinas);
+				};
+				if (hechosVictimizantes.indexOf('Abandono') > -1) {
+					insertaRegistro(connection, 'hv_despojodetierras', dataAbandono);
+				};
+				if (hechosVictimizantes.indexOf('Masacre') > -1) {
+					insertaRegistro(connection, 'hv_masacre', dataMasacre);
+				};
+				if (hechosVictimizantes.indexOf('Perdidabienes') > -1) {
+					insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
+				};
 				res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada", message: null});  			
 			} 
 		});
-	
-		
-		/* Insert en las tablas de hechos victimizantes */
-		
-		
-/* 		if (hechosVictimizantes.indexOf('Desaparicion') > -1 && !err) {
-			insertaRegistro(connection, 'hv_desaparicionforzada', dataDesaparicion);
-		};
-		
-		if (hechosVictimizantes.indexOf('Secuestro') > -1) {
-			insertaRegistro(connection, 'hv_secuestro', dataSecuestro);
-		};
-		if (hechosVictimizantes.indexOf('Lesionespersonales') > -1) {
-			insertaRegistro(connection, 'hv_lesionespersonales', dataLesiones);
-		};
-		if (hechosVictimizantes.indexOf('Tortura') > -1) {
-			insertaRegistro(connection, 'hv_tortura', dataTortura);
-		};
-		if (hechosVictimizantes.indexOf('Delitoslibertad') > -1) {
-			insertaRegistro(connection, 'hv_delitossexuales', dataDelitossexuales);
-		};
-		if (hechosVictimizantes.indexOf('Reclutamiento') > -1) {
-			insertaRegistro(connection, 'hv_reclutamientoilegal', dataReclutamiento);
-		};
-		if (hechosVictimizantes.indexOf('Desplazamientof') > -1) {
-			insertaRegistro(connection, 'hv_desplazamiento', dataDesplazamiento);
-		};
-		if (hechosVictimizantes.indexOf('Minas') > -1) {
-			insertaRegistro(connection, 'hv_minasantipersonales', dataMinas);
-		};
-		if (hechosVictimizantes.indexOf('Abandono') > -1) {
-			insertaRegistro(connection, 'hv_despojodetierras', dataAbandono);
-		};
-		if (hechosVictimizantes.indexOf('Masacre') > -1) {
-			insertaRegistro(connection, 'hv_masacre', dataMasacre);
-		};
-		if (hechosVictimizantes.indexOf('Perdidabienes') > -1) {
-			insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
-		}; */
-
-		
 	});
 };
 
