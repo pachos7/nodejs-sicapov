@@ -36,10 +36,11 @@
 						<ul class="sf-menu">
 						<% if (!usuario) { %>
 							<li class="leaf first"><a href="./Login" title="">Login</a></li>
+							<li class="leaf first"><a href="./noticias" title="">Noticias</a></li>
 						<% } else { %>
 							<li class="leaf first"><a href="./Consulta" title="">Consulta</a></li>
 							<li class="leaf"><a href="./Caracterizacion" title="">Caracterizacion</a></li>
-							<li class="leaf"><a href="./Lista" title="">Lista</a></li>
+							<li class="leaf"><a href="./Lista" title="">Listado de Víctimas</a></li>
 							<li class="expanded active-trail"><a href="/Reportes" title="">Reportes</a>
 								<ul class="sf-menu">
 									<li class="leaf first"><a href="/events" title="">Municipales</a></li>
@@ -47,7 +48,7 @@
 									<li class="leaf last"><a href="/individual-certification-program" title="Individual Certification Program">Documentos de Interés</a></li>
 								</ul>
 							</li>
-							<li class="leaf"><a href="./Lista" title="">Estadisticas</a></li>
+							
 							<li class="leaf"><a href="./Logout" title=""><%= usuario.username %> Logout</a></li>
 						<% } %>
 							

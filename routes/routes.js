@@ -27,6 +27,7 @@ module.exports = function(app, passport) {
 	app.get('/caracterizacion', 	isLoggedIn, victimas.caracterizacion);
 	app.post('/caracterizacion', 	isLoggedIn, victimas.guardar);
 	app.get('/lista', 				isLoggedIn, victimas.lista);
+	
 
 	app.get('/login', function(req, res) {
 		res.render('login', {usuario: req.user, page_title:"Login", message: req.flash('loginMessage') });
