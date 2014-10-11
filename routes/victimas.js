@@ -19,7 +19,7 @@ exports.consultavictima = function(req,res){
 };
  
 exports.caracterizacion = function(req, res){
-	res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion", message: null});
+	res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion", message: null, datavictima: null});
 };
 
 exports.buscarvictima = function(req,res){
@@ -27,7 +27,7 @@ exports.buscarvictima = function(req,res){
 	var input = JSON.parse(JSON.stringify(req.body));
 	 
 	var data = {
-		Numerodocumento	: input.Numerodocumento,
+		documentoABuscar	: input.documentoABuscar,
 	};
     
 	req.getConnection(function (err, connection) {
@@ -36,7 +36,7 @@ exports.buscarvictima = function(req,res){
 			log.error("No se pudo establacer una conexion con la base de datos!");
 			res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas fallo", datavictima: null, message: "No se pudo establacer una conexion con la base de datos!"});
 		} else {
-			var query = connection.query('SELECT * FROM victimas WHERE Numerodocumento = ?',[data.Numerodocumento], function(err, rows) {
+			var query = connection.query('SELECT * FROM victimas WHERE Numerodocumento = ?',[data.documentoABuscar], function(err, rows) {
 				
 				log.debug("Query: " + query.sql);
 				
@@ -44,9 +44,9 @@ exports.buscarvictima = function(req,res){
 					log.error("Error consultado base de datos de victimas : %s ", err);
 				
 				if(rows.length)
-					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: rows, message: null});
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: rows[0], message: null});
 				else
-					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas " , datavictima: null, message: "No se encontraron registros para " + data.Numerodocumento});
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas " , datavictima: null, message: "No se encontraron registros para " + data.documentoABuscar});
 				
 				connection.release(function(err) {
 					// The connection is terminated now
@@ -128,100 +128,96 @@ exports.guardar = function(req,res){
 		Declarado			: input.des_Declarado,
 		Lugardeclarado		: input.des_Lugardeclarado,
 		Estadodeclaracion	: input.des_Estadodeclaracion
-	};/* 
-<<<<<<< HEAD
+	};
 	
-=======
-
->>>>>>>  */origin/master
 	var dataSecuestro = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.sec_Ano,
+		Declarado			: input.sec_Declarado,
+		Lugardeclarado		: input.sec_Lugardeclarado,
+		Estadodeclaracion	: input.sec_Estadodeclaracion,
 		
 	};
 	var dataLesiones = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.les_Ano,
+		Declarado			: input.les_Declarado,
+		Lugardeclarado		: input.les_Lugardeclarado,
+		Estadodeclaracion	: input.les_Estadodeclaracion,
 		
 	};
 	var dataTortura = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.tor_Ano,
+		Declarado			: input.tor_Declarado,
+		Lugardeclarado		: input.tor_Lugardeclarado,
+		Estadodeclaracion	: input.tor_Estadodeclaracion,
 		
 	};
 	var dataDelitossexuales = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.des_Ano,
+		Declarado			: input.des_Declarado,
+		Lugardeclarado		: input.des_Lugardeclarado,
+		Estadodeclaracion	: input.des_Estadodeclaracion,
 		
 	};
 	var dataReclutamiento = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.rei_Ano,
+		Declarado			: input.rei_Declarado,
+		Lugardeclarado		: input.rei_Lugardeclarado,
+		Estadodeclaracion	: input.rei_Estadodeclaracion,
 		
 	};
 	var dataDesplazamiento = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.dplz_Ano,
+		Declarado			: input.dplz_Declarado,
+		Lugardeclarado		: input.dplz_Lugardeclarado,
+		Estadodeclaracion	: input.dplz_Estadodeclaracion,
 		
 	};
 	var dataMinas = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.min_Ano,
+		Declarado			: input.min_Declarado,
+		Lugardeclarado		: input.min_Lugardeclarado,
+		Estadodeclaracion	: input.min_Estadodeclaracion,
 		
 	};
 	var dataAbandono = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.aba_Ano,
+		Declarado			: input.aba_Declarado,
+		Lugardeclarado		: input.aba_Lugardeclarado,
+		Estadodeclaracion	: input.aba_Estadodeclaracion,
 		
 	};
 	var dataMasacre = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.mas_Ano,
+		Declarado			: input.mas_Declarado,
+		Lugardeclarado		: input.mas_Lugardeclarado,
+		Estadodeclaracion	: input.mas_Estadodeclaracion,
 		
 	};
 	var dataPerdidabienes = {
 		Tipodocumento		: input.Tipodocumento,
 		Numerodocumento		: input.Numerodocumento,
-		Ano					: input.hom_Ano,
-		Declarado			: input.hom_Declarado,
-		Lugardeclarado		: input.hom_Lugardeclarado,
-		Estadodeclaracion	: input.hom_Estadodeclaracion,
+		Ano					: input.per_Ano,
+		Declarado			: input.per_Declarado,
+		Lugardeclarado		: input.per_Lugardeclarado,
+		Estadodeclaracion	: input.per_Estadodeclaracion,
 		
 	};
 		
@@ -243,7 +239,11 @@ exports.guardar = function(req,res){
 			} 
 			 else {
 				 /* Inserta en las tabla de hechos victimizantes */
-				 
+				
+				if (hechosVictimizantes.indexOf('Homicidio') > -1 && !err) {
+					insertaRegistro(connection, 'hv_homicidio', dataHomicidio);
+				};
+				
 				if (hechosVictimizantes.indexOf('Desaparicion') > -1 && !err) {
 					insertaRegistro(connection, 'hv_desaparicionforzada', dataDesaparicion);
 				};
@@ -278,7 +278,8 @@ exports.guardar = function(req,res){
 				if (hechosVictimizantes.indexOf('Perdidabienes') > -1) {
 					insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
 				};
-				res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada", message: null});  			
+
+				res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada", message: null, datavictima: dataVictimas});  			
 			} 
 		});
 	});

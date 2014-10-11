@@ -13,34 +13,24 @@
     	<form method="post" action="/consulta">	
 			<script>// funcion para que el foco aparezca en el elemento que se quiere  deje la funcion aqui para verla pero la pondremos abajo.... Funciona !!!
 				if(!("autofocus" in document.createElement("input")))
-				document.getElementById("id_numerodocumento").focus();
+				document.getElementById("id_documentoABuscar").focus();
 			</script>
 			
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			  <input type="text" autofocus="autofocus" value="<% if(datavictima){ %> <%=datavictima[0].Numerodocumento %> <% } %>" name="Numerodocumento" class="required numerodocumento" id="id_numerodocumento" placeholder="Ingrese Numero de Documento"
-			  style="width: 237px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" required title="Por favor ingresa un numero de documento!"/>
+			  <input type="text" autofocus="autofocus" value="" name="documentoABuscar" class="required" id="id_documentoABuscar" placeholder="Ingrese Numero de Documento"
+			  required title="Por favor ingresa un numero de documento!"/>
 			  <button type="submit" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
 				<span style="margin-top: -1px;">Consultar</span>
 			  </button>
 			</div>
+			
 			<% if(datavictima){ %>
-			<div class="mc-field-group">
-			  <input type="text" value="<%=datavictima[0].Nombres %>" name="Nombres" class="required textInput rounded" id="mce-FNAME" placeholder="First name"
-			  style="color: #A9AAAB; width: 111px; margin-right: 3px; float: left; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" disabled/>
-			</div>
-			<div class="mc-field-group">
-			  <input type="text" value="<%=datavictima[0].Apellidos %>" name="Apellidos" class="required textInput rounded" id="mce-LNAME" placeholder="Last name"
-			  style="color: #A9AAAB; width: 111px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;" disabled/>
-			</div>
-			
-			
-			
-			<div id="mce-responses" class="clear">
-			  <div class="response" id="mce-error-response" style="display:none"></div>
-			  <div class="response" id="mce-success-response" style="display:none"></div>
-			</div>
-			<%} else { %>
-					<!-- <h2>No encontre nada</h2> -->
+				<%- include layouts/datavictima.ejs %>
+				
+				<div id="mce-responses" class="clear">
+				  <div class="response" id="mce-error-response" style="display:none"></div>
+				  <div class="response" id="mce-success-response" style="display:none"></div>
+				</div>
 			<% }  %>
 		</form>
       </div>
