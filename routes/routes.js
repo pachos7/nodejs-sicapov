@@ -29,6 +29,12 @@ module.exports = function(app, passport) {
 	app.get('/lista', 				isLoggedIn, victimas.lista);
 	
 
+	
+	app.get('/noticias', function(req, res) {
+		res.render('noticias', {usuario: req.user, page_title:"Noticias", message: req.flash('loginMessage') });
+	});
+	
+	
 	app.get('/login', function(req, res) {
 		res.render('login', {usuario: req.user, page_title:"Login", message: req.flash('loginMessage') });
 	});
