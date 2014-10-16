@@ -61,6 +61,110 @@ exports.guardar = function(req,res){
 	
 	log.debug("input:" + JSON.stringify(input));
 	
+	var todalaData= {
+
+		Tipodocumento    	: input.Tipodocumento,
+		Numerodocumento  	: input.Numerodocumento,
+		Nombres          	: input.Nombres,
+		Apellidos        	: input.Apellidos,
+		Sexo			 	: input.Sexo,
+		Orientacionsexual	: input.Orientacionsexual,
+		Direccion        	: input.Direccion,
+		Telefono         	: input.Telefono,
+ 		Libretamilitar		: input.Libretamilitar,
+		Jefehogar			: input.Jefehogar,
+		Vinculo				: input.Vinculo,
+		Barrio				: input.Barrio,
+		SISBEN				: input.SISBEN,
+		Afiliado			: input.Afiliado,
+		Regimen				: input.Regimen,
+		Discapacidad		: input.Discapacidad,
+		Origendis			: input.Origendis,
+		Estudio				: input.Estudio,
+		NivelEstudio		: input.NivelEstudio,
+		Leer				: input.Leer,
+		Escribir			: input.Escribir,
+		Capacitacion		: input.Capacitacion,
+		Area				: input.Area,
+		Entidadc			: input.Entidadc,
+		Trabajo				: input.Trabajo,
+		Areatrabajo			: input.Areatrabajo,
+		Tipotrabajo			: input.Tipotrabajo,
+		GrupoEtnico			: input.grupoetnico,
+		hom_Ano				: input.hom_Ano,
+		hom_Declarado		: input.hom_Declarado,
+		hom_Lugardeclarado	: input.hom_Lugardeclarado,
+		hom_Estadodeclaracion: input.hom_Estadodeclaracion,
+		des_Ano				: input.des_Ano,
+		des_Declarado		: input.des_Declarado,
+		des_Lugardeclarado	: input.des_Lugardeclarado,
+		des_Estadodeclaracion: input.des_Estadodeclaracion,
+		sec_Ano				: input.sec_Ano,
+		sec_Declarado		: input.sec_Declarado,
+		sec_Lugardeclarado	: input.sec_Lugardeclarado,
+		sec_Estadodeclaracion: input.sec_Estadodeclaracion,
+		les_Ano					: input.les_Ano,
+		les_Declarado			: input.les_Declarado,
+		les_Lugardeclarado		: input.les_Lugardeclarado,
+		les_Estadodeclaracion	: input.les_Estadodeclaracion,
+		tor_Ano					: input.tor_Ano,
+		tor_Declarado			: input.tor_Declarado,
+		tor_Lugardeclarado		: input.tor_Lugardeclarado,
+		tor_Estadodeclaracion	: input.tor_Estadodeclaracion,
+		//ojo q en el ejs se repite el des_tal
+		desx_Ano				: input.desx_Ano,
+		desx_Declarado			: input.desx_Declarado,
+		desx_Lugardeclarado		: input.desx_Lugardeclarado,
+		desx_Estadodeclaracion	: input.desx_Estadodeclaracion,
+		rei_Ano					: input.rei_Ano,
+		rei_Declarado			: input.rei_Declarado,
+		rei_Lugardeclarado		: input.rei_Lugardeclarado,
+		rei_Estadodeclaracion	: input.rei_Estadodeclaracion,
+		dplz_Ano					: input.dplz_Ano,
+		dplz_Declarado			: input.dplz_Declarado,
+		dplz_Lugardeclarado		: input.dplz_Lugardeclarado,
+		dplz_Estadodeclaracion	: input.dplz_Estadodeclaracion,
+		TipoDesplazamiento 	: input.TipoDesplazamiento,
+		Retorno				: input.Retorno,
+		DeseaRetornar		: input.DeseaRetornar,
+		TipoRetorno			: input.TipoRetorno,
+		QuienRetorno		: input.QuienRetorno,
+		RetornoAcompanado	: input.RetornoAcompanado,
+		PlanRetorno			: input.PlanRetorno,
+		Reubicarse			: input.Reubicarse,
+		Razon				: input.Razon,
+		Separacion			: input.Separacion,
+		Unificacion			: input.Unificacion,
+		AyudaEstatal		: input.AyudaEstatal,
+		RecibioAyuda		: input.RecibioAyuda,
+		Refugio				: input.Refugio,
+		Pais				: input.Pais,
+		AnoRefugio			: input.AnoRefugio,
+		RecibioAyudaRefugio	: input.RecibioAyudaRefugio,
+		Organizacion		: input.Organizacion,
+		min_Ano					: input.min_Ano,
+		min_Declarado			: input.min_Declarado,
+		min_Lugardeclarado		: input.min_Lugardeclarado,
+		min_Estadodeclaracion	: input.min_Estadodeclaracion,
+		aba_Ano					: input.aba_Ano,
+		aba_Declarado			: input.aba_Declarado,
+		aba_Lugardeclarado		: input.aba_Lugardeclarado,
+		aba_Estadodeclaracion	: input.aba_Estadodeclaracion,
+		mas_Ano					: input.mas_Ano,
+		mas_Declarado			: input.mas_Declarado,
+		mas_Lugardeclarado	: input.mas_Lugardeclarado,
+		mas_Estadodeclaracion	: input.mas_Estadodeclaracion,
+		per_Ano					: input.per_Ano,
+		per_Declarado			: input.per_Declarado,
+		per_Lugardeclarado		: input.per_Lugardeclarado,
+		per_Estadodeclaracion	: input.per_Estadodeclaracion,
+		
+		
+		
+		
+		
+};	
+
 	var dataVictimas = {
 		Tipodocumento    	: input.Tipodocumento,
 		Numerodocumento  	: input.Numerodocumento,
@@ -90,24 +194,6 @@ exports.guardar = function(req,res){
 		Areatrabajo			: input.Areatrabajo,
 		Tipotrabajo			: input.Tipotrabajo,
 		GrupoEtnico			: input.grupoetnico,
-		TipoDesplazamiento 	: input.TipoDesplazamiento,
-		Retorno				: input.Retorno,
-		DeseaRetornar		: input.DeseaRetornar,
-		TipoRetorno			: input.TipoRetorno,
-		QuienRetorno		: input.QuienRetorno,
-		RetornoAcompanado	: input.RetornoAcompanado,
-		PlanRetorno			: input.PlanRetorno,
-		Reubicarse			: input.Reubicarse,
-		Razon				: input.Razon,
-		Separacion			: input.Separacion,
-		Unificacion			: input.Unificacion,
-		AyudaEstatal		: input.AyudaEstatal,
-		RecibioAyuda		: input.RecibioAyuda,
-		Refugio				: input.Refugio,
-		Pais				: input.Pais,
-		AnoRefugio			: input.AnoRefugio,
-		RecibioAyudaRefugio	: input.RecibioAyudaRefugio,
-		Organizacion		: input.Organizacion 
 		
 	};	
 
@@ -182,6 +268,25 @@ exports.guardar = function(req,res){
 		Declarado			: input.dplz_Declarado,
 		Lugardeclarado		: input.dplz_Lugardeclarado,
 		Estadodeclaracion	: input.dplz_Estadodeclaracion,
+		TipoDesplazamiento 	: input.TipoDesplazamiento,
+		Retorno				: input.Retorno,
+		DeseaRetornar		: input.DeseaRetornar,
+		TipoRetorno			: input.TipoRetorno,
+		QuienRetorno		: input.QuienRetorno,
+		RetornoAcompanado	: input.RetornoAcompanado,
+		PlanRetorno			: input.PlanRetorno,
+		Reubicarse			: input.Reubicarse,
+		Razon				: input.Razon,
+		Separacion			: input.Separacion,
+		Unificacion			: input.Unificacion,
+		AyudaEstatal		: input.AyudaEstatal,
+		RecibioAyuda		: input.RecibioAyuda,
+		Refugio				: input.Refugio,
+		Pais				: input.Pais,
+		AnoRefugio			: input.AnoRefugio,
+		RecibioAyudaRefugio	: input.RecibioAyudaRefugio,
+		Organizacion		: input.Organizacion 
+		
 		
 	};
 	var dataMinas = {
@@ -279,7 +384,7 @@ exports.guardar = function(req,res){
 					insertaRegistro(connection, 'hv_perdidadebienes', dataPerdidabienes);
 				};
 
-				res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada", message: null, datavictima: dataVictimas});  			
+				res.render('caracterizacion', {usuario: req.user, page_title:"Caracterizacion finalizada", message: null, datavictima: todalaData});  			
 			} 
 		});
 	});
