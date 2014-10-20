@@ -81,7 +81,7 @@ app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 app.use(app.router);

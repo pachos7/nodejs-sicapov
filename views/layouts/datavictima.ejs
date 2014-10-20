@@ -336,7 +336,7 @@
 		style="width: 200px; " title="Estudia actualmente?!"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-		<input type="text" value="<% if(datavictima){ %><%=datavictima.NivelEstudio%><% } %>NivelEstudio" name="NivelEstudio" id="" placeholder="Nivel de Estudios" list="nivelEstudio" 
+		<input type="text" value="<% if(datavictima){ %><%=datavictima.NivelEstudio%><% } %>" name="NivelEstudio" id="" placeholder="Nivel de Estudios" list="nivelEstudio" 
 		style="width: 200px; " title="Que nivel alcanzó!"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
@@ -358,7 +358,7 @@
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 		<input type="text" value="<% if(datavictima){ %><%=datavictima.Entidadc%><% } %>" name="Entidadc" class="EntidadC" id="" placeholder="Que entidad lo Capacitó?" list="EntidadC"
-		style="width: 237px; " title="Que entidad lo capacitó?"
+		title="Que entidad lo capacitó?"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 	</div>
 </div>
@@ -375,7 +375,7 @@
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 		<input type="text" value="<% if(datavictima){ %><%=datavictima.Tipotrabajo%><% } %>" name="Tipotrabajo" id="" placeholder="Tipo de Vinculación Laboral" list="TipoTrabajo" 
-		style="width: 237px; "  title="Que tipo de contrato tiene ?"
+		title="Que tipo de contrato tiene ?"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 	</div>
 </div>
@@ -384,7 +384,7 @@
 	<h3>Grupo Étnico</h3>
 	<div>
 		<input type="text" value="<% if(datavictima){ %><%=datavictima.GrupoEtnico%><% } %>" name="grupoetnico"  id="" placeholder="Grupo Etnico(*)" list="grupoetnico" 
-		style="width: 237px; " title="Pertenece algun Grupo Etnico?" required title="Grupo etnico!"
+		title="Pertenece algun Grupo Etnico?" required title="Grupo etnico!"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 	</div>
 </div>
@@ -474,16 +474,16 @@
 	<div>
 		<input type="checkbox" name="hecho_victimizante" value="Delitoslibertad" >Delitos contra la libertad e integridad Sexual</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Ano%><% } %>" name="des_Ano" id="foo" placeholder="Año del hecho" list="año" 
+			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Ano%><% } %>" name="desx_Ano" id="foo" placeholder="Año del hecho" list="año" 
 			style="width: 120px; " title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Declarado%><% } %>" name="des_Declarado" id="foo" placeholder="¿Declaró?" list="declaro" 
+			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Declarado%><% } %>" name="desx_Declarado" id="foo" placeholder="¿Declaró?" list="declaro" 
 			style="width: 88px; "  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Lugardeclarado%><% } %>" name="des_Lugardeclarado" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" 
+			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Lugardeclarado%><% } %>" name="desx_Lugardeclarado" id="lugar" placeholder="¿Donde Declaró?" list="Lugardeclaro" 
 			style="width: 135px; "  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Estadodeclaracion%><% } %>" name="des_Estadodeclaracion" id="foo" placeholder="Estado" list="estado" 
+			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Estadodeclaracion%><% } %>" name="desx_Estadodeclaracion" id="foo" placeholder="Estado" list="estado" 
 			style="width: 88px; "  title="Por favor selecciona un Sexo!"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
@@ -588,49 +588,49 @@
 <div class="mc-field-group" id="id_Desplazamiento" >
 	<h3>Desplazamiento</h3>
 	<div>
-		<input type="text" value="<% if(datavictima){ %><%=datavictima.TipoDesplazamiento%><% } %>" name="TipoDesplazamiento" id="" placeholder="Tipo de Desplazamiento(*)" list="TipoDesplazamiento" tabindex = "89"
+		<input type="text" value="<% if(datavictima){ %><%=datavictima.TipoDesplazamiento%><% } %>" name="TipoDesplazamiento" id="" placeholder="Tipo de Desplazamiento(*)" list="TipoDesplazamiento" 
 		style="width: 200px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " required title="Tipo de desplzamiento!"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 	</div>
 	<div>
 		<br>
 		<h5>Causas a las que atribuye el Desplazamiento</h5>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Confrontación">Confrontación Armada <br></br>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Amenaza Directa">Amenaza Directa <br></br>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Amenaza indirecta">Amenaza indirecta<br></br>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Reclutamiento de menores">Reclutamiento de menores<br></br>					
-		<input type="checkbox" name=Causasdeldesplazamiento value="Campos minados">Campos Minados<br></br>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Asesinato de Familiar">Asesinato de Familiar<br></br>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Violencia Generalizada">Violencia Generalizada.<br></br>
-		<input type="checkbox" name=Causasdeldesplazamiento value="Otra">Otra<br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaConfrontacion === "Si") { %> <%="checked"%><%} } %> value="Confrontacion">Confrontación Armada <br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaAmenazaDirecta === "Si") { %> <%="checked"%><%} } %> value="Amenaza Directa">Amenaza Directa <br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaAmenazeIndirecta === "Si") { %> <%="checked"%><%} } %> value="Amenaza indirecta">Amenaza indirecta<br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaReclutamiento === "Si") { %> <%="checked"%><%} } %> value="Reclutamiento de menores">Reclutamiento de menores<br></br>					
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaCamposMinados === "Si") { %> <%="checked"%><%} } %> value="Campos minados">Campos Minados<br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaAsesinatoFamiliar === "Si") { %> <%="checked"%><%} } %> value="Asesinato de Familiar">Asesinato de Familiar<br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaViolenciaGeneral === "Si") { %> <%="checked"%><%} } %> value="Violencia Generalizada">Violencia Generalizada.<br></br>
+		<input type="checkbox" name=Causasdeldesplazamiento <% if(datavictima){ if(datavictima.causaOtra === "Si") { %> <%="checked"%><%} } %> value="Otra">Otra<br></br>
 		<div class="hr" style="width: 99%; position: relative; left: 10px;"></div>
 	</div>
 	<div>
 		<h5>Retorno</h5>
 		<div>
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Retorno%><% } %>" name="Retorno"  id="" placeholder="Usted Retorno al Lugar de donde se dezplazó?" list="retorno" 
-			style="width: 350px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " tabindex="90"
+			style="width: 350px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " 
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.DeseaRetornar%><% } %>" name="DeseaRetornar"  id="" placeholder="Desea Retornar?" list="DRetorno" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="91"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.TipoRetorno%><% } %>" name="TipoRetorno"  id="" placeholder="Tipo de Retorno?" list="TipoRetorno" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="92"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div>
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.QuienRetorno%><% } %>" name="QuienRetorno"  id="" placeholder="Retorno Toda la Familia?" list="QuienRetorno" 
-			style="width: 350px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="93"
+			style="width: 350px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.RetornoAcompanado%><% } %>" name="RetornoAcompanado"  id="" placeholder="Su Retorno fue acompañado?" list="RetornoAcompañado" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="94"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.PlanRetorno%><% } %>" name="PlanRetorno"  id="" placeholder="Se formuló un plan de Retorno?" list="PlanRetorno" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="95"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div class="hr" style="width: 99%; position: relative; left: 10px;"></div>
@@ -639,11 +639,11 @@
 		<h5>Reubicación</h5>
 		<div>
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Reubicarse%><% } %>" name="Reubicarse"  id="" placeholder="El hogar desea Reubicarse?" list="Reubicarse" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="96"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Razon%><% } %>" name="Razon"  id="" placeholder="Razón por la cual desea Reubicarse?" list="Razon" 
-			style="width: 280px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="97"
+			style="width: 280px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div class="hr" style="width: 99%; position: relative; left: 10px;"></div>
@@ -652,20 +652,20 @@
 		<h5>Reunificación Familiar</h5>
 		<div>
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Separacion%><% } %>" name="Separacion"  id="" placeholder="En el momento del dezplazamiento la Familia se separó?" list="Separacion" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="98"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Unificacion%><% } %>" name="Unificacion"  id="" placeholder="Se volvió a Unificar?" list="Unificar" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="99"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.AyudaEstatal%><% } %>" name="AyudaEstatal"  id="" placeholder="Solicito ayuda Estatal para la Reunificación?" list="Ayuda" 
-			style="width: 320px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="100"
+			style="width: 320px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div>
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.RecibioAyuda%><% } %>" name="RecibioAyuda"  id="" placeholder="Recibio la ayuda Solicitada?" list="Rayuda" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="101"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div class="hr" style="width: 99%; position: relative; left: 10px;"></div>
@@ -674,26 +674,23 @@
 		<h5>Refugio</h5>
 		<div>
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Refugio%><% } %>" name="Refugio"  id="" placeholder="Ha solicitado Refugio?" list="Refugio" 
-			style="width: 237px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="102"
+			title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 		</div>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Pais%><% } %>" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?"
-			style="width: 237px; margin-right: 3px; float: left; " tabindex="103"
-			
+			<input type="text" value="<% if(datavictima){ %><%=datavictima.Pais%><% } %>" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?" />
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.AnoRefugio%><% } %>" name="AnoRefugio" class="required Sexo" id="Sexo" placeholder="Año" list="año" 
-			style="width: 120px; " title="Año en que Ocurrio el hecho Victimizante!"tabindex="104"
+			style="width: 120px; " title="Año en que Ocurrio el hecho Victimizante!"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.RecibioAyudaRefugio%><% } %>" name="RecibioAyudaRefugio"  id="" placeholder="Recibio Ayuda?" list="Ayuda2" 
-			style="width: 150px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="105"
+			style="width: 150px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.Organizacion%><% } %>" name="Organizacion"  id="" placeholder="Que organización le Entrego la ayuda?" list="Organizacion" 
-			style="width: 300px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "tabindex="106"
+			style="width: 300px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div class="hr" style="width: 99%; position: relative; left: 10px;"></div>
