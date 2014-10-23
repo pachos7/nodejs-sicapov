@@ -1,4 +1,122 @@
 var log = require('log4js').getLogger("sicapov");
+var nodeExcel = require('excel-export');
+
+var queryTodasLasTablas = 	'SELECT ' +
+					'v.Tipodocumento    	,' +
+					'v.Numerodocumento  	,' +
+					'v.Nombres          	,' +
+					'v.Apellidos        	,' +
+					'v.Sexo			 		,' +
+					'v.Orientacionsexual	,' +
+					'v.Direccion        	,' +
+					'v.Telefono         	,' +
+					'v.Libretamilitar		,' +
+					'v.Jefehogar			,' +
+					'v.Vinculo				,' +
+					'v.Barrio				,' +
+					'v.SISBEN				,' +
+					'v.Afiliado				,' +
+					'v.Regimen				,' +
+					'v.Discapacidad			,' +
+					'v.Origendis			,' +
+					'v.Estudio				,' +
+					'v.NivelEstudio			,' +
+					'v.Leer					,' +
+					'v.Escribir				,' +
+					'v.Capacitacion			,' +
+					'v.Area					,' +
+					'v.Entidadc				,' +
+					'v.Trabajo				,' +
+					'v.Areatrabajo			,' +
+					'v.Tipotrabajo			,' +
+					'v.GrupoEtnico			,' +
+					'hv_h.Ano				as hom_Ano			,' +
+					'hv_h.Declarado		    as hom_Declarado		,' +
+					'hv_h.Lugardeclarado	as hom_Lugardeclarado,' +
+					'hv_h.Estadodeclaracion as hom_Estadodeclaracion, ' +
+					'hv_d.Ano				as des_Ano				,' +
+					'hv_d.Declarado		    as des_Declarado		,' +
+					'hv_d.Lugardeclarado	as des_Lugardeclarado	,' +
+					'hv_d.Estadodeclaracion as des_Estadodeclaracion,' +
+					'hv_s.Ano				as sec_Ano				,' +
+					'hv_s.Declarado		    as sec_Declarado		,' +
+					'hv_s.Lugardeclarado	as sec_Lugardeclarado	,' +
+					'hv_s.Estadodeclaracion as sec_Estadodeclaracion, ' +
+					'hv_l.Ano				as les_Ano				,' +
+					'hv_l.Declarado		    as les_Declarado		,' +
+					'hv_l.Lugardeclarado	as les_Lugardeclarado	,' +
+					'hv_l.Estadodeclaracion as les_Estadodeclaracion,' +
+					'hv_t.Ano				as tor_Ano				,' +
+					'hv_t.Declarado		    as tor_Declarado		,' +
+					'hv_t.Lugardeclarado	as tor_Lugardeclarado	,' +
+					'hv_t.Estadodeclaracion as tor_Estadodeclaracion,' +
+					'hv_ds.Ano				as desx_Ano			,' +
+					'hv_ds.Declarado		as desx_Declarado		,' +
+					'hv_ds.Lugardeclarado	as desx_Lugardeclarado	,' +
+					'hv_ds.Estadodeclaracion as desx_Estadodeclaracion, ' +
+					'hv_r.Ano				as rei_Ano				,' +
+					'hv_r.Declarado		    as rei_Declarado		,' +
+					'hv_r.Lugardeclarado	as rei_Lugardeclarado	,' +
+					'hv_r.Estadodeclaracion as rei_Estadodeclaracion,' +
+					'hv_dp.Ano				as dplz_Ano			,' +
+					'hv_dp.Declarado		as dplz_Declarado		,' +
+					'hv_dp.Lugardeclarado	as dplz_Lugardeclarado	,' +
+					'hv_dp.Estadodeclaracion as dplz_Estadodeclaracion,' +
+					'hv_dp.TipoDesplazamiento	,' +
+					'hv_dp.Retorno				,' +
+					'hv_dp.DeseaRetornar		,' +
+					'hv_dp.TipoRetorno			,' +
+					'hv_dp.QuienRetorno			,' +
+					'hv_dp.RetornoAcompanado	,' +
+					'hv_dp.PlanRetorno			,' +
+					'hv_dp.Reubicarse			,' +
+					'hv_dp.Razon				,' +
+					'hv_dp.Separacion			,' +
+					'hv_dp.Unificacion			,' +
+					'hv_dp.AyudaEstatal			,' +
+					'hv_dp.RecibioAyuda			,' +
+					'hv_dp.Refugio				,' +
+					'hv_dp.Pais					,' +
+					'hv_dp.AnoRefugio			,' +
+					'hv_dp.RecibioAyudaRefugio	,' +
+					'hv_dp.Organizacion			,' +
+					'hv_dp.causaConfrontacion	,' +
+					'hv_dp.causaAmenazaDirecta	,' +
+					'hv_dp.causaAmenazeIndirecta,' +
+					'hv_dp.causaReclutamiento	,' +
+					'hv_dp.causaCamposMinados	,' +
+					'hv_dp.causaAsesinatoFamiliar,' +
+					'hv_dp.causaViolenciaGeneral,' +
+					'hv_dp.causaOtra,' +
+					'hv_m.Ano					as min_Ano				,' +
+					'hv_m.Declarado		    	as min_Declarado		,' +
+					'hv_m.Lugardeclarado	 	as min_Lugardeclarado	,' +
+					'hv_m.Estadodeclaracion  	as min_Estadodeclaracion, ' +
+					'hv_a.Ano					as aba_Ano				,' +
+					'hv_a.Declarado		    	as aba_Declarado		,' +
+					'hv_a.Lugardeclarado	    as aba_Lugardeclarado	,' +
+					'hv_a.Estadodeclaracion  	as aba_Estadodeclaracion,' +
+					'hv_ma.Ano					as mas_Ano				,' +
+					'hv_ma.Declarado		    as mas_Declarado		,' +
+					'hv_ma.Lugardeclarado		as mas_Lugardeclarado	,' +
+					'hv_ma.Estadodeclaracion 	as mas_Estadodeclaracion,' +
+					'hv_p.Ano					as per_Ano				,' +
+					'hv_p.Declarado		    	as per_Declarado		,' +
+					'hv_p.Lugardeclarado	    as per_Lugardeclarado	,' +
+					'hv_p.Estadodeclaracion  	as per_Estadodeclaracion ' +
+					'FROM victimas v ' +
+					'LEFT JOIN hv_homicidio 			hv_h    ON 	 v.Tipodocumento=hv_h.Tipodocumento and v.Numerodocumento=hv_h.Numerodocumento ' +
+					'LEFT JOIN hv_desaparicionforzada 	hv_d	ON 	 v.Tipodocumento=hv_d.Tipodocumento and v.Numerodocumento=hv_d.Numerodocumento ' +
+					'LEFT JOIN hv_secuestro 			hv_s	ON 	 v.Tipodocumento=hv_s.Tipodocumento and v.Numerodocumento=hv_s.Numerodocumento ' +
+					'LEFT JOIN hv_lesionespersonales  	hv_l	ON 	 v.Tipodocumento=hv_l.Tipodocumento and v.Numerodocumento=hv_l.Numerodocumento ' +
+					'LEFT JOIN hv_tortura 			 	hv_t	ON 	 v.Tipodocumento=hv_t.Tipodocumento and v.Numerodocumento=hv_t.Numerodocumento ' +
+					'LEFT JOIN hv_delitossexuales 	 	hv_ds	ON 	 v.Tipodocumento=hv_ds.Tipodocumento and v.Numerodocumento=hv_ds.Numerodocumento ' +
+					'LEFT JOIN hv_reclutamientoilegal 	hv_r	ON 	 v.Tipodocumento=hv_r.Tipodocumento and v.Numerodocumento=hv_r.Numerodocumento ' +
+					'LEFT JOIN hv_desplazamiento 	 	hv_dp	ON 	 v.Tipodocumento=hv_dp.Tipodocumento and v.Numerodocumento=hv_dp.Numerodocumento ' +
+					'LEFT JOIN hv_minasantipersonales 	hv_m	ON 	 v.Tipodocumento=hv_m.Tipodocumento and v.Numerodocumento=hv_m.Numerodocumento ' +
+					'LEFT JOIN hv_despojodetierras 	 	hv_a	ON 	 v.Tipodocumento=hv_a.Tipodocumento and v.Numerodocumento=hv_a.Numerodocumento ' +
+					'LEFT JOIN hv_masacre 			 	hv_ma	ON 	 v.Tipodocumento=hv_ma.Tipodocumento and v.Numerodocumento=hv_ma.Numerodocumento ' +
+					'LEFT JOIN hv_perdidadebienes 	 	hv_p	ON 	 v.Tipodocumento=hv_p.Tipodocumento and v.Numerodocumento=hv_p.Numerodocumento ' ;
 
 var insertaRegistro = function (connection, tableName, data, callback) {
 	
@@ -37,125 +155,9 @@ exports.buscarvictima = function(req,res){
 			log.error("No se pudo establacer una conexion con la base de datos!");
 			res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas fallo", datavictima: null, message: "No se pudo establacer una conexion con la base de datos!"});
 		} else {
-			var queryString = 	'SELECT ' +
-								'v.Tipodocumento    	,' +
-								'v.Numerodocumento  	,' +
-								'v.Nombres          	,' +
-								'v.Apellidos        	,' +
-								'v.Sexo			 		,' +
-								'v.Orientacionsexual	,' +
-								'v.Direccion        	,' +
-								'v.Telefono         	,' +
-								'v.Libretamilitar		,' +
-								'v.Jefehogar			,' +
-								'v.Vinculo				,' +
-								'v.Barrio				,' +
-								'v.SISBEN				,' +
-								'v.Afiliado				,' +
-								'v.Regimen				,' +
-								'v.Discapacidad			,' +
-								'v.Origendis			,' +
-								'v.Estudio				,' +
-								'v.NivelEstudio			,' +
-								'v.Leer					,' +
-								'v.Escribir				,' +
-								'v.Capacitacion			,' +
-								'v.Area					,' +
-								'v.Entidadc				,' +
-								'v.Trabajo				,' +
-								'v.Areatrabajo			,' +
-								'v.Tipotrabajo			,' +
-								'v.GrupoEtnico			,' +
-								'hv_h.Ano				as hom_Ano			,' +
-								'hv_h.Declarado		    as hom_Declarado		,' +
-								'hv_h.Lugardeclarado	as hom_Lugardeclarado,' +
-								'hv_h.Estadodeclaracion as hom_Estadodeclaracion, ' +
-								'hv_d.Ano				as des_Ano				,' +
-								'hv_d.Declarado		    as des_Declarado		,' +
-								'hv_d.Lugardeclarado	as des_Lugardeclarado	,' +
-								'hv_d.Estadodeclaracion as des_Estadodeclaracion,' +
-								'hv_s.Ano				as sec_Ano				,' +
-								'hv_s.Declarado		    as sec_Declarado		,' +
-								'hv_s.Lugardeclarado	as sec_Lugardeclarado	,' +
-								'hv_s.Estadodeclaracion as sec_Estadodeclaracion, ' +
-								'hv_l.Ano				as les_Ano				,' +
-								'hv_l.Declarado		    as les_Declarado		,' +
-								'hv_l.Lugardeclarado	as les_Lugardeclarado	,' +
-								'hv_l.Estadodeclaracion as les_Estadodeclaracion,' +
-								'hv_t.Ano				as tor_Ano				,' +
-								'hv_t.Declarado		    as tor_Declarado		,' +
-								'hv_t.Lugardeclarado	as tor_Lugardeclarado	,' +
-								'hv_t.Estadodeclaracion as tor_Estadodeclaracion,' +
-								'hv_ds.Ano				as desx_Ano			,' +
-								'hv_ds.Declarado		as desx_Declarado		,' +
-								'hv_ds.Lugardeclarado	as desx_Lugardeclarado	,' +
-								'hv_ds.Estadodeclaracion as desx_Estadodeclaracion, ' +
-								'hv_r.Ano				as rei_Ano				,' +
-								'hv_r.Declarado		    as rei_Declarado		,' +
-								'hv_r.Lugardeclarado	as rei_Lugardeclarado	,' +
-								'hv_r.Estadodeclaracion as rei_Estadodeclaracion,' +
-								'hv_dp.Ano				as dplz_Ano			,' +
-								'hv_dp.Declarado		as dplz_Declarado		,' +
-								'hv_dp.Lugardeclarado	as dplz_Lugardeclarado	,' +
-								'hv_dp.Estadodeclaracion as dplz_Estadodeclaracion,' +
-								'hv_dp.TipoDesplazamiento	,' +
-								'hv_dp.Retorno				,' +
-								'hv_dp.DeseaRetornar		,' +
-								'hv_dp.TipoRetorno			,' +
-								'hv_dp.QuienRetorno			,' +
-								'hv_dp.RetornoAcompanado	,' +
-								'hv_dp.PlanRetorno			,' +
-								'hv_dp.Reubicarse			,' +
-								'hv_dp.Razon				,' +
-								'hv_dp.Separacion			,' +
-								'hv_dp.Unificacion			,' +
-								'hv_dp.AyudaEstatal			,' +
-								'hv_dp.RecibioAyuda			,' +
-								'hv_dp.Refugio				,' +
-								'hv_dp.Pais					,' +
-								'hv_dp.AnoRefugio			,' +
-								'hv_dp.RecibioAyudaRefugio	,' +
-								'hv_dp.Organizacion			,' +
-								'hv_dp.causaConfrontacion	,' +
-								'hv_dp.causaAmenazaDirecta	,' +
-								'hv_dp.causaAmenazeIndirecta,' +
-								'hv_dp.causaReclutamiento	,' +
-								'hv_dp.causaCamposMinados	,' +
-								'hv_dp.causaAsesinatoFamiliar,' +
-								'hv_dp.causaViolenciaGeneral,' +
-								'hv_dp.causaOtra,' +
-								'hv_m.Ano					as min_Ano				,' +
-								'hv_m.Declarado		    	as min_Declarado		,' +
-								'hv_m.Lugardeclarado	 	as min_Lugardeclarado	,' +
-								'hv_m.Estadodeclaracion  	as min_Estadodeclaracion, ' +
-								'hv_a.Ano					as aba_Ano				,' +
-								'hv_a.Declarado		    	as aba_Declarado		,' +
-								'hv_a.Lugardeclarado	    as aba_Lugardeclarado	,' +
-								'hv_a.Estadodeclaracion  	as aba_Estadodeclaracion,' +
-								'hv_ma.Ano					as mas_Ano				,' +
-								'hv_ma.Declarado		    as mas_Declarado		,' +
-								'hv_ma.Lugardeclarado		as mas_Lugardeclarado	,' +
-								'hv_ma.Estadodeclaracion 	as mas_Estadodeclaracion,' +
-								'hv_p.Ano					as per_Ano				,' +
-								'hv_p.Declarado		    	as per_Declarado		,' +
-								'hv_p.Lugardeclarado	    as per_Lugardeclarado	,' +
-								'hv_p.Estadodeclaracion  	as per_Estadodeclaracion ' +
-								'FROM victimas v ' +
-								'LEFT JOIN hv_homicidio 			hv_h    ON 	 v.Tipodocumento=hv_h.Tipodocumento and v.Numerodocumento=hv_h.Numerodocumento ' +
-								'LEFT JOIN hv_desaparicionforzada 	hv_d	ON 	 v.Tipodocumento=hv_d.Tipodocumento and v.Numerodocumento=hv_d.Numerodocumento ' +
-								'LEFT JOIN hv_secuestro 			hv_s	ON 	 v.Tipodocumento=hv_s.Tipodocumento and v.Numerodocumento=hv_s.Numerodocumento ' +
-								'LEFT JOIN hv_lesionespersonales  	hv_l	ON 	 v.Tipodocumento=hv_l.Tipodocumento and v.Numerodocumento=hv_l.Numerodocumento ' +
-								'LEFT JOIN hv_tortura 			 	hv_t	ON 	 v.Tipodocumento=hv_t.Tipodocumento and v.Numerodocumento=hv_t.Numerodocumento ' +
-								'LEFT JOIN hv_delitossexuales 	 	hv_ds	ON 	 v.Tipodocumento=hv_ds.Tipodocumento and v.Numerodocumento=hv_ds.Numerodocumento ' +
-								'LEFT JOIN hv_reclutamientoilegal 	hv_r	ON 	 v.Tipodocumento=hv_r.Tipodocumento and v.Numerodocumento=hv_r.Numerodocumento ' +
-								'LEFT JOIN hv_desplazamiento 	 	hv_dp	ON 	 v.Tipodocumento=hv_dp.Tipodocumento and v.Numerodocumento=hv_dp.Numerodocumento ' +
-								'LEFT JOIN hv_minasantipersonales 	hv_m	ON 	 v.Tipodocumento=hv_m.Tipodocumento and v.Numerodocumento=hv_m.Numerodocumento ' +
-								'LEFT JOIN hv_despojodetierras 	 	hv_a	ON 	 v.Tipodocumento=hv_a.Tipodocumento and v.Numerodocumento=hv_a.Numerodocumento ' +
-								'LEFT JOIN hv_masacre 			 	hv_ma	ON 	 v.Tipodocumento=hv_ma.Tipodocumento and v.Numerodocumento=hv_ma.Numerodocumento ' +
-								'LEFT JOIN hv_perdidadebienes 	 	hv_p	ON 	 v.Tipodocumento=hv_p.Tipodocumento and v.Numerodocumento=hv_p.Numerodocumento ' +
-								'WHERE v.Numerodocumento = ?' 
-							 
-			var query = connection.query(queryString,[data.documentoABuscar], function(err, rows) {
+
+				var queryString = queryTodasLasTablas + ' WHERE v.Numerodocumento = ?';
+				var query = connection.query(queryString,[data.documentoABuscar], function(err, rows) {
 				
 				log.debug("Query: " + query.sql);
 				
@@ -545,22 +547,122 @@ exports.guardar = function(req,res){
 	});
 };
 
-exports.lista = function(req,res){
-  req.getConnection(function(err,connection){
-       
-        var query = connection.query('SELECT * FROM victimas',function(err,rows)
-        {
+exports.reporte = function(req,res){
+	
+	req.getConnection(function(err,connection){
+    
+        var query = connection.query('SELECT * FROM victimas', function(err, rows) {
             log.debug("Query consulta victimas: " + query.sql);
             
             if(err)
 			{
 				log.error("Error consultando victimas " + err);
-				log.error("Error insertando en tabla victimas  " + err);
 				res.render('listavictimas', {usuario: req.user, page_title:"No se pudo realizar la consulta de victimas",  data: null , message : err});  			
 			}
-			else
-			    res.render('listavictimas',{usuario: req.user, page_title:"Lista de Victimas",data:rows});
-					
+			else {
+				
+			    res.render('listavictimas',{usuario: req.user, page_title:"Lista de Victimas", data:rows});
+			}
+			connection.release(function(err) {
+					// The connection is terminated now
+			});				
          });
     });
+	
+	
+};
+
+exports.excel = function(req,res){
+	
+	req.getConnection(function(err,connection){
+    
+        var query = connection.query(queryTodasLasTablas, function(err, rows) {
+            
+            if(err)
+			{
+				log.error("Error consultando victimas " + err);
+				res.render('listavictimas', {usuario: req.user, page_title:"No se pudo realizar la consulta de victimas",  data: null , message : err});  			
+			}
+			else {
+				
+				var conf ={};
+				conf.stylesXmlFile = "styles.xml";
+				conf.cols = [
+					{caption:'Tipo Documento',		type:'string'},
+					{caption:'Numero Documento',	type:'string'},
+					{caption:'Nombres',  type:'string'},
+					{caption:'Apellidos',  type:'string'},
+					{caption:'Sexo',  type:'string'},
+					{caption:'Orientacionsexual',  type:'string'},
+					{caption:'Direccion',  type:'string'},
+					{caption:'Telefono',  type:'string'},
+					{caption:'Libretamilitar',  type:'string'},
+					{caption:'Jefehogar',  type:'string'},
+					{caption:'Vinculo',  type:'string'},
+					{caption:'Barrio',  type:'string'},
+					{caption:'SISBEN',  type:'string'},
+					{caption:'Afiliado',  type:'string'},
+					{caption:'Regimen',  type:'string'},
+					{caption:'Discapacidad',  type:'string'},
+					{caption:'Origendis',  type:'string'},
+					{caption:'Estudio',  type:'string'},
+					{caption:'NivelEstudio',  type:'string'},
+					{caption:'Leer',  type:'string'},
+					{caption:'Escribir',  type:'string'},
+					{caption:'Capacitacion',  type:'string'},
+					{caption:'Area',  type:'string'},
+					{caption:'Entidadc',  type:'string'},
+					{caption:'Trabajo',  type:'string'},
+					{caption:'Areatrabajo',  type:'string'},
+					{caption:'Tipotrabajo',  type:'string'},
+					{caption:'GrupoEtnico',  type:'string'},
+
+				];
+				conf.rows = [];
+				//console.log("rows:" + JSON.stringify(rows));
+				
+				for (var i = 0; i < rows.length; i++) {
+					conf.rows.push([JSON.stringify(rows[i].Tipodocumento), 
+									JSON.stringify(rows[i].Numerodocumento),
+									JSON.stringify(rows[i].Nombres), 
+									JSON.stringify(rows[i].Apellidos), 
+									JSON.stringify(rows[i].Sexo), 
+									JSON.stringify(rows[i].Orientacionsexual), 
+									JSON.stringify(rows[i].Direccion), 
+									JSON.stringify(rows[i].Telefono), 
+									JSON.stringify(rows[i].Libretamilitar), 
+									JSON.stringify(rows[i].Jefehogar), 
+									JSON.stringify(rows[i].Vinculo), 
+									JSON.stringify(rows[i].Barrio), 
+									JSON.stringify(rows[i].SISBEN), 
+									JSON.stringify(rows[i].Afiliado), 
+									JSON.stringify(rows[i].Regimen), 
+									JSON.stringify(rows[i].Discapacidad), 
+									JSON.stringify(rows[i].Origendis), 
+									JSON.stringify(rows[i].Estudio), 
+									JSON.stringify(rows[i].NivelEstudio), 
+									JSON.stringify(rows[i].Leer), 
+									JSON.stringify(rows[i].Escribir), 
+									JSON.stringify(rows[i].Capacitacion), 
+									JSON.stringify(rows[i].Area), 
+									JSON.stringify(rows[i].Entidadc), 
+									JSON.stringify(rows[i].Trabajo), 
+									JSON.stringify(rows[i].Areatrabajo), 
+									JSON.stringify(rows[i].Tipotrabajo), 
+									JSON.stringify(rows[i].GrupoEtnico), 
+					]);
+				}
+				var result = nodeExcel.execute(conf);
+				res.setHeader('Content-Type', 'application/vnd.openxmlformats');
+				res.setHeader("Content-Disposition", "attachment; filename=" + "Reportv.xlsx");
+				res.end(result, 'binary');
+
+			}
+			connection.release(function(err) {
+					// The connection is terminated now
+			});				
+         });
+    });
+	
+
 };

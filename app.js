@@ -5,7 +5,7 @@ var path = require('path');
 var log4js = require( "log4js" );
 var passport = require('passport');
 var flash    = require('connect-flash');
-
+var nodeExcel = require('excel-export');
 
 var configDB = require('./config/database.js');
 
