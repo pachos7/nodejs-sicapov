@@ -2,108 +2,108 @@ var log = require('log4js').getLogger("sicapov");
 var nodeExcel = require('excel-export');
 
 var queryTodasLasTablas = 	'SELECT ' +
-					'v.Tipodocumento    	,' +
-					'v.Numerodocumento  	,' +
-					'v.Nombres          	,' +
-					'v.Apellidos        	,' +
-					'v.Sexo			 		,' +
-					'v.Orientacionsexual	,' +
-					'v.Direccion        	,' +
-					'v.Telefono         	,' +
-					'v.Libretamilitar		,' +
-					'v.Jefehogar			,' +
-					'v.Vinculo				,' +
-					'v.Barrio				,' +
-					'v.SISBEN				,' +
-					'v.Afiliado				,' +
-					'v.Regimen				,' +
-					'v.Discapacidad			,' +
-					'v.Origendis			,' +
-					'v.Estudio				,' +
-					'v.NivelEstudio			,' +
-					'v.Leer					,' +
-					'v.Escribir				,' +
-					'v.Capacitacion			,' +
-					'v.Area					,' +
-					'v.Entidadc				,' +
-					'v.Trabajo				,' +
-					'v.Areatrabajo			,' +
-					'v.Tipotrabajo			,' +
-					'v.GrupoEtnico			,' +
-					'hv_h.Ano				as hom_Ano			,' +
-					'hv_h.Declarado		    as hom_Declarado		,' +
-					'hv_h.Lugardeclarado	as hom_Lugardeclarado,' +
-					'hv_h.Estadodeclaracion as hom_Estadodeclaracion, ' +
-					'hv_d.Ano				as des_Ano				,' +
-					'hv_d.Declarado		    as des_Declarado		,' +
-					'hv_d.Lugardeclarado	as des_Lugardeclarado	,' +
-					'hv_d.Estadodeclaracion as des_Estadodeclaracion,' +
-					'hv_s.Ano				as sec_Ano				,' +
-					'hv_s.Declarado		    as sec_Declarado		,' +
-					'hv_s.Lugardeclarado	as sec_Lugardeclarado	,' +
-					'hv_s.Estadodeclaracion as sec_Estadodeclaracion, ' +
-					'hv_l.Ano				as les_Ano				,' +
-					'hv_l.Declarado		    as les_Declarado		,' +
-					'hv_l.Lugardeclarado	as les_Lugardeclarado	,' +
-					'hv_l.Estadodeclaracion as les_Estadodeclaracion,' +
-					'hv_t.Ano				as tor_Ano				,' +
-					'hv_t.Declarado		    as tor_Declarado		,' +
-					'hv_t.Lugardeclarado	as tor_Lugardeclarado	,' +
-					'hv_t.Estadodeclaracion as tor_Estadodeclaracion,' +
-					'hv_ds.Ano				as desx_Ano			,' +
-					'hv_ds.Declarado		as desx_Declarado		,' +
-					'hv_ds.Lugardeclarado	as desx_Lugardeclarado	,' +
-					'hv_ds.Estadodeclaracion as desx_Estadodeclaracion, ' +
-					'hv_r.Ano				as rei_Ano				,' +
-					'hv_r.Declarado		    as rei_Declarado		,' +
-					'hv_r.Lugardeclarado	as rei_Lugardeclarado	,' +
-					'hv_r.Estadodeclaracion as rei_Estadodeclaracion,' +
-					'hv_dp.Ano				as dplz_Ano			,' +
-					'hv_dp.Declarado		as dplz_Declarado		,' +
-					'hv_dp.Lugardeclarado	as dplz_Lugardeclarado	,' +
-					'hv_dp.Estadodeclaracion as dplz_Estadodeclaracion,' +
-					'hv_dp.TipoDesplazamiento	,' +
-					'hv_dp.Retorno				,' +
-					'hv_dp.DeseaRetornar		,' +
-					'hv_dp.TipoRetorno			,' +
-					'hv_dp.QuienRetorno			,' +
-					'hv_dp.RetornoAcompanado	,' +
-					'hv_dp.PlanRetorno			,' +
-					'hv_dp.Reubicarse			,' +
-					'hv_dp.Razon				,' +
-					'hv_dp.Separacion			,' +
-					'hv_dp.Unificacion			,' +
-					'hv_dp.AyudaEstatal			,' +
-					'hv_dp.RecibioAyuda			,' +
-					'hv_dp.Refugio				,' +
-					'hv_dp.Pais					,' +
-					'hv_dp.AnoRefugio			,' +
-					'hv_dp.RecibioAyudaRefugio	,' +
-					'hv_dp.Organizacion			,' +
-					'hv_dp.causaConfrontacion	,' +
-					'hv_dp.causaAmenazaDirecta	,' +
-					'hv_dp.causaAmenazeIndirecta,' +
-					'hv_dp.causaReclutamiento	,' +
-					'hv_dp.causaCamposMinados	,' +
-					'hv_dp.causaAsesinatoFamiliar,' +
-					'hv_dp.causaViolenciaGeneral,' +
-					'hv_dp.causaOtra,' +
-					'hv_m.Ano					as min_Ano				,' +
-					'hv_m.Declarado		    	as min_Declarado		,' +
-					'hv_m.Lugardeclarado	 	as min_Lugardeclarado	,' +
-					'hv_m.Estadodeclaracion  	as min_Estadodeclaracion, ' +
-					'hv_a.Ano					as aba_Ano				,' +
-					'hv_a.Declarado		    	as aba_Declarado		,' +
-					'hv_a.Lugardeclarado	    as aba_Lugardeclarado	,' +
-					'hv_a.Estadodeclaracion  	as aba_Estadodeclaracion,' +
-					'hv_ma.Ano					as mas_Ano				,' +
-					'hv_ma.Declarado		    as mas_Declarado		,' +
-					'hv_ma.Lugardeclarado		as mas_Lugardeclarado	,' +
-					'hv_ma.Estadodeclaracion 	as mas_Estadodeclaracion,' +
-					'hv_p.Ano					as per_Ano				,' +
-					'hv_p.Declarado		    	as per_Declarado		,' +
-					'hv_p.Lugardeclarado	    as per_Lugardeclarado	,' +
-					'hv_p.Estadodeclaracion  	as per_Estadodeclaracion ' +
+					'COALESCE(v.Tipodocumento,"")    	as Tipodocumento,' +
+					'COALESCE(v.Numerodocumento,"")  	as Numerodocumento,' +
+					'COALESCE(v.Nombres,"")          	as Nombres,' +
+					'COALESCE(v.Apellidos,"")        	as Apellidos,' +
+					'COALESCE(v.Sexo,"")			 	as Sexo,' +
+					'COALESCE(v.Orientacionsexual,"")	as Orientacionsexual,' +
+					'COALESCE(v.Direccion,"")        	as Direccion,' +
+					'COALESCE(v.Telefono,"")         	as Telefono,' +
+					'COALESCE(v.Libretamilitar,"")		as Libretamilitar,' +
+					'COALESCE(v.Jefehogar,"")			as Jefehogar,' +
+					'COALESCE(v.Vinculo,"")				as Vinculo,' +
+					'COALESCE(v.Barrio,"")				as Barrio,' +
+					'COALESCE(v.SISBEN,"")				as SISBEN,' +
+					'COALESCE(v.Afiliado,"")			as Afiliado,' +
+					'COALESCE(v.Regimen,"")				as Regimen,' +
+					'COALESCE(v.Discapacidad,"")		as Discapacidad,' +
+					'COALESCE(v.Origendis,"")			as Origendis,' +
+					'COALESCE(v.Estudio,"")				as Estudio,' +
+					'COALESCE(v.NivelEstudio,"")		as NivelEstudio,' +
+					'COALESCE(v.Leer,"")				as Leer,' +
+					'COALESCE(v.Escribir,"")			as Escribir,' +
+					'COALESCE(v.Capacitacion,"")		as Capacitacion,' +
+					'COALESCE(v.Area,"")				as Area,' +
+					'COALESCE(v.Entidadc,"")			as Entidadc,' +
+					'COALESCE(v.Trabajo,"")				as Trabajo,' +
+					'COALESCE(v.Areatrabajo,"")			as Areatrabajo,' +
+					'COALESCE(v.Tipotrabajo,"")			as Tipotrabajo,' +
+					'COALESCE(v.GrupoEtnico,"")			as GrupoEtnico,' +
+					'COALESCE(hv_h.Ano,"")				as hom_Ano			,' +
+					'COALESCE(hv_h.Declarado,"")		as hom_Declarado		,' +
+					'COALESCE(hv_h.Lugardeclarado,"")	as hom_Lugardeclarado,' +
+					'COALESCE(hv_h.Estadodeclaracion,"") as hom_Estadodeclaracion, ' +
+					'COALESCE(hv_d.Ano,"")				as des_Ano				,' +
+					'COALESCE(hv_d.Declarado,"")		as des_Declarado		,' +
+					'COALESCE(hv_d.Lugardeclarado,"")	as des_Lugardeclarado	,' +
+					'COALESCE(hv_d.Estadodeclaracion,"") as des_Estadodeclaracion,' +
+					'COALESCE(hv_s.Ano,"")				as sec_Ano				,' +
+					'COALESCE(hv_s.Declarado,"")		as sec_Declarado		,' +
+					'COALESCE(hv_s.Lugardeclarado,"")	as sec_Lugardeclarado	,' +
+					'COALESCE(hv_s.Estadodeclaracion,"") as sec_Estadodeclaracion, ' +
+					'COALESCE(hv_l.Ano,"")				as les_Ano				,' +
+					'COALESCE(hv_l.Declarado,"")		as les_Declarado		,' +
+					'COALESCE(hv_l.Lugardeclarado,"")	as les_Lugardeclarado	,' +
+					'COALESCE(hv_l.Estadodeclaracion,"") as les_Estadodeclaracion,' +
+					'COALESCE(hv_t.Ano,"")				as tor_Ano				,' +
+					'COALESCE(hv_t.Declarado,"")		as tor_Declarado		,' +
+					'COALESCE(hv_t.Lugardeclarado,"")	as tor_Lugardeclarado	,' +
+					'COALESCE(hv_t.Estadodeclaracion,"") as tor_Estadodeclaracion,' +
+					'COALESCE(hv_ds.Ano,"")				as desx_Ano			,' +
+					'COALESCE(hv_ds.Declarado,"")		as desx_Declarado		,' +
+					'COALESCE(hv_ds.Lugardeclarado,"")	as desx_Lugardeclarado	,' +
+					'COALESCE(hv_ds.Estadodeclaracion,"") as desx_Estadodeclaracion, ' +
+					'COALESCE(hv_r.Ano,"")				as rei_Ano				,' +
+					'COALESCE(hv_r.Declarado,"")		as rei_Declarado		,' +
+					'COALESCE(hv_r.Lugardeclarado,"")	as rei_Lugardeclarado	,' +
+					'COALESCE(hv_r.Estadodeclaracion,"") as rei_Estadodeclaracion,' +
+					'COALESCE(hv_dp.Ano,"")				as dplz_Ano			,' +
+					'COALESCE(hv_dp.Declarado,"")		as dplz_Declarado		,' +
+					'COALESCE(hv_dp.Lugardeclarado,"")	as dplz_Lugardeclarado	,' +
+					'COALESCE(hv_dp.Estadodeclaracion,"") as dplz_Estadodeclaracion,' +
+					'COALESCE(hv_dp.TipoDesplazamiento,"")	as TipoDesplazamiento,' +
+					'COALESCE(hv_dp.Retorno,"")				as Retorno,' +
+					'COALESCE(hv_dp.DeseaRetornar,"")		as DeseaRetornar,' +
+					'COALESCE(hv_dp.TipoRetorno,"")			as TipoRetorno,' +
+					'COALESCE(hv_dp.QuienRetorno,"")		as QuienRetorno,' +
+					'COALESCE(hv_dp.RetornoAcompanado,"")	as RetornoAcompanado,' +
+					'COALESCE(hv_dp.PlanRetorno,"")			as PlanRetorno,' +
+					'COALESCE(hv_dp.Reubicarse,"")			as Reubicarse,' +
+					'COALESCE(hv_dp.Razon,"")				as Razon,' +
+					'COALESCE(hv_dp.Separacion,"")			as Separacion,' +
+					'COALESCE(hv_dp.Unificacion,"")			as Unificacion,' +
+					'COALESCE(hv_dp.AyudaEstatal,"")		as AyudaEstatal,' +
+					'COALESCE(hv_dp.RecibioAyuda,"")		as RecibioAyuda,' +
+					'COALESCE(hv_dp.Refugio,"")				as Refugio,' +
+					'COALESCE(hv_dp.Pais,"")				as Pais,' +
+					'COALESCE(hv_dp.AnoRefugio,"")			as AnoRefugio,' +
+					'COALESCE(hv_dp.RecibioAyudaRefugio,"")	as RecibioAyudaRefugio,' +
+					'COALESCE(hv_dp.Organizacion,"")		as Organizacion,' +
+					'COALESCE(hv_dp.causaConfrontacion,"")	as causaConfrontacion,' +
+					'COALESCE(hv_dp.causaAmenazaDirecta,"")	as causaAmenazaDirecta,' +
+					'COALESCE(hv_dp.causaAmenazeIndirecta,"") as causaAmenazeIndirecta,' +
+					'COALESCE(hv_dp.causaReclutamiento,"")	as causaReclutamiento,' +
+					'COALESCE(hv_dp.causaCamposMinados,"")	as causaCamposMinados,' +
+					'COALESCE(hv_dp.causaAsesinatoFamiliar,"") as causaAsesinatoFamiliar,' +
+					'COALESCE(hv_dp.causaViolenciaGeneral,"") as causaViolenciaGeneral,' +
+					'COALESCE(hv_dp.causaOtra,"") 			as causaOtra,' +
+					'COALESCE(hv_m.Ano,"")					as min_Ano				,' +
+					'COALESCE(hv_m.Declarado,"")		    as min_Declarado		,' +
+					'COALESCE(hv_m.Lugardeclarado,"")	 	as min_Lugardeclarado	,' +
+					'COALESCE(hv_m.Estadodeclaracion,"")  	as min_Estadodeclaracion, ' +
+					'COALESCE(hv_a.Ano,"")					as aba_Ano				,' +
+					'COALESCE(hv_a.Declarado,"")		    as aba_Declarado		,' +
+					'COALESCE(hv_a.Lugardeclarado,"")	    as aba_Lugardeclarado	,' +
+					'COALESCE(hv_a.Estadodeclaracion,"")  	as aba_Estadodeclaracion,' +
+					'COALESCE(hv_ma.Ano,"")					as mas_Ano				,' +
+					'COALESCE(hv_ma.Declarado,"")		    as mas_Declarado		,' +
+					'COALESCE(hv_ma.Lugardeclarado,"")		as mas_Lugardeclarado	,' +
+					'COALESCE(hv_ma.Estadodeclaracion,"") 	as mas_Estadodeclaracion,' +
+					'COALESCE(hv_p.Ano,"")					as per_Ano				,' +
+					'COALESCE(hv_p.Declarado,"")		    as per_Declarado		,' +
+					'COALESCE(hv_p.Lugardeclarado,"")	    as per_Lugardeclarado	,' +
+					'COALESCE(hv_p.Estadodeclaracion,"")  	as per_Estadodeclaracion ' +
 					'FROM victimas v ' +
 					'LEFT JOIN hv_homicidio 			hv_h    ON 	 v.Tipodocumento=hv_h.Tipodocumento and v.Numerodocumento=hv_h.Numerodocumento ' +
 					'LEFT JOIN hv_desaparicionforzada 	hv_d	ON 	 v.Tipodocumento=hv_d.Tipodocumento and v.Numerodocumento=hv_d.Numerodocumento ' +
@@ -616,7 +616,80 @@ exports.excel = function(req,res){
 					{caption:'Areatrabajo',  type:'string'},
 					{caption:'Tipotrabajo',  type:'string'},
 					{caption:'GrupoEtnico',  type:'string'},
-
+					{caption:'hom_Ano',  type:'string'},
+					{caption:'hom_Declarado',  type:'string'},
+					{caption:'hom_Lugardeclarado',  type:'string'},
+					{caption:'hom_Estadodeclaracion',  type:'string'},
+					{caption:'des_Ano',  type:'string'},
+					{caption:'des_Declarado',  type:'string'},
+					{caption:'des_Lugardeclarado',  type:'string'},
+					{caption:'des_Estadodeclaracion',  type:'string'},
+					{caption:'sec_Ano',  type:'string'},
+					{caption:'sec_Declarado',  type:'string'},
+					{caption:'sec_Lugardeclarado',  type:'string'},
+					{caption:'sec_Estadodeclaracion',  type:'string'},
+					{caption:'les_Ano',  type:'string'},
+					{caption:'les_Declarado',  type:'string'},
+					{caption:'les_Lugardeclarado',  type:'string'},
+					{caption:'les_Estadodeclaracion',  type:'string'},
+					{caption:'tor_Ano',  type:'string'},
+					{caption:'tor_Declarado',  type:'string'},
+					{caption:'tor_Lugardeclarado',  type:'string'},
+					{caption:'tor_Estadodeclaracion',  type:'string'},
+					{caption:'desx_Ano',  type:'string'},
+					{caption:'desx_Declarado',  type:'string'},
+					{caption:'desx_Lugardeclarado',  type:'string'},
+					{caption:'desx_Estadodeclaracion',  type:'string'},
+					{caption:'rei_Ano',  type:'string'},
+					{caption:'rei_Declarado',  type:'string'},
+					{caption:'rei_Lugardeclarado',  type:'string'},
+					{caption:'rei_Estadodeclaracion',  type:'string'},
+					{caption:'dplz_Ano',  type:'string'},
+					{caption:'dplz_Declarado',  type:'string'},
+					{caption:'dplz_Lugardeclarado',  type:'string'},
+					{caption:'dplz_Estadodeclaracion',  type:'string'},
+					{caption:'TipoDesplazamiento',  type:'string'},
+					{caption:'Retorno',  type:'string'},
+					{caption:'DeseaRetornar',  type:'string'},
+					{caption:'TipoRetorno',  type:'string'},
+					{caption:'QuienRetorno',  type:'string'},
+					{caption:'RetornoAcompanado',  type:'string'},
+					{caption:'PlanRetorno',  type:'string'},
+					{caption:'Reubicarse',  type:'string'},
+					{caption:'Razon',  type:'string'},
+					{caption:'Separacion',  type:'string'},
+					{caption:'Unificacion',  type:'string'},
+					{caption:'AyudaEstatal',  type:'string'},
+					{caption:'RecibioAyuda',  type:'string'},
+					{caption:'Refugio',  type:'string'},
+					{caption:'Pais',  type:'string'},
+					{caption:'AnoRefugio',  type:'string'},
+					{caption:'RecibioAyudaRefugio',  type:'string'},
+					{caption:'Organizacion',  type:'string'},
+					{caption:'causaConfrontacion',  type:'string'},
+					{caption:'causaAmenazaDirecta',  type:'string'},
+					{caption:'causaAmenazeIndirecta',  type:'string'},
+					{caption:'causaReclutamiento',  type:'string'},
+					{caption:'causaCamposMinados',  type:'string'},
+					{caption:'causaAsesinatoFamiliar',  type:'string'},
+					{caption:'causaViolenciaGeneral',  type:'string'},
+					{caption:'causaOtra',  type:'string'},
+					{caption:'min_Ano',  type:'string'},
+					{caption:'min_Declarado',  type:'string'},
+					{caption:'min_Lugardeclarado',  type:'string'},
+					{caption:'min_Estadodeclaracion',  type:'string'},
+					{caption:'aba_Ano',  type:'string'},
+					{caption:'aba_Declarado',  type:'string'},
+					{caption:'aba_Lugardeclarado',  type:'string'},
+					{caption:'aba_Estadodeclaracion',  type:'string'},
+					{caption:'mas_Ano',  type:'string'},
+					{caption:'mas_Declarado',  type:'string'},
+					{caption:'mas_Lugardeclarado',  type:'string'},
+					{caption:'mas_Estadodeclaracion',  type:'string'},
+					{caption:'per_Ano',  type:'string'},
+					{caption:'per_Declarado',  type:'string'},
+					{caption:'per_Lugardeclarado',  type:'string'},
+					{caption:'per_Estadodeclaracion',  type:'string'},
 				];
 				conf.rows = [];
 				//console.log("rows:" + JSON.stringify(rows));
@@ -650,6 +723,80 @@ exports.excel = function(req,res){
 									JSON.stringify(rows[i].Areatrabajo), 
 									JSON.stringify(rows[i].Tipotrabajo), 
 									JSON.stringify(rows[i].GrupoEtnico), 
+									JSON.stringify(rows[i].hom_Ano), 
+									JSON.stringify(rows[i].hom_Declarado), 
+									JSON.stringify(rows[i].hom_Lugardeclarado), 
+									JSON.stringify(rows[i].hom_Estadodeclaracion), 
+									JSON.stringify(rows[i].des_Ano), 
+									JSON.stringify(rows[i].des_Declarado), 
+									JSON.stringify(rows[i].des_Lugardeclarado), 
+									JSON.stringify(rows[i].des_Estadodeclaracion), 
+									JSON.stringify(rows[i].sec_Ano), 
+									JSON.stringify(rows[i].sec_Declarado), 
+									JSON.stringify(rows[i].sec_Lugardeclarado), 
+									JSON.stringify(rows[i].sec_Estadodeclaracion), 
+									JSON.stringify(rows[i].les_Ano), 
+									JSON.stringify(rows[i].les_Declarado), 
+									JSON.stringify(rows[i].les_Lugardeclarado), 
+									JSON.stringify(rows[i].les_Estadodeclaracion), 
+									JSON.stringify(rows[i].tor_Ano), 
+									JSON.stringify(rows[i].tor_Declarado), 
+									JSON.stringify(rows[i].tor_Lugardeclarado), 
+									JSON.stringify(rows[i].tor_Estadodeclaracion), 
+									JSON.stringify(rows[i].desx_Ano), 
+									JSON.stringify(rows[i].desx_Declarado), 
+									JSON.stringify(rows[i].desx_Lugardeclarado), 
+									JSON.stringify(rows[i].desx_Estadodeclaracion), 
+									JSON.stringify(rows[i].rei_Ano), 
+									JSON.stringify(rows[i].rei_Declarado), 
+									JSON.stringify(rows[i].rei_Lugardeclarado), 
+									JSON.stringify(rows[i].rei_Estadodeclaracion), 
+									JSON.stringify(rows[i].dplz_Ano), 
+									JSON.stringify(rows[i].dplz_Declarado), 
+									JSON.stringify(rows[i].dplz_Lugardeclarado), 
+									JSON.stringify(rows[i].dplz_Estadodeclaracion), 
+									JSON.stringify(rows[i].TipoDesplazamiento), 
+									JSON.stringify(rows[i].Retorno), 
+									JSON.stringify(rows[i].DeseaRetornar), 
+									JSON.stringify(rows[i].TipoRetorno), 
+									JSON.stringify(rows[i].QuienRetorno), 
+									JSON.stringify(rows[i].RetornoAcompanado), 
+									JSON.stringify(rows[i].PlanRetorno), 
+									JSON.stringify(rows[i].Reubicarse), 
+									JSON.stringify(rows[i].Razon), 
+									JSON.stringify(rows[i].Separacion), 
+									JSON.stringify(rows[i].Unificacion), 
+									JSON.stringify(rows[i].AyudaEstatal), 
+									JSON.stringify(rows[i].RecibioAyuda), 
+									JSON.stringify(rows[i].Refugio), 
+									JSON.stringify(rows[i].Pais), 
+									JSON.stringify(rows[i].AnoRefugio), 
+									JSON.stringify(rows[i].RecibioAyudaRefugio), 
+									JSON.stringify(rows[i].Organizacion), 
+									JSON.stringify(rows[i].causaConfrontacion), 
+									JSON.stringify(rows[i].causaAmenazaDirecta), 
+									JSON.stringify(rows[i].causaAmenazeIndirecta), 
+									JSON.stringify(rows[i].causaReclutamiento), 
+									JSON.stringify(rows[i].causaCamposMinados), 
+									JSON.stringify(rows[i].causaAsesinatoFamiliar), 
+									JSON.stringify(rows[i].causaViolenciaGeneral), 
+									JSON.stringify(rows[i].causaOtra), 
+									JSON.stringify(rows[i].min_Ano), 
+									JSON.stringify(rows[i].min_Declarado), 
+									JSON.stringify(rows[i].min_Lugardeclarado), 
+									JSON.stringify(rows[i].min_Estadodeclaracion), 
+									JSON.stringify(rows[i].aba_Ano), 
+									JSON.stringify(rows[i].aba_Declarado), 
+									JSON.stringify(rows[i].aba_Lugardeclarado), 
+									JSON.stringify(rows[i].aba_Estadodeclaracion), 
+									JSON.stringify(rows[i].mas_Ano), 
+									JSON.stringify(rows[i].mas_Declarado), 
+									JSON.stringify(rows[i].mas_Lugardeclarado), 
+									JSON.stringify(rows[i].mas_Estadodeclaracion), 
+									JSON.stringify(rows[i].per_Ano), 
+									JSON.stringify(rows[i].per_Declarado), 
+									JSON.stringify(rows[i].per_Lugardeclarado), 
+									JSON.stringify(rows[i].per_Estadodeclaracion), 
 					]);
 				}
 				var result = nodeExcel.execute(conf);
