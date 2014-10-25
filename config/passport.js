@@ -7,8 +7,8 @@ var LocalStrategy   = require('passport-local').Strategy;
 //var User 			= mongoose.model('User');
 
 var User = [{ id: 1, username: 'bob', password: 'secret', email: 'bob@example.com' }, 
-			{ id: 2, username: 'joe', password: 'birthday', email: 'joe@example.com' }];
-
+			{ id: 2, username: 'manuelnino', password: 'sicapov', email: 'mn@example.com' },
+			{ id: 3, username: 'javierpolo', password: 'victimas', email: 'jp@example.com' }];
 function findOne(username, fn) {
   for (var i = 0, len = User.length; i < len; i++) {
     var user = User[i];
