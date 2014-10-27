@@ -268,10 +268,12 @@
 		onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 	</div>
 	<div>
-		<input type="text" value="<% if(datavictima){ %><%=datavictima.Nombres %><% } %>" name="Nombres" class="textInput " id="id_Nombres" placeholder="Nombres(*)"
+		<input type="text" value="<% if(datavictima){ %><%=datavictima.Nombres %><% } %>" name="Nombres" class="textInput " id="id_Nombres" placeholder="Nombres(*)" 
+		 onkeypress='return event.charCode >= 59 && event.charCode <= 122'
 		 required/>
 
 		<input type="text" value="<% if(datavictima){ %><%=datavictima.Apellidos %><% } %>" name="Apellidos" class="textInput " id="id_Appelidos" placeholder="Apellidos(*)"
+		 onkeypress='return event.charCode >= 59 && event.charCode <= 122'
 		style=" " required/>
 
 		<input type="text" value="<% if(datavictima){ %><%=datavictima.Sexo %><% } %>" name="Sexo" class="" id="id_Sexo" placeholder="Sexo(*)" list="Sexos" 
@@ -681,7 +683,7 @@
 
 		</div>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Pais%><% } %>" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?" />
+			<input type="text" value="<% if(datavictima){ %><%=datavictima.Pais%><% } %>" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?"  onkeypress='return event.charCode >= 59 && event.charCode <= 122'/>
 
 			<input type="text" value="<% if(datavictima){ %><%=datavictima.AnoRefugio%><% } %>" name="AnoRefugio" class="required Sexo" id="id_anoRefugio" placeholder="Año" list="año" disabled
 			style="width: 120px; " title="Año en que solicitó el Refugio!"
