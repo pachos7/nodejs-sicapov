@@ -10,20 +10,31 @@
         </strong>
       </h1>
       <div class="">
-    	<form method="post" action="/consulta">	
+		<% if(datavictima){ %>
+				<div class="mc-field-group" style="margin: 10px 0 0 0;">
+					<a href="/eliminar/<%=datavictima.Numerodocumento%>">
+						<button class="button btn"><span style="margin-top: -1px;">Eliminar Victima</span></button>
+					</a>
+					<a href="/consulta">
+						<button class="button btn"><span style="margin-top: -1px;">Nueva Consulta</span></button>
+					</a>
+				</div>
+		<% } %>
+    	<form method="post" action="/consulta" id="id_form_consulta" onload="deshabilitarFormulario()">	
 			<script>// funcion para que el foco aparezca en el elemento que se quiere  deje la funcion aqui para verla pero la pondremos abajo.... Funciona !!!
 				if(!("autofocus" in document.createElement("input")))
 				document.getElementById("id_documentoABuscar").focus();
 			</script>
-			
+		<% if(!datavictima){ %>	
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			  <input type="text" autofocus="autofocus" value="" name="documentoABuscar" class="required" id="id_documentoABuscar" placeholder="Ingrese Numero de Documento"onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+			  <input type="text" autofocus="autofocus" value="<% if(datavictima){ %><%=datavictima.Numerodocumento %><% } %>" name="documentoABuscar" class="required" id="id_documentoABuscar" placeholder="Ingrese Numero de Documento"onkeypress='return event.charCode >= 48 && event.charCode <= 57'
 			  required title="Por favor ingresa un numero de documento!"/>
 			  <button type="submit" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
 				<span style="margin-top: -1px;">Consultar</span>
 			  </button>
+				
 			</div>
-			
+		<% } %>	
 			<% if(datavictima){ %>
 				<%- include layouts/datavictima.ejs %>
 				
@@ -31,8 +42,20 @@
 				  <div class="response" id="mce-error-response" style="display:none"></div>
 				  <div class="response" id="mce-success-response" style="display:none"></div>
 				</div>
-			<% }  %>
+			<%  }  %>
 		</form>
       </div>
     </div>
 <%- include layouts/footer.ejs %>
+
+<script>
+	function deshabilitarFormulario()	{
+		alert("I'm in");
+		var form = document.getElementById("id_form_consulta");
+		var elements = form.elements;
+		for (var i = 0, len = elements.length; i < len; ++i) {
+			elements[i].readOnly = true;
+			alert(elements[i].id);
+		}
+	}
+</script>

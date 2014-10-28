@@ -133,6 +133,22 @@ var insertaRegistro = function (connection, tableName, data, callback) {
 	});
 };
 
+var borraRegistro = function (connection, tableName, numeroDocumento, callback) {
+	
+	var query = connection.query("DELETE FROM " + tableName + " WHERE Numerodocumento = ? ", numeroDocumento, function(err, rows, callback) {
+		
+		log.debug("Query borrar " + tableName + " : " + query.sql);
+		if (err) {
+			log.error("Error borrando de la tabla " + tableName + "  " + err);
+			res.render('Consulta', {usuario: req.user, page_title:"No se pudo realizar el borrado de la victima",  datavictima: null , message : err});  						
+		} 
+		 else if (callback) {
+			callback();
+		} 
+	});
+};
+
+
 exports.consultavictima = function(req,res){
 	res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: null , message: null });
 };
@@ -812,4 +828,47 @@ exports.excel = function(req,res){
     });
 	
 
+};
+
+exports.eliminar = function(req, res){
+	var documentoABorrar = req.params.documentoABorrar;
+	
+	req.getConnection(function (err, connection) {
+		
+		if(typeof connection === 'undefined'){
+			log.error("No se pudo establacer una conexion con la base de datos!");
+			res.render('consulta', {usuario: req.user, page_title:"eliminacion de victimas fallo", datavictima: null, message: "No se pudo establacer una conexion con la base de datos!"});
+		} else {
+
+				var query = connection.query('Delete from victimas WHERE Numerodocumento = ?',[documentoABorrar], function(err, rows) {
+				
+				log.debug("Query: " + query.sql);
+				
+				if (err) {
+					log.error("Error eliminando victima la tabla victimas  " + err);
+					res.render('consulta', {usuario: req.user, page_title:"Error en eliminacion de victima", datavictima: null, message : err});  			
+				}
+				else
+				{
+					 /* Elimina registros de las tablas de hechos victimizantes */
+					borraRegistro(connection, 'hv_homicidio', documentoABorrar);
+					borraRegistro(connection, 'hv_desaparicionforzada', documentoABorrar);
+					borraRegistro(connection, 'hv_secuestro', documentoABorrar);
+					borraRegistro(connection, 'hv_lesionespersonales', documentoABorrar);
+					borraRegistro(connection, 'hv_tortura', documentoABorrar);
+					borraRegistro(connection, 'hv_delitossexuales', documentoABorrar);
+					borraRegistro(connection, 'hv_reclutamientoilegal', documentoABorrar);
+					borraRegistro(connection, 'hv_desplazamiento', documentoABorrar);
+					borraRegistro(connection, 'hv_minasantipersonales', documentoABorrar);
+					borraRegistro(connection, 'hv_despojodetierras', documentoABorrar);
+					borraRegistro(connection, 'hv_masacre', documentoABorrar);
+					borraRegistro(connection, 'hv_perdidadebienes', documentoABorrar);
+					
+					res.render('consulta', {usuario: req.user, page_title:"Consulta de Victimas", datavictima: null , message: "Datos de Victima " + documentoABorrar +" eliminados"  });
+				};
+				
+				connection.release(function(err) {});	
+			});
+		};
+	});
 };

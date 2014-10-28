@@ -28,6 +28,7 @@ module.exports = function(app, passport) {
 	app.post('/caracterizacion', 	isLoggedIn, victimas.guardar);
 	app.get('/reportes', 			isLoggedIn, victimas.reporte);
 	app.post('/Excel',	 			isLoggedIn, victimas.excel);
+	app.get('/eliminar/:documentoABorrar',        isLoggedIn, victimas.eliminar);
 	
 	app.get('/noticias', function(req, res) {
 		res.render('noticias', {usuario: req.user, page_title:"Noticias", message: req.flash('loginMessage') });
