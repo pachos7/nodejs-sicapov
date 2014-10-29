@@ -1,0 +1,62 @@
+<%- include layouts/header.ejs %>
+    <div class="full-page">
+		<% if (message) { %>
+			<div class="alert"><%= message %></div>
+		<% } %>
+		
+		<h1 class="headline"><strong><%=page_title%></strong></h1>
+		<form method="post" action="/listaPorHecho" id="id_form_consultaHecho">	
+	  	<% if(!data){ %>
+			<div class="mc-field-group" style="margin: 10px 0 0 0;">
+				<input type="text" value="<% if(data){ %><%=data.TipoHecho%><% } %>" name="HechoVictimizante" class="" id="id_hechovictimizante" placeholder="Tipo de Hecho Victimizante (*)" list="tipodehecho"  
+				required title="Por favor escoga el tipo de hecho victmizante !" style="width: 300px;"
+				onkeypress='return event.charCode > 0 && event.charCode < 0' autofocus />
+				<button type="submit" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
+					<span style="margin-top: -1px;">Consultar</span>
+				</button>
+			</div>
+		<% } %>
+		</form>
+	  <% if(data){ %>
+		<a href="/listaPorHecho">
+			<button class="button btn"><span style="margin-top: -1px;">Nueva Consulta</span></button>
+		</a>
+		<form method="post" action="/excelLista">
+			<div class="mc-field-group" style="margin: 10px 0 0 0;">
+			  <button type="submit" name="Exportar" value="Exportar" class="button btn" id="id_Exportar">
+				<span style="margin-top: -1px;">Exportar a Excel</span>
+			  </button>
+			</div>
+		
+			<div class="" style="overflow:scroll; height:400px;">
+		
+			<% for(var i = 0;i < data.length;i++) { %>
+			<div>
+				<input type="text" value="<%=(i+1)%>" name="Numero" id="id_Numero" style="width: 40px;" READONLY/>
+				<input type="text" value="<%=data[i].Tipodocumento %>" name="Tipodocumento" id="id_tipodocumento" style="width: 180px;" READONLY/>
+				<input type="text" value="<%=data[i].Numerodocumento %>" name="Numerodocumento" id="id_Numerodocumento" style="width: 100px;" READONLY/>
+				<input type="text" value="<%=data[i].Nombres %>" name="Nombres" id="id_Nombres" READONLY/>
+				<input type="text" value="<%=data[i].Apellidos %>" name="Apellidos" id="id_Apellidos" READONLY/>
+		    </div>
+              		
+			<%} %>
+			</div>
+		</form>
+	  <%} %>
+    </div>
+<%- include layouts/footer.ejs %>
+
+<datalist id="tipodehecho">
+  <option value="Homicidio"/>
+  <option value="Desaparición Forzada"/>
+  <option value="Secuestro"/> 
+  <option value="Lesiones personales o Psicologicas"/> 
+  <option value="Tortura"/> 
+  <option value="Delitos contra la integridad Sexual"/>
+  <option value="Reclutamiento ilegal de menores"/>
+  <option value="Desplazamiento forzado"/> 
+  <option value="Minas antipersonales"/> 
+  <option value="Abandono Forzado o despojo de tierras"/> 
+  <option value="Masacre"/> 
+  <option value="Perdida de Bienes"/> 
+</datalist>      

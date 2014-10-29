@@ -395,195 +395,195 @@
 <div class="mc-field-group" id="id_HechosVictimizantes" >
 	<h3>Hechos Victimizantes</h3>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Homicidio" id="id_Homicidio"<% if(datavictima){ if(datavictima.hom_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarHomicidio();' >Homicidio-----------------------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Homicidio" id="id_Homicidio"<% if(datavictima){ if(datavictima.hom_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarHomicidio();' >Homicidio-----------------------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.hom_Ano%><% } %>" name="hom_Ano" id="id_hom_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.hom_Ano%><% } %>" name="hom_Ano" id="id_hom_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title="Año en que Ocurrio el hecho Victimizante!" onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.hom_Declarado%><% } %>" name="hom_Declarado" id="id_hom_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.hom_Declarado%><% } %>" name="hom_Declarado" id="id_hom_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title="Declaró el hecho?"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.hom_Lugardeclarado%><% } %>" name="hom_Lugardeclarado" id="id_hom_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.hom_Lugardeclarado%><% } %>" name="hom_Lugardeclarado" id="id_hom_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; " title="Donde declaró?"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.hom_Estadodeclaracion%><% } %>" name="hom_Estadodeclaracion" id="id_hom_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.hom_Estadodeclaracion%><% } %>" name="hom_Estadodeclaracion" id="id_hom_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title="En que estado se encuentra su declaración?"onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Desaparicion" id="id_Desaparicion" <% if(datavictima){ if(datavictima.des_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarDesaparicion();'>Desaparición Forzada ------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Desaparicion" id="id_Desaparicion" <% if(datavictima){ if(datavictima.des_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarDesaparicion();'>Desaparición Forzada ------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.des_Ano%><% } %>" name="desa_Ano" id="des_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.des_Ano%><% } %>" name="desa_Ano" id="des_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.des_Declarado%><% } %>" name="desa_Declarado" id="des_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.des_Declarado%><% } %>" name="desa_Declarado" id="des_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.des_Lugardeclarado%><% } %>" name="desa_Lugardeclarado"  id="des_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro"disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.des_Lugardeclarado%><% } %>" name="desa_Lugardeclarado"  id="des_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro"disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.des_Estadodeclaracion%><% } %>" name="desa_Estadodeclaracion" id="des_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.des_Estadodeclaracion%><% } %>" name="desa_Estadodeclaracion" id="des_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Secuestro" id="id_Secuestro"<% if(datavictima){ if(datavictima.sec_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarSecuestro();'>Secuestro----------------------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Secuestro" id="id_Secuestro"<% if(datavictima){ if(datavictima.sec_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarSecuestro();'>Secuestro----------------------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.sec_Ano%><% } %>" name="sec_Ano" id="sec_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.sec_Ano%><% } %>" name="sec_Ano" id="sec_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.sec_Declarado%><% } %>" name="sec_Declarado" id="sec_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.sec_Declarado%><% } %>" name="sec_Declarado" id="sec_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.sec_Lugardeclarado%><% } %>" name="sec_Lugardeclarado" id="sec_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.sec_Lugardeclarado%><% } %>" name="sec_Lugardeclarado" id="sec_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.sec_Estadodeclaracion%><% } %>" name="sec_Estadodeclaracion" id="sec_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.sec_Estadodeclaracion%><% } %>" name="sec_Estadodeclaracion" id="sec_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Lesionespersonales" id="id_Lesiones"<% if(datavictima){ if(datavictima.les_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarLesiones();'>Lesiones personales o Psicologicas ------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Lesionespersonales" id="id_Lesiones"<% if(datavictima){ if(datavictima.les_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarLesiones();'>Lesiones personales o Psicologicas ------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.les_Ano%><% } %>" name="les_Ano" id="les_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.les_Ano%><% } %>" name="les_Ano" id="les_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.les_Declarado%><% } %>" name="les_Declarado" id="les_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.les_Declarado%><% } %>" name="les_Declarado" id="les_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.les_Lugardeclarado%><% } %>" name="les_Lugardeclarado" id="les_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.les_Lugardeclarado%><% } %>" name="les_Lugardeclarado" id="les_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.les_Estadodeclaracion%><% } %>" name="les_Estadodeclaracion" id="les_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.les_Estadodeclaracion%><% } %>" name="les_Estadodeclaracion" id="les_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Tortura" id="id_Tortura"<% if(datavictima){ if(datavictima.tor_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarTortura();'>Tortura--------------------------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Tortura" id="id_Tortura"<% if(datavictima){ if(datavictima.tor_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarTortura();'>Tortura--------------------------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.tor_Ano%><% } %>" name="tor_Ano" id="tor_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.tor_Ano%><% } %>" name="tor_Ano" id="tor_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.tor_Declarado%><% } %>" name="tor_Declarado" id="tor_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.tor_Declarado%><% } %>" name="tor_Declarado" id="tor_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.tor_Lugardeclarado%><% } %>" name="tor_Lugardeclarado" id="tor_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.tor_Lugardeclarado%><% } %>" name="tor_Lugardeclarado" id="tor_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.tor_Estadodeclaracion%><% } %>" name="tor_Estadodeclaracion" id="tor_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.tor_Estadodeclaracion%><% } %>" name="tor_Estadodeclaracion" id="tor_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Delitoslibertad" id="id_DelitosLibertad"<% if(datavictima){ if(datavictima.desx_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarDelitosSex();'>Delitos contra la integridad Sexual---------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Delitoslibertad" id="id_DelitosLibertad"<% if(datavictima){ if(datavictima.desx_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarDelitosSex();'>Delitos contra la integridad Sexual---------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Ano%><% } %>" name="desx_Ano" id="desx_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.desx_Ano%><% } %>" name="desx_Ano" id="desx_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Declarado%><% } %>" name="desx_Declarado" id="desx_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.desx_Declarado%><% } %>" name="desx_Declarado" id="desx_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Lugardeclarado%><% } %>" name="desx_Lugardeclarado" id="desx_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.desx_Lugardeclarado%><% } %>" name="desx_Lugardeclarado" id="desx_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.desx_Estadodeclaracion%><% } %>" name="desx_Estadodeclaracion" id="desx_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.desx_Estadodeclaracion%><% } %>" name="desx_Estadodeclaracion" id="desx_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
 		<input type="checkbox" name="hecho_victimizante" value="Reclutamiento" id="id_Reclutamiento"<% if(datavictima){ if(datavictima.rei_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarReclutamiento();'>Reclutamiento ilegal de menores ----------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.rei_Ano%><% } %>" name="rei_Ano" id="rei_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.rei_Ano%><% } %>" name="rei_Ano" id="rei_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.rei_Declarado%><% } %>" name="rei_Declarado" id="rei_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.rei_Declarado%><% } %>" name="rei_Declarado" id="rei_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.rei_Lugardeclarado%><% } %>" name="rei_Lugardeclarado" id="rei_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.rei_Lugardeclarado%><% } %>" name="rei_Lugardeclarado" id="rei_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.rei_Estadodeclaracion%><% } %>" name="rei_Estadodeclaracion" id="rei_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.rei_Estadodeclaracion%><% } %>" name="rei_Estadodeclaracion" id="rei_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Desplazamientof" id="id_Desplazamientof"<% if(datavictima){ if(datavictima.dplz_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarDesplazamiento();'>Desplazamiento forzado ---------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Desplazamientof" id="id_Desplazamientof"<% if(datavictima){ if(datavictima.dplz_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarDesplazamiento();'>Desplazamiento forzado ---------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.dplz_Ano%><% } %>" name="dplz_Ano" id="dplz_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.dplz_Ano%><% } %>" name="dplz_Ano" id="dplz_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.dplz_Declarado%><% } %>" name="dplz_Declarado" id="dplz_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.dplz_Declarado%><% } %>" name="dplz_Declarado" id="dplz_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.dplz_Lugardeclarado%><% } %>" name="dplz_Lugardeclarado" id="dplz_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.dplz_Lugardeclarado%><% } %>" name="dplz_Lugardeclarado" id="dplz_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.dplz_Estadodeclaracion%><% } %>" name="dplz_Estadodeclaracion" id="dplz_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.dplz_Estadodeclaracion%><% } %>" name="dplz_Estadodeclaracion" id="dplz_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Minas" id="id_Minas" <% if(datavictima){ if(datavictima.min_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarMinas();'>Minas antipersonales--------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Minas" id="id_Minas" <% if(datavictima){ if(datavictima.min_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarMinas();'>Minas antipersonales--------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.min_Ano%><% } %>" name="min_Ano" id="min_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.min_Ano%><% } %>" name="min_Ano" id="min_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.min_Declarado%><% } %>" name="min_Declarado" id="min_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.min_Declarado%><% } %>" name="min_Declarado" id="min_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.min_Lugardeclarado%><% } %>" name="min_Lugardeclarado" id="min_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.min_Lugardeclarado%><% } %>" name="min_Lugardeclarado" id="min_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.min_Estadodeclaracion%><% } %>" name="min_Estadodeclaracion" id="min_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.min_Estadodeclaracion%><% } %>" name="min_Estadodeclaracion" id="min_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Abandono" id="id_Abandono"<% if(datavictima){ if(datavictima.aba_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarAbandono();'>Abandono Forzado o despojo de tierras -</input>
+		<input type="checkbox" name="hecho_victimizante" value="Abandono" id="id_Abandono"<% if(datavictima){ if(datavictima.aba_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarAbandono();'>Abandono Forzado o despojo de tierras -</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.aba_Ano%><% } %>" name="aba_Ano" id="aba_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.aba_Ano%><% } %>" name="aba_Ano" id="aba_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.aba_Declarado%><% } %>" name="aba_Declarado" id="aba_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.aba_Declarado%><% } %>" name="aba_Declarado" id="aba_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.aba_Lugardeclarado%><% } %>" name="aba_Lugardeclarado" id="aba_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.aba_Lugardeclarado%><% } %>" name="aba_Lugardeclarado" id="aba_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.aba_Estadodeclaracion%><% } %>" name="aba_Estadodeclaracion" id="aba_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.aba_Estadodeclaracion%><% } %>" name="aba_Estadodeclaracion" id="aba_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Masacre" id="id_Masacre" <% if(datavictima){ if(datavictima.mas_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarMasacre();'>Masacre.-----------------------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Masacre" id="id_Masacre" <% if(datavictima){ if(datavictima.mas_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarMasacre();'>Masacre.-----------------------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.mas_Ano%><% } %>" name="mas_Ano" id="mas_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.mas_Ano%><% } %>" name="mas_Ano" id="mas_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.mas_Declarado%><% } %>" name="mas_Declarado" id="mas_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.mas_Declarado%><% } %>" name="mas_Declarado" id="mas_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.mas_Lugardeclarado%><% } %>" name="mas_Lugardeclarado" id="mas_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.mas_Lugardeclarado%><% } %>" name="mas_Lugardeclarado" id="mas_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.mas_Estadodeclaracion%><% } %>" name="mas_Estadodeclaracion" id="mas_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.mas_Estadodeclaracion%><% } %>" name="mas_Estadodeclaracion" id="mas_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
 	<div>
-		<input type="checkbox" name="hecho_victimizante" value="Perdidabienes" id="id_PerdidaBienes" <% if(datavictima){ if(datavictima.per_Ano != "") { %> <%="checked"%><%} } %> onChange='habilitarPerdidaBienes();'>Perdida de Bienes.-----------------------------</input>
+		<input type="checkbox" name="hecho_victimizante" value="Perdidabienes" id="id_PerdidaBienes" <% if(datavictima){ if(datavictima.per_Ano != "" && typeof datavictima.hom_Ano != "undefined") { %> <%="checked"%><%} } %> onChange='habilitarPerdidaBienes();'>Perdida de Bienes.-----------------------------</input>
 		<span>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.per_Ano%><% } %>" name="per_Ano" id="per_Ano" placeholder="Año del hecho" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.per_Ano%><% } %>" name="per_Ano" id="per_Ano" placeholder="Año del hecho" list="año" disabled
 			style="width: 120px; " title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.per_Declarado%><% } %>" name="per_Declarado" id="per_Declarado" placeholder="¿Declaró?" list="declaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.per_Declarado%><% } %>" name="per_Declarado" id="per_Declarado" placeholder="¿Declaró?" list="declaro" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.per_Lugardeclarado%><% } %>" name="per_Lugardeclarado" id="per_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.per_Lugardeclarado%><% } %>" name="per_Lugardeclarado" id="per_Lugardeclarado" placeholder="¿Donde Declaró?" list="Lugardeclaro" disabled
 			style="width: 135px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.per_Estadodeclaracion%><% } %>" name="per_Estadodeclaracion" id="per_Estadodeclaracion" placeholder="Estado" list="estado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.per_Estadodeclaracion%><% } %>" name="per_Estadodeclaracion" id="per_Estadodeclaracion" placeholder="Estado" list="estado" disabled
 			style="width: 88px; "  title=""onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</span>
 	</div>
@@ -592,7 +592,7 @@
 <div class="mc-field-group" id="id_Desplazamiento" >
 	<h3>Desplazamiento</h3>
 	<div>
-		<input type="text" value="<% if(datavictima){ %><%=datavictima.TipoDesplazamiento%><% } %>" name="TipoDesplazamiento" id="id_tipoDesplazamiento" placeholder="Tipo de Desplazamiento" list="TipoDesplazamiento" disabled
+		<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.TipoDesplazamiento%><% } %>" name="TipoDesplazamiento" id="id_tipoDesplazamiento" placeholder="Tipo de Desplazamiento" list="TipoDesplazamiento" disabled
 		style="width: 200px; "  title="Masivo cuando son Más de 10 personas E individual si es menor a 10 " title="Tipo de desplzamiento!"
 		onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 	</div>
@@ -612,28 +612,28 @@
 	<div>
 		<h5>Retorno</h5>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Retorno%><% } %>" name="Retorno"  id="id_retorno" placeholder="Usted Retorno al Lugar de donde se dezplazó?" list="retorno" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Retorno%><% } %>" name="Retorno"  id="id_retorno" placeholder="Usted Retorno al Lugar de donde se dezplazó?" list="retorno" disabled
 			style="width: 350px; "  title="Retorno al Lugar de donde se dezplazó?" 
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.DeseaRetornar%><% } %>" name="DeseaRetornar"  id="id_deseoR" placeholder="Desea Retornar?" list="DRetorno" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.DeseaRetornar%><% } %>" name="DeseaRetornar"  id="id_deseoR" placeholder="Desea Retornar?" list="DRetorno" disabled
 			title="Desea Retornar? "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.TipoRetorno%><% } %>" name="TipoRetorno"  id="id_tipoRetor" placeholder="Tipo de Retorno?" list="TipoRetorno" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.TipoRetorno%><% } %>" name="TipoRetorno"  id="id_tipoRetor" placeholder="Tipo de Retorno?" list="TipoRetorno" disabled
 			title="Que Tipo de Retorno tuvo?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.QuienRetorno%><% } %>" name="QuienRetorno"  id="id_RetornotodalaFamilia" placeholder="Retorno Toda la Familia?" list="QuienRetorno" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.QuienRetorno%><% } %>" name="QuienRetorno"  id="id_RetornotodalaFamilia" placeholder="Retorno Toda la Familia?" list="QuienRetorno" disabled
 			style="width: 350px; "  title="Retorno Toda la Familia? "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.RetornoAcompanado%><% } %>" name="RetornoAcompanado"  id="id_RetornoAcomp" placeholder="Su Retorno fue acompañado?" list="RetornoAcompañado" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.RetornoAcompanado%><% } %>" name="RetornoAcompanado"  id="id_RetornoAcomp" placeholder="Su Retorno fue acompañado?" list="RetornoAcompañado" disabled
 			title="Su Retorno fue acompañado por alguna organización? "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.PlanRetorno%><% } %>" name="PlanRetorno"  id="id_planRetorno" placeholder="Se formuló un plan de Retorno?" list="PlanRetorno" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.PlanRetorno%><% } %>" name="PlanRetorno"  id="id_planRetorno" placeholder="Se formuló un plan de Retorno?" list="PlanRetorno" disabled
 			title="Se formuló un plan de Retorno?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
@@ -642,11 +642,11 @@
 	<div>
 		<h5>Reubicación</h5>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Reubicarse%><% } %>" name="Reubicarse"  id="id_deseaReubicarse" placeholder="El hogar desea Reubicarse?" list="Reubicarse" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Reubicarse%><% } %>" name="Reubicarse"  id="id_deseaReubicarse" placeholder="El hogar desea Reubicarse?" list="Reubicarse" disabled
 			title="Desea que se reubique su hogar?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Razon%><% } %>" name="Razon"  id="id_Razon" placeholder="Razón por la cual desea Reubicarse?" list="Razon" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Razon%><% } %>" name="Razon"  id="id_Razon" placeholder="Razón por la cual desea Reubicarse?" list="Razon" disabled
 			style="width: 280px; "  title="Porque razon desea la reubicación??"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
@@ -655,20 +655,20 @@
 	<div>
 		<h5>Reunificación Familiar</h5>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Separacion%><% } %>" name="Separacion"  id="id_separacionFamiliar" placeholder="Cuando se desplazó la Familia se separó?" list="Separacion" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Separacion%><% } %>" name="Separacion"  id="id_separacionFamiliar" placeholder="Cuando se desplazó la Familia se separó?" list="Separacion" disabled
 			style="width: 350px; " title="La familia se separó al momento del despazamiento? "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Unificacion%><% } %>" name="Unificacion"  id="id_unificacion" placeholder="Se volvió a Unificar?" list="Unificar" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Unificacion%><% } %>" name="Unificacion"  id="id_unificacion" placeholder="Se volvió a Unificar?" list="Unificar" disabled
 			style="width: 154px; " title="Se volvio a unificar? "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 				
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.AyudaEstatal%><% } %>" name="AyudaEstatal"  id="id_ayudaEstatal" placeholder="Solicito ayuda Estatal para la Reunificación?" list="Ayuda" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.AyudaEstatal%><% } %>" name="AyudaEstatal"  id="id_ayudaEstatal" placeholder="Solicito ayuda Estatal para la Reunificación?" list="Ayuda" disabled
 			style="width: 311px; "  title="Pidió ayuda Estatal para reunificar su familia? "
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.RecibioAyuda%><% } %>" name="RecibioAyuda"  id="id_obtuvoAyuda" placeholder="Recibio la ayuda Solicitada?" list="Rayuda" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.RecibioAyuda%><% } %>" name="RecibioAyuda"  id="id_obtuvoAyuda" placeholder="Recibio la ayuda Solicitada?" list="Rayuda" disabled
 			title="Obtuvo la ayuda solicitada?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>
@@ -677,23 +677,23 @@
 	<div>
 		<h5>Refugio</h5>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Refugio%><% } %>" name="Refugio"  id="id_Refugio" placeholder="Ha solicitado Refugio?" list="Refugio" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Refugio%><% } %>" name="Refugio"  id="id_Refugio" placeholder="Ha solicitado Refugio?" list="Refugio" disabled
 			title="Solicito Refugio en algun país diferente a su pais natal?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
 		</div>
 		<div>
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Pais%><% } %>" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?"  onkeypress='return event.charCode >= 59 && event.charCode <= 122'/>
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Pais%><% } %>" name="Pais" class="required textInput rounded" id="pais" placeholder="En que país?"  onkeypress='return event.charCode >= 59 && event.charCode <= 122'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.AnoRefugio%><% } %>" name="AnoRefugio" class="required Sexo" id="id_anoRefugio" placeholder="Año" list="año" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.AnoRefugio%><% } %>" name="AnoRefugio" class="required Sexo" id="id_anoRefugio" placeholder="Año" list="año" disabled
 			style="width: 120px; " title="Año en que solicitó el Refugio!"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.RecibioAyudaRefugio%><% } %>" name="RecibioAyudaRefugio"  id="id_recibioAyudaparaRefugio" placeholder="Recibio Ayuda?" list="Ayuda2" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.RecibioAyudaRefugio%><% } %>" name="RecibioAyudaRefugio"  id="id_recibioAyudaparaRefugio" placeholder="Recibio Ayuda?" list="Ayuda2" disabled
 			style="width: 150px; "  title="Recibio ayuda para la solicitud de su refugio?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 
-			<input type="text" value="<% if(datavictima){ %><%=datavictima.Organizacion%><% } %>" name="Organizacion"  id="id_Organizacion" placeholder="Que organización le Entrego la ayuda?" list="Organizacion" disabled
+			<input type="text" value="<% if(datavictima && typeof datavictima.hom_Ano != "undefined"){ %><%=datavictima.Organizacion%><% } %>" name="Organizacion"  id="id_Organizacion" placeholder="Que organización le Entrego la ayuda?" list="Organizacion" disabled
 			style="width: 300px; "  title="De cual organizacion obtuvo ayuda?"
 			onkeypress='return event.charCode > 0 && event.charCode < 0'/>
 		</div>

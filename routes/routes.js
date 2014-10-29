@@ -26,8 +26,10 @@ module.exports = function(app, passport) {
 	app.post('/consulta', 			isLoggedIn, victimas.buscarvictima);
 	app.get('/caracterizacion', 	isLoggedIn, victimas.caracterizacion);
 	app.post('/caracterizacion', 	isLoggedIn, victimas.guardar);
-	app.get('/reportes', 			isLoggedIn, victimas.reporte);
-	app.post('/Excel',	 			isLoggedIn, victimas.excel);
+	app.get('/listaVictimas', 		isLoggedIn, victimas.listaVictimas);
+	app.post('/excelLista',	 		isLoggedIn, victimas.excelLista);
+	app.get('/listaPorHecho', 		isLoggedIn, victimas.listaPorHecho);
+	app.post('/listaPorHecho', 		isLoggedIn, victimas.listaPorHecho);
 	app.get('/eliminar/:documentoABorrar',        isLoggedIn, victimas.eliminar);
 	
 	app.get('/noticias', function(req, res) {
