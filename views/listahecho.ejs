@@ -8,7 +8,7 @@
 		<form method="post" action="/listaPorHecho" id="id_form_consultaHecho">	
 	  	<% if(!data){ %>
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-				<input type="text" value="<% if(data){ %><%=data.TipoHecho%><% } %>" name="HechoVictimizante" class="" id="id_hechovictimizante" placeholder="Tipo de Hecho Victimizante (*)" list="tipodehecho"  
+				<input type="text" value="" name="HechoVictimizante" class="" id="id_hechovictimizante" placeholder="Tipo de Hecho Victimizante (*)" list="tipodehecho"  
 				required title="Por favor escoga el tipo de hecho victmizante !" style="width: 300px;"
 				onkeypress='return event.charCode > 0 && event.charCode < 0' autofocus />
 				<button type="submit" name="consultar" value="consultar" class="button btn" id="mc-embedded-consultar">
@@ -21,11 +21,13 @@
 		<a href="/listaPorHecho">
 			<button class="button btn"><span style="margin-top: -1px;">Nueva Consulta</span></button>
 		</a>
-		<form method="post" action="/excelLista">
+		<form method="post" action="/excelListaHecho">
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
-			  <button type="submit" name="Exportar" value="Exportar" class="button btn" id="id_Exportar">
-				<span style="margin-top: -1px;">Exportar a Excel</span>
-			  </button>
+				<input type="hidden" value="<% if(tipoHecho){ %><%=tipoHecho%><% } %>" name="tipoHecho"  />
+				
+				<button type="submit" name="Exportar" value="Exportar" class="button btn" id="id_Exportar">
+					<span style="margin-top: -1px;">Exportar a Excel</span>
+				</button>
 			</div>
 		
 			<div class="" style="overflow:scroll; height:400px;">

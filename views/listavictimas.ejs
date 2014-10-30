@@ -1,11 +1,12 @@
 <%- include layouts/header.ejs %>
     <div class="full-page">
-      <h1 class="headline">
-        <strong>
-          <%=page_title%>
-        </strong>
-      </h1>
-	  <% if(data.length){ %>
+		<% if (message) { %>
+			<div class="alert"><%= message %></div>
+		<% } %>
+		
+		<h1 class="headline"><strong><%=page_title%></strong></h1>
+
+		<% if(data.length){ %>
 		<form method="post" action="/excelLista">
 			<div class="mc-field-group" style="margin: 10px 0 0 0;">
 			  <button type="submit" name="Exportar" value="Exportar" class="button btn" id="id_Exportar">

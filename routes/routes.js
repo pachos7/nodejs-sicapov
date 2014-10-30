@@ -30,6 +30,7 @@ module.exports = function(app, passport) {
 	app.post('/excelLista',	 		isLoggedIn, victimas.excelLista);
 	app.get('/listaPorHecho', 		isLoggedIn, victimas.listaPorHecho);
 	app.post('/listaPorHecho', 		isLoggedIn, victimas.listaPorHecho);
+	app.post('/excelListaHecho',	isLoggedIn, victimas.excelListaHecho);
 	app.get('/eliminar/:documentoABorrar',        isLoggedIn, victimas.eliminar);
 	
 	app.get('/noticias', function(req, res) {
